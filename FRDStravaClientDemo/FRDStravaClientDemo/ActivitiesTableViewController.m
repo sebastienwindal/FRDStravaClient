@@ -8,14 +8,13 @@
 #import "ActivitiesTableViewController.h"
 #import "FRDStravaClient+Activity.h"
 #import "ActivityTableViewCell.h"
-#import <MapKit/MapKit.h>
 #import "ActivityHelper.h"
 #import "IconHelper.h"
 #import "UIImageView+WebCache.h"
 #import "ActivityDetailsViewController.h"
 #import "StravaActivity.h"
 
-@interface ActivitiesTableViewController () <MKMapViewDelegate>
+@interface ActivitiesTableViewController ()
 
 @property (nonatomic, strong) NSArray *activities;
 @property (nonatomic) int pageIndex;
@@ -96,7 +95,7 @@
     };
     
     void(^failureBlock)(NSError *error) = ^(NSError *error) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Miserable failure"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Miserable failure (not you, the call)"
                                                             message:error.localizedDescription
                                                            delegate:nil
                                                   cancelButtonTitle:@"Close"
@@ -136,8 +135,7 @@
     cell.nameLabel.text = activity.name;
     cell.locationLabel.text = activity.locationCity;
     cell.dateLabel.text = [self.dateFormatter stringFromDate:activity.startDate];
-    cell.mapView.userInteractionEnabled = NO;
-    cell.mapView.delegate = self;
+
     
     NSMutableString *durationStr= [NSMutableString new];
     int hours = (int)floorf(activity.movingTime / 3600);
@@ -145,13 +143,12 @@
     
     [durationStr appendFormat:@"%dh%02d", hours, minutes];
     cell.typeColorView.backgroundColor = [ActivityHelper colorForActivityType:activity.type];
+    cell.typeColorView.layer.cornerRadius = CGRectGetWidth(cell.typeColorView.frame) / 2.0f;
     cell.durationLabel.text = durationStr;
     cell.distanceLabel.text = [NSString stringWithFormat:@"%.1fmi", activity.distance / 1609.34];
     [ActivityHelper makeLabel:cell.activityIconLabel activityTypeIconForActivity:activity];
     
     [IconHelper makeThisLabel:cell.chevronIconLabel anIcon:ICON_CHEVRON_RIGHT ofSize:24.0f];
-    
-    [self configureCellMap:cell.mapView forActivity:activity];
     
     cell.usernameLabel.text = [NSString stringWithFormat:@"%@ %@", activity.athlete.firstName, activity.athlete.lastName];
     cell.usernameLabel.hidden = self.showAthleteActivitiesOnly;
@@ -162,56 +159,13 @@
     cell.userImageView.clipsToBounds = YES;
     cell.userImageView.hidden = self.showAthleteActivitiesOnly;
     cell.userWidthConstraint.constant = self.showAthleteActivitiesOnly ? 0.0f : 42.0f;
+    
     return cell;
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView
-            viewForOverlay:(id <MKOverlay>)overlay
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGRect frame = [mapView convertRect:mapView.bounds toView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:frame.origin];
-    
-    StravaActivity *activity = self.activities[indexPath.row];
-    
-    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
-    polylineView.strokeColor = [ActivityHelper colorForActivityType:activity.type];
-    
-    polylineView.lineWidth = 5.0;
-    
-    return polylineView;
-}
-
-
--(void) configureCellMap:(MKMapView *)mapView forActivity:(StravaActivity *)activity
-{
-    [mapView removeOverlays:mapView.overlays];
-    
-    NSArray *arr = [StravaMap decodePolyline:activity.map.summaryPolyline];
-    
-    if ([arr count] > 0) {
-        
-        CLLocationDegrees minLat = 1000.0f;
-        CLLocationDegrees maxLat = -1000.0f;
-        CLLocationDegrees minLon = 1000.0f;
-        CLLocationDegrees maxLon = -1000.0f;
-
-        CLLocationCoordinate2D coordinates[[arr count]];
-        int i=0;
-        for (NSValue *val in arr) {
-            coordinates[i] = [val MKCoordinateValue];
-            minLat = MIN(minLat, coordinates[i].latitude);
-            minLon = MIN(minLon, coordinates[i].longitude);
-            maxLat = MAX(maxLat, coordinates[i].latitude);
-            maxLon = MAX(maxLon, coordinates[i].longitude);
-            i++;
-        }
-        
-        MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[arr count]];
-        [mapView addOverlay:polyLine];
-        CLLocationCoordinate2D center = CLLocationCoordinate2DMake((minLat+maxLat)/2.0f, (minLon+maxLon)/2.0f);
-        MKCoordinateSpan span = MKCoordinateSpanMake(1.5*(maxLat-minLat), 1.5*(maxLon-minLon));
-        mapView.region = MKCoordinateRegionMake(center, span);
-    }
+    return self.showAthleteActivitiesOnly ? 90.0f : 110.0f;
 }
 
 - (IBAction)moreAction:(id)sender
