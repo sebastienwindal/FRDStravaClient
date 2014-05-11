@@ -8,6 +8,7 @@
 
 #import "StarredSegmentsTableViewController.h"
 #import "FRDStravaClient+Segment.h"
+#import "SegmentEffortsTableViewController.h"
 
 @interface StarredSegmentsTableViewController ()
 
@@ -62,6 +63,15 @@
     cell.textLabel.text = segment.name;
     
     return cell;
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    
+    StravaSegment *segment = self.segments[indexPath.row];
+    
+    [segue.destinationViewController setSegmentId:segment.id];
 }
 
 

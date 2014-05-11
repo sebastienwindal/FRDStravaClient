@@ -201,4 +201,12 @@
     [self fetchNextPage];
 }
 
+-(void) viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [self.mapView removeFromSuperview];
+    self.mapView = nil;
+}
+
 @end

@@ -52,6 +52,7 @@
 		28199DB2191EE02B00EE7C4E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 28199DA2191EE02A00EE7C4E /* Settings.bundle */; };
 		28199DB3191EE02B00EE7C4E /* StarredSegmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */; };
 		28199DB4191EE02B00EE7C4E /* VelocityStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */; };
+		28DAF05D191F1FB5001DC529 /* SegmentEffortsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,8 @@
 		28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarredSegmentsTableViewController.m; sourceTree = "<group>"; };
 		28199DA5191EE02B00EE7C4E /* VelocityStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityStreamViewController.h; sourceTree = "<group>"; };
 		28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityStreamViewController.m; sourceTree = "<group>"; };
+		28DAF05B191F1FB5001DC529 /* SegmentEffortsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentEffortsTableViewController.h; sourceTree = "<group>"; };
+		28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentEffortsTableViewController.m; sourceTree = "<group>"; };
 		ED9078EBFF324CF9876BD37C /* libPods-FRDStravaClientDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRDStravaClientDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1AD5BB3633458F93C31110 /* Pods-FRDStravaClientDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRDStravaClientDemo.xcconfig"; path = "Pods/Pods-FRDStravaClientDemo.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,15 +223,17 @@
 				28199D99191EE02A00EE7C4E /* AthleteDetaislViewController.m */,
 				28199D9A191EE02A00EE7C4E /* AuthViewController.h */,
 				28199D9B191EE02A00EE7C4E /* AuthViewController.m */,
-				28199DB5191EE6B600EE7C4E /* IconHelper */,
-				28199D9F191EE02A00EE7C4E /* iPhone.storyboard */,
 				28199DA0191EE02A00EE7C4E /* SecondTableViewController.h */,
 				28199DA1191EE02A00EE7C4E /* SecondTableViewController.m */,
-				28199DA2191EE02A00EE7C4E /* Settings.bundle */,
 				28199DA3191EE02A00EE7C4E /* StarredSegmentsTableViewController.h */,
 				28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */,
+				28DAF05B191F1FB5001DC529 /* SegmentEffortsTableViewController.h */,
+				28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */,
 				28199DA5191EE02B00EE7C4E /* VelocityStreamViewController.h */,
 				28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */,
+				28199DB5191EE6B600EE7C4E /* IconHelper */,
+				28199D9F191EE02A00EE7C4E /* iPhone.storyboard */,
+				28199DA2191EE02A00EE7C4E /* Settings.bundle */,
 				28199D57191EDF0100EE7C4E /* Classes */,
 				28199D37191EDCAF00EE7C4E /* AppDelegate.h */,
 				28199D38191EDCAF00EE7C4E /* AppDelegate.m */,
@@ -479,6 +484,7 @@
 				28199DAA191EE02B00EE7C4E /* ActivityHelper.m in Sources */,
 				28199D84191EDF0100EE7C4E /* StravaAthlete.m in Sources */,
 				28199D7A191EDF0100EE7C4E /* FRDStravaClient+Access.m in Sources */,
+				28DAF05D191F1FB5001DC529 /* SegmentEffortsTableViewController.m in Sources */,
 				28199D7F191EDF0100EE7C4E /* FRDStravaClient+Upload.m in Sources */,
 				28199D8A191EDF0100EE7C4E /* StravaStream.m in Sources */,
 				28199D81191EDF0100EE7C4E /* StravaAccessTokenResponse.m in Sources */,

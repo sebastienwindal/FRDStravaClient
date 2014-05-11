@@ -25,4 +25,17 @@
                          success:(void (^)(StravaSegmentEffort *segmentEffort))success
                          failure:(void (^)(NSError *error))failure;
 
+-(void) fetchSegmentEffortsForSegment:(NSInteger)segmentId
+                             pageSize:(NSInteger)pageSize
+                            pageIndex:(NSInteger)pageIndex
+                              success:(void (^)(NSArray *efforts))success
+                              failure:(void (^)(NSError *error))failure;
+
+-(void) fetchSegmentEffortsForSegment:(NSInteger)segmentId
+                              athlete:(NSInteger)athleteId
+                             pageSize:(NSInteger)pageSize
+                            pageIndex:(NSInteger)pageIndex
+                              success:(void (^)(NSArray *efforts))success
+                              failure:(void (^)(NSError *error))failure;
+
 @end
