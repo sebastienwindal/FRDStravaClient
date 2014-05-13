@@ -645,9 +645,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="zCn-Pq-gWb"/>
                     <connections>
-                        <outlet property="mapView" destination="YrC-fl-2ur" id="fsd-Po-DbI"/>
+                        <outlet property="barChartView" destination="ufK-Bq-qKn" id="RGT-9b-FpJ"/>
+                        <outlet property="mapView" destination="YrC-fl-2ur" id="0E7-oK-zX0"/>
                         <outlet property="selectedBarValueLabel" destination="d22-uq-Ssv" id="xrt-TK-ofH"/>
-                        <outlet property="speedBarChartView" destination="ufK-Bq-qKn" id="pod-Xc-Pni"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BzN-Vk-kf6" userLabel="First Responder" sceneMemberID="firstResponder"/>

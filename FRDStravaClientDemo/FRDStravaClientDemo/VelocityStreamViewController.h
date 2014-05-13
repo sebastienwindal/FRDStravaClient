@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StreamBaseViewController.h"
 
-@interface VelocityStreamViewController : UIViewController
+@interface VelocityStreamViewController : StreamBaseViewController
 
-@property (nonatomic) NSInteger activityId;
 
 @end

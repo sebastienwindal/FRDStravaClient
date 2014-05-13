@@ -52,6 +52,7 @@
 		28199DB2191EE02B00EE7C4E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 28199DA2191EE02A00EE7C4E /* Settings.bundle */; };
 		28199DB3191EE02B00EE7C4E /* StarredSegmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */; };
 		28199DB4191EE02B00EE7C4E /* VelocityStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */; };
+		28591AAA1921BD6600298472 /* StreamBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28591AA91921BD6600298472 /* StreamBaseViewController.m */; };
 		28DAF05D191F1FB5001DC529 /* SegmentEffortsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +144,8 @@
 		28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarredSegmentsTableViewController.m; sourceTree = "<group>"; };
 		28199DA5191EE02B00EE7C4E /* VelocityStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityStreamViewController.h; sourceTree = "<group>"; };
 		28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityStreamViewController.m; sourceTree = "<group>"; };
+		28591AA81921BD6600298472 /* StreamBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamBaseViewController.h; sourceTree = "<group>"; };
+		28591AA91921BD6600298472 /* StreamBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamBaseViewController.m; sourceTree = "<group>"; };
 		28DAF05B191F1FB5001DC529 /* SegmentEffortsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentEffortsTableViewController.h; sourceTree = "<group>"; };
 		28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentEffortsTableViewController.m; sourceTree = "<group>"; };
 		ED9078EBFF324CF9876BD37C /* libPods-FRDStravaClientDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRDStravaClientDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +232,8 @@
 				28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */,
 				28DAF05B191F1FB5001DC529 /* SegmentEffortsTableViewController.h */,
 				28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */,
+				28591AA81921BD6600298472 /* StreamBaseViewController.h */,
+				28591AA91921BD6600298472 /* StreamBaseViewController.m */,
 				28199DA5191EE02B00EE7C4E /* VelocityStreamViewController.h */,
 				28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */,
 				28199DB5191EE6B600EE7C4E /* IconHelper */,
@@ -491,6 +496,7 @@
 				28199D86191EDF0100EE7C4E /* StravaLap.m in Sources */,
 				28199D88191EDF0100EE7C4E /* StravaSegment.m in Sources */,
 				28199DB1191EE02B00EE7C4E /* SecondTableViewController.m in Sources */,
+				28591AAA1921BD6600298472 /* StreamBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
