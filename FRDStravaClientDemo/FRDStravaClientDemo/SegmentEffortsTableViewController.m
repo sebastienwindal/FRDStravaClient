@@ -12,6 +12,8 @@
 @interface SegmentEffortsTableViewController ()
 
 @property (nonatomic, strong) NSArray *efforts;
+@property (nonatomic) int pageIndex;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @end
 
@@ -29,22 +31,51 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self showNextPage];
+}
+
+-(void) showNextPage
+{
+    [self showSpinner];
     
     [[FRDStravaClient sharedInstance] fetchSegmentEffortsForSegment:self.segmentId
                                                            pageSize:10
-                                                          pageIndex:1
+                                                          pageIndex:self.pageIndex
                                                             success:^(NSArray *efforts) {
+                                                                [self hideSpinner];
                                                                 self.efforts = efforts;
                                                                 
                                                                 [self.tableView reloadData];
+                                                                self.pageIndex ++;
                                                             }
                                                             failure:^(NSError *error) {
+                                                                [self hideSpinner];
                                                                 UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"FAIL"
-                                                            message:error.localizedDescription
-                                                            delegate:nil
+                                                                                                             message:error.localizedDescription
+                                                                                                            delegate:nil
                                                                                                    cancelButtonTitle:@"Close" otherButtonTitles: nil];
                                                                 [av show];
                                                             }];
+
+}
+
+-(void) showSpinner
+{
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    [activityIndicator startAnimating];
+    UIBarButtonItem *activityItem = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+    self.navigationItem.rightBarButtonItem = activityItem;
+}
+
+-(void) hideSpinner
+{
+    UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithTitle:@"more"
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:self
+                                                                  action:@selector(showNextPage)];
+    self.navigationItem.rightBarButtonItem = moreButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,7 +98,8 @@
                                                             forIndexPath:indexPath];
     
     StravaSegmentEffort *effort = self.efforts[indexPath.row];
-    cell.textLabel.text = effort.name;
+    cell.textLabel.text = [self.dateFormatter stringFromDate:effort.startDate];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Athlete: %ld, duration:%f sec", (long) effort.athleteId, effort.elapsedTime];
     
     return cell;
 }

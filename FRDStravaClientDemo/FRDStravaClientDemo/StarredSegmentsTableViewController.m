@@ -31,16 +31,34 @@
 {
     [super viewDidLoad];
     
+    [self showSpinner];
+    
     [[FRDStravaClient sharedInstance] fetchStarredSegmentsForCurrentUserWithSuccess:^(NSArray *segments) {
         self.segments = segments;
         [self.tableView reloadData];
+        [self hideSpinner];
     }
                                                                             failure:^(NSError *error) {
+                                                                                [self hideSpinner];
                                                                                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"FAILED" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
                                                                                 [alertView show];
                                                                             }];
     
 
+}
+
+-(void) showSpinner
+{
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    [activityIndicator startAnimating];
+    UIBarButtonItem *activityItem = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+    self.navigationItem.rightBarButtonItem = activityItem;
+}
+
+-(void) hideSpinner
+{
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)didReceiveMemoryWarning
