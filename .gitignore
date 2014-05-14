@@ -3,3 +3,7 @@ FRDStravaClientDemo/FRDStravaClientDemo.xcodeproj/xcuserdata/sebastienwindal.xcu
 FRDStravaClientDemo/Pods
 UserInterfaceState.xcuserstate
 *.xcbkptlist
+
+FRDStravaClientDemo/FRDStravaClientDemo.xcworkspace/xcshareddata/FRDStravaClientDemo.xccheckout
+
+FRDStravaClientDemo/FRDStravaClientDemo.xcworkspace/xcuserdata/sebastienwindal.xcuserdatad/WorkspaceSettings.xcsettings

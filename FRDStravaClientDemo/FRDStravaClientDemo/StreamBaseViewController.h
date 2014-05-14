@@ -14,15 +14,23 @@
 @interface StreamBaseViewController : UIViewController <JBBarChartViewDataSource, JBBarChartViewDelegate, MKMapViewDelegate>
 
 @property (nonatomic) NSInteger activityId;
-@property (nonatomic) kStravaStreamType valueStreamType;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet JBBarChartView *barChartView;
 @property (weak, nonatomic) IBOutlet UILabel *selectedBarValueLabel;
-@property (nonatomic) CGFloat dataRangeWidth;
+
 
 -(UIColor *) colorForBarAtIndex:(int)index;
 
 -(void) fetchStreams;
+
+// StreamBaseViewController is an abstract class. Those 2 methods must be overriden
+// in subclasses.
+-(kStravaStreamType) valueStreamType;
+-(CGFloat) dataRangeWidth;
+// Don't be lazy, implement those 2 as well:
+-(NSString *)stringForRangeStartingWith:(CGFloat)value1 endingWith:(CGFloat)value percent:(CGFloat)percent
+;
+-(UIColor *) colorForValue:(CGFloat)value;
 
 @end

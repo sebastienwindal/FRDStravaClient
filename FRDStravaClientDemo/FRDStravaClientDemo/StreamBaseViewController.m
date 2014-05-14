@@ -43,7 +43,23 @@
     self.barChartView.dataSource = self;
     self.barChartView.delegate = self;
     
+    self.mapView.delegate = self;
+    
     [self didUnselectBarChartView:self.barChartView];
+    
+    [self fetchStreams];
+}
+
+-(kStravaStreamType) valueStreamType
+{
+    NSAssert(FALSE, @"StreamBaseViewController is an abstract class, override valueStreamtype");
+    return kStravaStreamTypeUnknown;
+}
+
+-(CGFloat) dataRangeWidth
+{
+    NSAssert(FALSE, @"StreamBaseViewController is an abstract class, override dataRangeWidth");
+    return 0.0f;
 }
 
 -(void) fetchStreams
@@ -121,7 +137,7 @@
 
 - (void)barChartView:(JBBarChartView *)barChartView didSelectBarAtIndex:(NSUInteger)index
 {
-    CGFloat value1 = self.minData + index * self.dataRangeWidth;
+    CGFloat value1 = (self.minData + index) * self.dataRangeWidth;
     CGFloat value2 = value1 + self.dataRangeWidth;
     CGFloat percent = 100.0f * [self.dataRepartition[@(index)] intValue] / self.total;
     

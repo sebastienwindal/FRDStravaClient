@@ -7,10 +7,7 @@
 //
 
 #import "VelocityStreamViewController.h"
-#import "JBBarChartView.h"
 #import "ActivityHelper.h"
-#import "FRDStravaClient+ActivityStream.h"
-#import <MapKit/MapKit.h>
 
 
 @interface VelocityStreamViewController () 
@@ -33,15 +30,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.mapView.delegate = self;
-    self.dataRangeWidth = 2/3.6; // so the histogram width is 2 km/h
-    self.valueStreamType = kStravaStreamTypeVelocitySmooth;
-    
-    [self fetchStreams];
 }
 
+-(CGFloat) dataRangeWidth
+{
+    return 2 / 3.6f; // so the histogram bars width is 2 km/h
+}
 
+-(kStravaStreamType) valueStreamType
+{
+    return kStravaStreamTypeVelocitySmooth;
+}
 
 -(UIColor *) colorForValue:(CGFloat)value
 {
