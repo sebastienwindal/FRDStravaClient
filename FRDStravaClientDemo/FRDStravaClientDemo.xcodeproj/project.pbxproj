@@ -54,6 +54,8 @@
 		28199DB4191EE02B00EE7C4E /* VelocityStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */; };
 		28591AAA1921BD6600298472 /* StreamBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28591AA91921BD6600298472 /* StreamBaseViewController.m */; };
 		28DA0FD019242A7A00ECB732 /* HeartRateStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */; };
+		28DA0FD319242E9400ECB732 /* GradeStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FD219242E9400ECB732 /* GradeStreamViewController.m */; };
+		28DA0FD6192434A700ECB732 /* CadenceStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FD5192434A700ECB732 /* CadenceStreamViewController.m */; };
 		28DAF05D191F1FB5001DC529 /* SegmentEffortsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +151,10 @@
 		28591AA91921BD6600298472 /* StreamBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamBaseViewController.m; sourceTree = "<group>"; };
 		28DA0FCE19242A7A00ECB732 /* HeartRateStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartRateStreamViewController.h; sourceTree = "<group>"; };
 		28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartRateStreamViewController.m; sourceTree = "<group>"; };
+		28DA0FD119242E9400ECB732 /* GradeStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeStreamViewController.h; sourceTree = "<group>"; };
+		28DA0FD219242E9400ECB732 /* GradeStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeStreamViewController.m; sourceTree = "<group>"; };
+		28DA0FD4192434A700ECB732 /* CadenceStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadenceStreamViewController.h; sourceTree = "<group>"; };
+		28DA0FD5192434A700ECB732 /* CadenceStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadenceStreamViewController.m; sourceTree = "<group>"; };
 		28DAF05B191F1FB5001DC529 /* SegmentEffortsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentEffortsTableViewController.h; sourceTree = "<group>"; };
 		28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentEffortsTableViewController.m; sourceTree = "<group>"; };
 		ED9078EBFF324CF9876BD37C /* libPods-FRDStravaClientDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRDStravaClientDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,8 +245,12 @@
 				28591AA91921BD6600298472 /* StreamBaseViewController.m */,
 				28199DA5191EE02B00EE7C4E /* VelocityStreamViewController.h */,
 				28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */,
+				28DA0FD119242E9400ECB732 /* GradeStreamViewController.h */,
+				28DA0FD219242E9400ECB732 /* GradeStreamViewController.m */,
 				28DA0FCE19242A7A00ECB732 /* HeartRateStreamViewController.h */,
 				28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */,
+				28DA0FD4192434A700ECB732 /* CadenceStreamViewController.h */,
+				28DA0FD5192434A700ECB732 /* CadenceStreamViewController.m */,
 				28199DB5191EE6B600EE7C4E /* IconHelper */,
 				28199D9F191EE02A00EE7C4E /* iPhone.storyboard */,
 				28199DA2191EE02A00EE7C4E /* Settings.bundle */,
@@ -471,6 +481,7 @@
 			files = (
 				28199DA7191EE02B00EE7C4E /* ActivitiesMapViewController.m in Sources */,
 				28199D82191EDF0100EE7C4E /* StravaActivity.m in Sources */,
+				28DA0FD6192434A700ECB732 /* CadenceStreamViewController.m in Sources */,
 				28199D39191EDCAF00EE7C4E /* AppDelegate.m in Sources */,
 				28199D7B191EDF0100EE7C4E /* FRDStravaClient+Activity.m in Sources */,
 				28199DAD191EE02B00EE7C4E /* AuthViewController.m in Sources */,
@@ -487,6 +498,7 @@
 				28199D35191EDCAF00EE7C4E /* main.m in Sources */,
 				28199D83191EDF0100EE7C4E /* StravaActivityUploadStatus.m in Sources */,
 				28199DAC191EE02B00EE7C4E /* AthleteDetaislViewController.m in Sources */,
+				28DA0FD319242E9400ECB732 /* GradeStreamViewController.m in Sources */,
 				28199DA8191EE02B00EE7C4E /* ActivitiesTableViewController.m in Sources */,
 				28199DAB191EE02B00EE7C4E /* ActivityTableViewCell.m in Sources */,
 				28199D7C191EDF0100EE7C4E /* FRDStravaClient+Athlete.m in Sources */,

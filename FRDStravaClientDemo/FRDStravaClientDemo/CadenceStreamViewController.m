@@ -1,20 +1,19 @@
 //
-//  HeartRateStreamViewController.m
+//  CadenceStreamViewController.m
 //  FRDStravaClientDemo
 //
 //  Created by Sebastien Windal on 5/14/14.
 //  Copyright (c) 2014 Sebastien Windal. All rights reserved.
 //
 
-#import "HeartRateStreamViewController.h"
+#import "CadenceStreamViewController.h"
 #import "ActivityHelper.h"
 
-
-@interface HeartRateStreamViewController ()
+@interface CadenceStreamViewController ()
 
 @end
 
-@implementation HeartRateStreamViewController
+@implementation CadenceStreamViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,20 +44,25 @@
 
 -(kStravaStreamType) valueStreamType
 {
-    return kStravaStreamTypeHeartrate; 
+    return kStravaStreamTypeCadence;
 }
 
 
 -(UIColor *) colorForValue:(CGFloat)value
 {
-    return [ActivityHelper colorForHeartRate:value];
+    return [ActivityHelper colorForCadence:value];
 }
 
 -(NSString *)stringForRangeStartingWith:(CGFloat)value1 endingWith:(CGFloat)value2 percent:(CGFloat)percent
 {
-    NSString *str = [NSString stringWithFormat:@"%d-%dbpm %.1f%%", (int)floorf(value1), (int)floorf(value2), percent];
+    NSString *str = [NSString stringWithFormat:@"%d-%drpm %.1f%%", (int)floorf(value1), (int)floorf(value2), percent];
     
     return str;
+}
+
+-(BOOL) ignoreZeroValues
+{
+    return YES;
 }
 
 @end

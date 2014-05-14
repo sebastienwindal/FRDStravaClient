@@ -154,13 +154,41 @@
     }
     
     
-    // between 4 and 18, the hue is going to range from blue (hue 240) to magenta (hue 300, or 660)...
+    // between 50 and 120, the hue is going to range from blue (hue 240) to magenta (hue 300, or 660)...
     CGFloat hueDelta = 360 + 240 - 300;
     CGFloat cadenceDelta = 120-50;
     
     CGFloat hueDegreePerRpm = hueDelta/cadenceDelta;
     
     CGFloat hue = 240 - (cadence-50) * hueDegreePerRpm;
+    while (hue > 360) {
+        hue -= 360;
+    }
+    while (hue<0) {
+        hue += 360;
+    }
+    
+    return [UIColor colorWithHue:hue/360.0f saturation:1 brightness:1 alpha:1];
+}
+
++(UIColor *)colorForGrade:(float)grade
+{
+    if (grade > 14) {
+        return [UIColor colorWithHue:300/360.0f saturation:1 brightness:1 alpha:1];
+    }
+    if (grade < -14) {
+        return [UIColor blueColor];
+    }
+    
+    grade += 14;
+    
+    // between -14% and +14, the hue is going to range from blue (hue 240) to magenta (hue 300, or 660)...
+    CGFloat hueDelta = 360 + 240 - 300;
+    CGFloat gradeDelta = 14 - (-14);
+    
+    CGFloat hueDegreePerGrade = hueDelta/gradeDelta;
+    
+    CGFloat hue = 240 - grade * hueDegreePerGrade;
     while (hue > 360) {
         hue -= 360;
     }

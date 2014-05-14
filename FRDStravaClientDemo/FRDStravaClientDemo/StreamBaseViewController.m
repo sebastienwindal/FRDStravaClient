@@ -168,11 +168,13 @@
     
     [stream.data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         int value = (int) floorf([obj floatValue] / self.dataRangeWidth);
-        self.maxData = MAX(self.maxData, value);
-        self.minData = MIN(self.minData, value);
-        
-        self.dataRepartition[@(value)] = @([self.dataRepartition[@(value)] intValue] + 1);
-        self.total ++;
+        if (value != 0 || ![self ignoreZeroValues]) {
+            self.maxData = MAX(self.maxData, value);
+            self.minData = MIN(self.minData, value);
+            
+            self.dataRepartition[@(value)] = @([self.dataRepartition[@(value)] intValue] + 1);
+            self.total ++;
+        }
     }];
     
     [self.barChartView reloadData];
@@ -253,7 +255,10 @@
     return [UIColor blackColor];
 }
 
-
+-(BOOL) ignoreZeroValues
+{
+    return NO;
+}
 
 - (NSUInteger)barPaddingForBarChartView:(JBBarChartView *)barChartView
 {

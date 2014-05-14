@@ -18,5 +18,6 @@
 +(UIColor *)colorForHeartRate:(float)bpm;
 +(UIColor *)colorForSpeed:(float)speed;
 +(UIColor *)colorForCadence:(float)cadence;
++(UIColor *)colorForGrade:(float)grade;
 
 @end

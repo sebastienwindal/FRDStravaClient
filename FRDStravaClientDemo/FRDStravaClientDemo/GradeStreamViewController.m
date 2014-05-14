@@ -1,20 +1,19 @@
 //
-//  HeartRateStreamViewController.m
+//  GradeStreamViewController.m
 //  FRDStravaClientDemo
 //
 //  Created by Sebastien Windal on 5/14/14.
 //  Copyright (c) 2014 Sebastien Windal. All rights reserved.
 //
 
-#import "HeartRateStreamViewController.h"
+#import "GradeStreamViewController.h"
 #import "ActivityHelper.h"
 
-
-@interface HeartRateStreamViewController ()
+@interface GradeStreamViewController ()
 
 @end
 
-@implementation HeartRateStreamViewController
+@implementation GradeStreamViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,7 +36,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#define RANGE 2
+#define RANGE 1.0
 -(CGFloat) dataRangeWidth
 {
     return RANGE;
@@ -45,20 +44,22 @@
 
 -(kStravaStreamType) valueStreamType
 {
-    return kStravaStreamTypeHeartrate; 
+    return kStravaStreamTypeGradesmooth;
 }
 
 
 -(UIColor *) colorForValue:(CGFloat)value
 {
-    return [ActivityHelper colorForHeartRate:value];
+    UIColor *c = [ActivityHelper colorForGrade:value];
+    return c;
 }
 
 -(NSString *)stringForRangeStartingWith:(CGFloat)value1 endingWith:(CGFloat)value2 percent:(CGFloat)percent
 {
-    NSString *str = [NSString stringWithFormat:@"%d-%dbpm %.1f%%", (int)floorf(value1), (int)floorf(value2), percent];
+    NSString *str = [NSString stringWithFormat:@"%.1f-%.1f%% %.1f%%", value1, value2, percent];
     
     return str;
 }
+
 
 @end
