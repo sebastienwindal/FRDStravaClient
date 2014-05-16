@@ -23,6 +23,7 @@
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *activityDescription;
 @property (nonatomic, readonly) float distance;
+@property (nonatomic, readonly) float totalElevationGain;
 @property (nonatomic, readonly) NSTimeInterval movingTime;
 @property (nonatomic, readonly) NSTimeInterval elapsedTime;
 @property (nonatomic, readonly) kActivityType type;

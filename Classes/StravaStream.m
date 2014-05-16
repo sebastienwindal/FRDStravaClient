@@ -48,7 +48,9 @@
                                @"watts": @(kStravaStreamTypeWatts)
                                };
     
-    return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:mapping];
+    return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:mapping
+                                                            defaultValue:@(kStravaStreamTypeUnknown)
+                                                     reverseDefaultValue:@"unknown"];
 }
 
 + (NSValueTransformer *)seriesTypeJSONTransformer
@@ -63,7 +65,9 @@
                                @"high": @(kStravaStreamResolutionHigh)
                                };
     
-    return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:mapping];
+    return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:mapping
+                                                            defaultValue:@(kStravaStreamResolutionUnknown)
+                                                     reverseDefaultValue:@"unknown"];
 }
 
 @end

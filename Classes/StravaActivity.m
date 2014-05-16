@@ -21,6 +21,7 @@
              @"name": @"name",
              @"activityDescription": @"description",
              @"distance": @"distance",
+             @"totalElevationGain": @"total_elevation_gain",
              @"movingTime": @"moving_time",
              @"elapsedTime": @"elapsed_time",
              @"type": @"type",
@@ -59,6 +60,7 @@
     HANDLE_NIL_FOR_KEY(@"externalId",       _externalId,        0);
     HANDLE_NIL_FOR_KEY(@"id",               _id,                0);
     HANDLE_NIL_FOR_KEY(@"distance",         _distance,          0);
+    HANDLE_NIL_FOR_KEY(@"totalElevationGain",_totalElevationGain,0);
     HANDLE_NIL_FOR_KEY(@"movingTime",       _movingTime,        0);
     HANDLE_NIL_FOR_KEY(@"elapsedTime",      _elapsedTime,       0);
     HANDLE_NIL_FOR_KEY(@"startLocation",    _startLocation,     CLLocationCoordinate2DMake(0, 0));

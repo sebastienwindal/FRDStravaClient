@@ -31,8 +31,9 @@
                                                                            @"windsurf": @(kActivityTypeWindsurf),
                                                                            @"snowboard": @(kActivityTypeSnowboard),
                                                                            @"snowshoe": @(kActivityTypeSnowshoe)
-                                                                           }];
-    // XXX - handle default value
+                                                                           }
+                                                            defaultValue:@(kActivityTypeUnknown)
+                                                     reverseDefaultValue:@"unknown"];
 }
 
 

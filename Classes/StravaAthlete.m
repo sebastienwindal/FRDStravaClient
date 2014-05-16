@@ -29,7 +29,9 @@
     return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{
                                                                            @"F": @(kAthleteGenderFemale),
                                                                            @"M": @(kAthleteGenderMale)
-                                                                           }];
+                                                                           }
+                                                            defaultValue:@(kAthleteGenderMale)
+                                                     reverseDefaultValue:@"M"];
 }
 
 #define HANDLE_NIL_FOR_KEY(keyname,ivar,value) if ([key isEqualToString:keyname]) { ivar = value; }

@@ -1,28 +1,28 @@
 PODS:
-  - AFNetworking (2.2.3):
+  - AFNetworking (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.3):
+  - AFNetworking/NSURLConnection (2.2.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.3):
+  - AFNetworking/NSURLSession (2.2.4):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.3)
-  - AFNetworking/Security (2.2.3)
-  - AFNetworking/Serialization (2.2.3)
-  - AFNetworking/UIKit (2.2.3):
+  - AFNetworking/Reachability (2.2.4)
+  - AFNetworking/Security (2.2.4)
+  - AFNetworking/Serialization (2.2.4)
+  - AFNetworking/UIKit (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - EDColor (0.4.0)
-  - JBChartView (2.5.4)
-  - Mantle (1.4.1):
+  - JBChartView (2.5.5)
+  - Mantle (1.5):
     - Mantle/extobjc
-  - Mantle/extobjc (1.4.1)
+  - Mantle/extobjc (1.5)
   - SDWebImage (3.6):
     - SDWebImage/Core
   - SDWebImage/Core (3.6)
@@ -31,14 +31,14 @@ DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - EDColor
   - JBChartView (~> 2.5.0)
-  - Mantle (= 1.4.1)
+  - Mantle (= 1.5)
   - SDWebImage (~> 3.4)
 
 SPEC CHECKSUMS:
-  AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
+  AFNetworking: 01aa7c3aa9a200b94943e54072a4373f14b3d219
   EDColor: 2bb778b45320c6fc268f0f4c71d9379abf71a36d
-  JBChartView: 116c6e0f69f2e1340a40062890fa3851d4165df9
-  Mantle: 0714cdb2b8559d9e6c2410d6a8529e3307bff189
+  JBChartView: 3f979441a6a41e50b7c4b98f91b256bf33625c2d
+  Mantle: 60c03eea4d15a1c8d53821a56c7492cd6d05f553
   SDWebImage: 7eb273e54ca8a2e506ad9bd5e80c35b2a4d7c95e
 
 COCOAPODS: 0.32.1
