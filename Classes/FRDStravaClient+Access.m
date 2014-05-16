@@ -19,7 +19,8 @@
         stateInfo = @"";
     }
     
-    NSString *urlStr = [NSString stringWithFormat:@"https://www.strava.com/oauth/authorize?client_id=%ld&response_type=code&redirect_uri=%@&scope=write&state=%@&approval_prompt=force", (long)self.clientId, [callbackUrl absoluteString], stateInfo]; // xxx url encode stateInfo
+    NSString *urlStr = [NSString stringWithFormat:@"https://www.strava.com/oauth/authorize?client_id=%ld&response_type=code&redirect_uri=%@&scope=write&state=%@&approval_prompt=force", (long)self.clientId, [callbackUrl absoluteString], [stateInfo stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+                                                                                                                                                                                                                                             
     
     NSURL *url = [NSURL URLWithString:urlStr];
     
