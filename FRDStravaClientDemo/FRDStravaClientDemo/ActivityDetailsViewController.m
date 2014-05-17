@@ -7,6 +7,7 @@
 //
 
 #import "ActivityDetailsViewController.h"
+#import "GearViewController.h"
 #import "FRDStravaClient+Activity.h"
 #import "JBLineChartView.h"
 #import "JBBarChartView.h"
@@ -15,6 +16,8 @@
 @interface ActivityDetailsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *rawTextView;
+
+@property (nonatomic, strong) StravaActivity *activity;
 
 @end
 
@@ -41,6 +44,7 @@
                                                   success:^(StravaActivity *activity) {
                                                       [self hideSpinner];
                                                       self.rawTextView.text = [activity description];
+                                                      self.activity = activity;
                                                   }
                                                   failure:^(NSError *error) {
                                                       [self hideSpinner];
@@ -58,6 +62,9 @@
 {
     if ([segue.destinationViewController respondsToSelector:@selector(setActivityId:)]) {
         [segue.destinationViewController setActivityId:self.activityId];
+    }
+    if ([segue.destinationViewController respondsToSelector:@selector(setGearId:)]) {
+        [segue.destinationViewController setGearId:self.activity.gearId];
     }
 }
 

@@ -42,7 +42,8 @@
              @"locationCountry": @"location_country",
              @"locationState": @"location_state",
              @"commute": @"commute",
-             @"segmentEfforts": @"segment_efforts"
+             @"segmentEfforts": @"segment_efforts",
+             @"gearId": @"gear_id"
              };
 }
 

@@ -58,6 +58,9 @@
 		28AE90021927CB0C00C3627E /* AthleteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90011927CB0C00C3627E /* AthleteTableViewCell.m */; };
 		28AE90051927D72F00C3627E /* BothFollowingCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90041927D72F00C3627E /* BothFollowingCollectionViewController.m */; };
 		28AE90081927D74900C3627E /* BothFollowingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90071927D74900C3627E /* BothFollowingCollectionViewCell.m */; };
+		28AE900B1927E39E00C3627E /* StravaGear.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE900A1927E39E00C3627E /* StravaGear.m */; };
+		28AE900E1927E68500C3627E /* FRDStravaClient+Gear.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE900D1927E68500C3627E /* FRDStravaClient+Gear.m */; };
+		28AE90111927EA6D00C3627E /* GearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90101927EA6D00C3627E /* GearViewController.m */; };
 		28DA0FD019242A7A00ECB732 /* HeartRateStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */; };
 		28DA0FD319242E9400ECB732 /* GradeStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FD219242E9400ECB732 /* GradeStreamViewController.m */; };
 		28DA0FD6192434A700ECB732 /* CadenceStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FD5192434A700ECB732 /* CadenceStreamViewController.m */; };
@@ -167,6 +170,12 @@
 		28AE90041927D72F00C3627E /* BothFollowingCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BothFollowingCollectionViewController.m; sourceTree = "<group>"; };
 		28AE90061927D74900C3627E /* BothFollowingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BothFollowingCollectionViewCell.h; sourceTree = "<group>"; };
 		28AE90071927D74900C3627E /* BothFollowingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BothFollowingCollectionViewCell.m; sourceTree = "<group>"; };
+		28AE90091927E39E00C3627E /* StravaGear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaGear.h; sourceTree = "<group>"; };
+		28AE900A1927E39E00C3627E /* StravaGear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaGear.m; sourceTree = "<group>"; };
+		28AE900C1927E68500C3627E /* FRDStravaClient+Gear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FRDStravaClient+Gear.h"; sourceTree = "<group>"; };
+		28AE900D1927E68500C3627E /* FRDStravaClient+Gear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FRDStravaClient+Gear.m"; sourceTree = "<group>"; };
+		28AE900F1927EA6D00C3627E /* GearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GearViewController.h; sourceTree = "<group>"; };
+		28AE90101927EA6D00C3627E /* GearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GearViewController.m; sourceTree = "<group>"; };
 		28DA0FCE19242A7A00ECB732 /* HeartRateStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartRateStreamViewController.h; sourceTree = "<group>"; };
 		28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartRateStreamViewController.m; sourceTree = "<group>"; };
 		28DA0FD119242E9400ECB732 /* GradeStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeStreamViewController.h; sourceTree = "<group>"; };
@@ -291,6 +300,8 @@
 				28AE90041927D72F00C3627E /* BothFollowingCollectionViewController.m */,
 				28AE90061927D74900C3627E /* BothFollowingCollectionViewCell.h */,
 				28AE90071927D74900C3627E /* BothFollowingCollectionViewCell.m */,
+				28AE900F1927EA6D00C3627E /* GearViewController.h */,
+				28AE90101927EA6D00C3627E /* GearViewController.m */,
 				28199DB5191EE6B600EE7C4E /* IconHelper */,
 				28199D9F191EE02A00EE7C4E /* iPhone.storyboard */,
 				28199DA2191EE02A00EE7C4E /* Settings.bundle */,
@@ -343,6 +354,8 @@
 				28199D8C191EDF7400EE7C4E /* FRDStravaClient+ActivityStream.m */,
 				28199D5C191EDF0100EE7C4E /* FRDStravaClient+Athlete.h */,
 				28199D5D191EDF0100EE7C4E /* FRDStravaClient+Athlete.m */,
+				28AE900C1927E68500C3627E /* FRDStravaClient+Gear.h */,
+				28AE900D1927E68500C3627E /* FRDStravaClient+Gear.m */,
 				28199D5E191EDF0100EE7C4E /* FRDStravaClient+Lap.h */,
 				28199D5F191EDF0100EE7C4E /* FRDStravaClient+Lap.m */,
 				28199D60191EDF0100EE7C4E /* FRDStravaClient+Segment.h */,
@@ -361,6 +374,8 @@
 				28199D6D191EDF0100EE7C4E /* StravaAthlete.m */,
 				28199D6E191EDF0100EE7C4E /* StravaCommon.h */,
 				28199D6F191EDF0100EE7C4E /* StravaCommon.m */,
+				28AE90091927E39E00C3627E /* StravaGear.h */,
+				28AE900A1927E39E00C3627E /* StravaGear.m */,
 				28199D70191EDF0100EE7C4E /* StravaLap.h */,
 				28199D71191EDF0100EE7C4E /* StravaLap.m */,
 				28199D72191EDF0100EE7C4E /* StravaMap.h */,
@@ -529,6 +544,7 @@
 				28199DB3191EE02B00EE7C4E /* StarredSegmentsTableViewController.m in Sources */,
 				28199D7E191EDF0100EE7C4E /* FRDStravaClient+Segment.m in Sources */,
 				28DA0FD019242A7A00ECB732 /* HeartRateStreamViewController.m in Sources */,
+				28AE900B1927E39E00C3627E /* StravaGear.m in Sources */,
 				28DA0FE1192509B100ECB732 /* ActivityCalendarCollectionViewCell.m in Sources */,
 				28199D89191EDF0100EE7C4E /* StravaSegmentEffort.m in Sources */,
 				28199D7D191EDF0100EE7C4E /* FRDStravaClient+Lap.m in Sources */,
@@ -559,7 +575,9 @@
 				28DA0FE419252DCB00ECB732 /* HeaderPickerView.m in Sources */,
 				28AE8FFC192719EF00C3627E /* AthleteListTableViewController.m in Sources */,
 				28199D81191EDF0100EE7C4E /* StravaAccessTokenResponse.m in Sources */,
+				28AE900E1927E68500C3627E /* FRDStravaClient+Gear.m in Sources */,
 				28199D86191EDF0100EE7C4E /* StravaLap.m in Sources */,
+				28AE90111927EA6D00C3627E /* GearViewController.m in Sources */,
 				28199D88191EDF0100EE7C4E /* StravaSegment.m in Sources */,
 				28199DB1191EE02B00EE7C4E /* SecondTableViewController.m in Sources */,
 				28591AAA1921BD6600298472 /* StreamBaseViewController.m in Sources */,

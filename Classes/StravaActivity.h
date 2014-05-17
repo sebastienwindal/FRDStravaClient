@@ -12,7 +12,6 @@
 #import "StravaCommon.h"
 
 
-
 @interface StravaActivity : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) NSInteger id;
@@ -28,7 +27,7 @@
 @property (nonatomic, readonly) NSTimeInterval elapsedTime;
 @property (nonatomic, readonly) kActivityType type;
 @property (nonatomic, copy, readonly) NSDate *startDate;
-
+@property (nonatomic, copy, readonly) NSString *gearId;
 @property (nonatomic, readonly) CLLocationCoordinate2D startLocation;
 @property (nonatomic, readonly) CLLocationCoordinate2D endLocation;
 
