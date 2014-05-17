@@ -8,6 +8,9 @@
 
 #import "AthleteListTableViewController.h"
 #import "FRDStravaClient+Athlete.h"
+#import "AthleteTableViewCell.h"
+#import "UIImageView+WebCache.h"
+#import "AthleteDetaislViewController.h"
 
 @interface AthleteListTableViewController ()
 
@@ -115,25 +118,41 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AthleteCell" forIndexPath:indexPath];
+    AthleteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AthleteCell" forIndexPath:indexPath];
     
     StravaAthlete *athlete = self.athletes[indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", athlete.firstName, athlete.lastName];
+    cell.athleteNameLabel.text = [NSString stringWithFormat:@"%@ %@", athlete.firstName, athlete.lastName];
+    cell.locationLabel.text = [NSString stringWithFormat:@"%@ %@ %@", athlete.city, athlete.state, athlete.country];
+    [cell.athleteImageView setImageWithURL:[NSURL URLWithString:athlete.profileMediumURL]];
+    
+    cell.athleteImageView.layer.cornerRadius = CGRectGetWidth(cell.athleteImageView.bounds)/2.0f;
+    cell.athleteImageView.clipsToBounds = YES;
     
     return cell;
 }
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.destinationViewController respondsToSelector:@selector(setAthleteId:)]) {
+        NSIndexPath *indexPath = indexPath = [self.tableView indexPathForCell:sender];
+        StravaAthlete *athlete =  self.athletes[indexPath.row];
+        [segue.destinationViewController setAthleteId:athlete.id];
+    } else {
+        CGRect buttonFrame = [sender convertRect:((UIButton *)sender).bounds toView:self.tableView];
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
+        
+        StravaAthlete *athlete =  self.athletes[indexPath.row];
+        
+        UINavigationController *navVC = segue.destinationViewController;
+        [navVC.childViewControllers.firstObject setAthleteId:athlete.id];
+    }
 }
-*/
+
 
 @end
