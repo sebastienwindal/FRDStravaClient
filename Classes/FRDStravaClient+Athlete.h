@@ -15,4 +15,29 @@
                    failure:(void (^)(NSError *error))failure;
 -(void) fetchCurrentAthleteWithSuccess:(void (^)(StravaAthlete *athlete))success
                               failure:(void (^)(NSError *error))failure;
+
+-(void) fetchCurrentAthleteFollowersWithPageSize:(NSInteger)pageSize
+                                       pageIndex:(NSInteger)pageIndex
+                                         success:(void (^)(NSArray *athletes))success
+                                         failure:(void (^)(NSError *error))failure;
+-(void) fetchCurrentAthleteFriendsWithPageSize:(NSInteger)pageSize
+                                     pageIndex:(NSInteger)pageIndex
+                                       success:(void (^)(NSArray *athletes))success
+                                       failure:(void (^)(NSError *error))failure;
+-(void) fetchFollowersForAthlete:(NSInteger)athleteId
+                        pageSize:(NSInteger)pageSize
+                       pageIndex:(NSInteger)pageIndex
+                         success:(void (^)(NSArray *athletes))success
+                         failure:(void (^)(NSError *error))failure;
+-(void) fetchFriendsForAthlete:(NSInteger)athleteId
+                      pageSize:(NSInteger)pageSize
+                     pageIndex:(NSInteger)pageIndex
+                       success:(void (^)(NSArray *athletes))success
+                       failure:(void (^)(NSError *error))failure;
+-(void) fetchCommonFollowersOfCurrentAthleteAndAthlete:(NSInteger)athleteId
+                                              pageSize:(NSInteger)pageSize
+                                             pageIndex:(NSInteger)pageIndex
+                                               success:(void (^)(NSArray *athletes))success
+                                               failure:(void (^)(NSError *error))failure;
+
 @end

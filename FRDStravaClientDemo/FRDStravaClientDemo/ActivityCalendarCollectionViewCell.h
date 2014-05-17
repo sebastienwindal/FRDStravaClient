@@ -11,5 +11,6 @@
 @interface ActivityCalendarCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
-
+@property (weak, nonatomic) IBOutlet UILabel *numberRidesLabel;
+@property (nonatomic, strong) NSDate *day;
 @end

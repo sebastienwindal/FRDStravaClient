@@ -53,6 +53,8 @@
 		28199DB3191EE02B00EE7C4E /* StarredSegmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */; };
 		28199DB4191EE02B00EE7C4E /* VelocityStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */; };
 		28591AAA1921BD6600298472 /* StreamBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28591AA91921BD6600298472 /* StreamBaseViewController.m */; };
+		28AE8FFC192719EF00C3627E /* AthleteListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE8FFB192719EF00C3627E /* AthleteListTableViewController.m */; };
+		28AE8FFF1927203200C3627E /* FriendsAndFollowersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE8FFE1927203200C3627E /* FriendsAndFollowersTableViewController.m */; };
 		28DA0FD019242A7A00ECB732 /* HeartRateStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */; };
 		28DA0FD319242E9400ECB732 /* GradeStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FD219242E9400ECB732 /* GradeStreamViewController.m */; };
 		28DA0FD6192434A700ECB732 /* CadenceStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FD5192434A700ECB732 /* CadenceStreamViewController.m */; };
@@ -152,6 +154,10 @@
 		28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityStreamViewController.m; sourceTree = "<group>"; };
 		28591AA81921BD6600298472 /* StreamBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamBaseViewController.h; sourceTree = "<group>"; };
 		28591AA91921BD6600298472 /* StreamBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamBaseViewController.m; sourceTree = "<group>"; };
+		28AE8FFA192719EF00C3627E /* AthleteListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteListTableViewController.h; sourceTree = "<group>"; };
+		28AE8FFB192719EF00C3627E /* AthleteListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteListTableViewController.m; sourceTree = "<group>"; };
+		28AE8FFD1927203200C3627E /* FriendsAndFollowersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsAndFollowersTableViewController.h; sourceTree = "<group>"; };
+		28AE8FFE1927203200C3627E /* FriendsAndFollowersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsAndFollowersTableViewController.m; sourceTree = "<group>"; };
 		28DA0FCE19242A7A00ECB732 /* HeartRateStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartRateStreamViewController.h; sourceTree = "<group>"; };
 		28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartRateStreamViewController.m; sourceTree = "<group>"; };
 		28DA0FD119242E9400ECB732 /* GradeStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeStreamViewController.h; sourceTree = "<group>"; };
@@ -266,6 +272,10 @@
 				28DA0FE0192509B100ECB732 /* ActivityCalendarCollectionViewCell.m */,
 				28DA0FE219252DCB00ECB732 /* HeaderPickerView.h */,
 				28DA0FE319252DCB00ECB732 /* HeaderPickerView.m */,
+				28AE8FFD1927203200C3627E /* FriendsAndFollowersTableViewController.h */,
+				28AE8FFE1927203200C3627E /* FriendsAndFollowersTableViewController.m */,
+				28AE8FFA192719EF00C3627E /* AthleteListTableViewController.h */,
+				28AE8FFB192719EF00C3627E /* AthleteListTableViewController.m */,
 				28199DB5191EE6B600EE7C4E /* IconHelper */,
 				28199D9F191EE02A00EE7C4E /* iPhone.storyboard */,
 				28199DA2191EE02A00EE7C4E /* Settings.bundle */,
@@ -514,6 +524,7 @@
 				28199D35191EDCAF00EE7C4E /* main.m in Sources */,
 				28199D83191EDF0100EE7C4E /* StravaActivityUploadStatus.m in Sources */,
 				28199DAC191EE02B00EE7C4E /* AthleteDetaislViewController.m in Sources */,
+				28AE8FFF1927203200C3627E /* FriendsAndFollowersTableViewController.m in Sources */,
 				28DA0FD319242E9400ECB732 /* GradeStreamViewController.m in Sources */,
 				28DA0FD91924EDCA00ECB732 /* ActivityCalendarViewController.m in Sources */,
 				28199DA8191EE02B00EE7C4E /* ActivitiesTableViewController.m in Sources */,
@@ -528,6 +539,7 @@
 				28199D7F191EDF0100EE7C4E /* FRDStravaClient+Upload.m in Sources */,
 				28199D8A191EDF0100EE7C4E /* StravaStream.m in Sources */,
 				28DA0FE419252DCB00ECB732 /* HeaderPickerView.m in Sources */,
+				28AE8FFC192719EF00C3627E /* AthleteListTableViewController.m in Sources */,
 				28199D81191EDF0100EE7C4E /* StravaAccessTokenResponse.m in Sources */,
 				28199D86191EDF0100EE7C4E /* StravaLap.m in Sources */,
 				28199D88191EDF0100EE7C4E /* StravaSegment.m in Sources */,

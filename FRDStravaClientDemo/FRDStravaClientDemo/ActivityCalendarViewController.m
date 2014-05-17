@@ -19,6 +19,8 @@
 @property (nonatomic) float avgSpeed;
 @property (nonatomic) NSTimeInterval movingTime;
 @property (nonatomic) float elevationGain;
+@property (nonatomic) int numberActivities;
+@property (nonatomic) BOOL selected;
 
 +(instancetype) activitySummaryWithDistance:(CGFloat)distance
                                    avgSpeed:(float)avgSpeed
@@ -38,7 +40,8 @@
     as.avgSpeed = avgSpeed;
     as.movingTime = movingTime;
     as.elevationGain = elevationGain;
-    
+    as.numberActivities = 1;
+    as.selected = NO;
     return as;
 }
 
@@ -57,6 +60,8 @@
 
 
 @property (nonatomic) int selectedIndex;
+
+@property (weak, nonatomic) IBOutlet UILabel *selectedActivitiesSummaryLabel;
 
 @end
 
@@ -123,7 +128,7 @@
 {
     static const unsigned componentFlags = (NSYearCalendarUnit| NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekCalendarUnit |  NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSWeekdayCalendarUnit | NSWeekdayOrdinalCalendarUnit);
     
-    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:componentFlags
                                                fromDate:date];
 	components.hour = 0;
@@ -136,7 +141,9 @@
 -(void) processActivities:(NSArray *)activities
 {
     for (StravaActivity *activity in activities) {
+        
         NSDate *midnight = [self midnightDateForDate:activity.startDate];
+        
         if (activity.type == kActivityTypeRide) {
         
             ActivitySummary *activitySummary = [ActivitySummary activitySummaryWithDistance:activity.distance
@@ -150,6 +157,7 @@
             activitySummary.distance += existingActivitySummary.distance;
             activitySummary.movingTime += existingActivitySummary.movingTime;
             activitySummary.elevationGain += existingActivitySummary.elevationGain;
+            activitySummary.numberActivities += existingActivitySummary.numberActivities;
             
             self.activitySummaries[midnight] = activitySummary;
         }
@@ -202,6 +210,8 @@
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:newDate];
     cell.dayLabel.text = [NSString stringWithFormat:@"%d", components.day];
     ActivitySummary *summary = self.activitySummaries[newDate];
+    cell.day = newDate;
+    
     if (summary == nil) {
         cell.backgroundColor = [UIColor lightGrayColor];
     } else {
@@ -215,6 +225,10 @@
             cell.backgroundColor = [self colorForCalendarSpeed:summary.avgSpeed];
         }
     }
+    
+    cell.layer.borderWidth = 2.0f;
+    cell.layer.borderColor = summary.selected ? [UIColor whiteColor].CGColor : [UIColor clearColor].CGColor;
+    
     return cell;
 }
 
@@ -227,11 +241,61 @@
                                                                             forIndexPath:indexPath];
 
     if ([v.segmentedControl actionsForTarget:self forControlEvent:UIControlEventValueChanged].count == 0) {
-        [v.segmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+        [v.segmentedControl addTarget:self
+                               action:@selector(valueChanged:)
+                     forControlEvents:UIControlEventValueChanged];
     }
     
+    ActivitySummary *selectedDay = nil;
+    NSDate *selectedDate;
+    
+    for (NSDate *date in [self.activitySummaries allKeys]) {
+        ActivitySummary *as = self.activitySummaries[date];
+        if (as.selected) {
+            selectedDay = as;
+            selectedDate = date;
+            break;
+        }
+    }
+    
+    if (selectedDay) {
+        NSDateFormatter *dateFormatter= [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        NSString *str = [NSString stringWithFormat:@"%@ - %d ride%@ - ", [dateFormatter stringFromDate:selectedDate], selectedDay.numberActivities, selectedDay.numberActivities > 1 ? @"s" : @""];
+        
+        if (self.selectedIndex == 0) {
+            str = [str stringByAppendingFormat:@"%.1fmiles", selectedDay.distance/1609.34];
+        } else if (self.selectedIndex == 1) {
+            int h = (int) floorf(selectedDay.movingTime / 3600.0f);
+            int m = (int) floorf((selectedDay.movingTime - h * 3600) / 60.0f);
+            int s = (int) (selectedDay.movingTime - h * 3600 - m * 60);
+            str = [str stringByAppendingFormat:@"%2d:%2d:%2d", h, m, s];
+        } else if (self.selectedIndex == 2) {
+            str = [str stringByAppendingFormat:@"%dft", (int)(selectedDay.elevationGain * 12.0f * 2.54 / 10.0f)];
+        } else if (self.selectedIndex == 3) {
+            str = [str stringByAppendingFormat:@"%.1fmph", selectedDay.avgSpeed * 3.6 / 1.609];
+        }
+        v.activitySummaryLabel.text = str;
+    } else {
+        v.activitySummaryLabel.text = @"No ride selected";
+    }
     return v;
 }
+
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ActivityCalendarCollectionViewCell *cell = (ActivityCalendarCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
+    ActivitySummary *as = self.activitySummaries[cell.day];
+    
+    [[self.activitySummaries allValues] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [obj setSelected:NO];
+    }];
+    
+    as.selected = YES;
+    
+    [self.collectionView reloadData];
+}
+
 
 -(IBAction)valueChanged:(UISegmentedControl *)sender
 {

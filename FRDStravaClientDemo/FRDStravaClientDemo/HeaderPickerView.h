@@ -11,5 +11,6 @@
 @interface HeaderPickerView : UICollectionReusableView
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UILabel *activitySummaryLabel;
 
 @end
