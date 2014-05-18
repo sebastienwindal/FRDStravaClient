@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, kStravaSportTypes) {
 @property (nonatomic, readonly) kStravaSportTypes sportType;
 @property (nonatomic, readonly, copy) NSString *city;
 @property (nonatomic, readonly, copy) NSString *state;
+@property (nonatomic, readonly, copy) NSString *country;
 @property (nonatomic, readonly) BOOL private;
 @property (nonatomic, readonly) NSInteger memberCount;
 

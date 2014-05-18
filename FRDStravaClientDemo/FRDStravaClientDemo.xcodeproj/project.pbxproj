@@ -63,6 +63,7 @@
 		28AE90111927EA6D00C3627E /* GearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90101927EA6D00C3627E /* GearViewController.m */; };
 		28AE90141927EDE200C3627E /* StravaClub.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90131927EDE200C3627E /* StravaClub.m */; };
 		28AE90171927F1D900C3627E /* FRDStravaClient+Club.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90161927F1D900C3627E /* FRDStravaClient+Club.m */; };
+		28AE901A192863DB00C3627E /* ClubsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE9019192863DB00C3627E /* ClubsTableViewController.m */; };
 		28DA0FD019242A7A00ECB732 /* HeartRateStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */; };
 		28DA0FD319242E9400ECB732 /* GradeStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FD219242E9400ECB732 /* GradeStreamViewController.m */; };
 		28DA0FD6192434A700ECB732 /* CadenceStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FD5192434A700ECB732 /* CadenceStreamViewController.m */; };
@@ -182,6 +183,8 @@
 		28AE90131927EDE200C3627E /* StravaClub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaClub.m; sourceTree = "<group>"; };
 		28AE90151927F1D900C3627E /* FRDStravaClient+Club.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FRDStravaClient+Club.h"; sourceTree = "<group>"; };
 		28AE90161927F1D900C3627E /* FRDStravaClient+Club.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FRDStravaClient+Club.m"; sourceTree = "<group>"; };
+		28AE9018192863DB00C3627E /* ClubsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubsTableViewController.h; sourceTree = "<group>"; };
+		28AE9019192863DB00C3627E /* ClubsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubsTableViewController.m; sourceTree = "<group>"; };
 		28DA0FCE19242A7A00ECB732 /* HeartRateStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartRateStreamViewController.h; sourceTree = "<group>"; };
 		28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartRateStreamViewController.m; sourceTree = "<group>"; };
 		28DA0FD119242E9400ECB732 /* GradeStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeStreamViewController.h; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				28AE90071927D74900C3627E /* BothFollowingCollectionViewCell.m */,
 				28AE900F1927EA6D00C3627E /* GearViewController.h */,
 				28AE90101927EA6D00C3627E /* GearViewController.m */,
+				28AE9018192863DB00C3627E /* ClubsTableViewController.h */,
+				28AE9019192863DB00C3627E /* ClubsTableViewController.m */,
 				28199DB5191EE6B600EE7C4E /* IconHelper */,
 				28199D9F191EE02A00EE7C4E /* iPhone.storyboard */,
 				28199DA2191EE02A00EE7C4E /* Settings.bundle */,
@@ -545,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28199DA7191EE02B00EE7C4E /* ActivitiesMapViewController.m in Sources */,
+				28AE901A192863DB00C3627E /* ClubsTableViewController.m in Sources */,
 				28199D82191EDF0100EE7C4E /* StravaActivity.m in Sources */,
 				28DA0FD6192434A700ECB732 /* CadenceStreamViewController.m in Sources */,
 				28AE90081927D74900C3627E /* BothFollowingCollectionViewCell.m in Sources */,
