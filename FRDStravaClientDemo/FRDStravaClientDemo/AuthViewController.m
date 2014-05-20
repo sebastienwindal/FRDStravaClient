@@ -42,14 +42,16 @@
     // and configure them here:
     NSString *clientSecret = [[NSUserDefaults standardUserDefaults] objectForKey:@"ClientSecret"];
     NSInteger clientID = [[[NSUserDefaults standardUserDefaults] objectForKey:@"ClientID"] integerValue];
+    NSString *domain = [[NSUserDefaults standardUserDefaults] objectForKey:@"CallbackDomain"];
     
     // hard-code ID and secret here:
     //clientID = 1234
     //clientSecret = @"ffffffffffffffffffffffffffffffffffffffff";
+    //domain = @"www.myregistereddomain.com";
     
-    if (clientSecret.length == 0 || clientID == 0) {
+    if (clientSecret.length == 0 || clientID == 0 || domain.length == 0) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"error"
-                                                            message:@"Configure the Strava client secret and ID in the Settings or hard-code them in AuthViewController viewDidLoad, and restart the demo app."
+                                                            message:@"Configure the Strava client secret, ID and domain in the Settings or hard-code them in AuthViewController viewDidLoad, and restart the demo app."
                                                            delegate:self
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
@@ -95,7 +97,10 @@
 
 - (IBAction)authorizeAction:(id)sender
 {
-    [[FRDStravaClient sharedInstance] authorizeWithCallbackURL:[NSURL URLWithString:@"FRDStravaClient://www.spinspinapp.com"] stateInfo:nil];
+    NSString *strURL = [NSString stringWithFormat:@"FRDStravaClient://%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"CallbackDomain"]];
+    
+    [[FRDStravaClient sharedInstance] authorizeWithCallbackURL:[NSURL URLWithString:strURL]
+                                                     stateInfo:nil];
 }
 
 

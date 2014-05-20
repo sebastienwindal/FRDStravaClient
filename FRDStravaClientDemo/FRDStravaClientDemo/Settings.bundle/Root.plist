@@ -5,6 +5,14 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>callback domain </string>
+			<key>Key</key>
+			<string>CallbackDomain</string>
+		</dict>
+		<dict>
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 			<key>Type</key>
