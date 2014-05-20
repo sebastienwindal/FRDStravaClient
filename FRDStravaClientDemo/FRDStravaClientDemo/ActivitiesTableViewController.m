@@ -7,6 +7,7 @@
 
 #import "ActivitiesTableViewController.h"
 #import "FRDStravaClient+Activity.h"
+#import "FRDStravaClient+Club.h"
 #import "ActivityTableViewCell.h"
 #import "ActivityHelper.h"
 #import "IconHelper.h"
@@ -104,13 +105,19 @@
         [self showMoreButton];
     };
     
-    if (self.showAthleteActivitiesOnly) {
+    if (self.mode == ActivitiesListModeCurrentAthlete) {
         [[FRDStravaClient sharedInstance] fetchActivitiesForCurrentUser:5
                                                               pageIndex:self.pageIndex
                                                                 success:successBlock
                                                                 failure:failureBlock];
-    } else {
+    } else if (self.mode == ActivitiesListModeFeed) {
         [[FRDStravaClient sharedInstance] fetchFriendActivities:5
+                                                      pageIndex:self.pageIndex
+                                                        success:successBlock
+                                                        failure:failureBlock];
+    } else if (self.mode == ActivitiesListModeClub) {
+        [[FRDStravaClient sharedInstance] fetchActivitiesOfClub:self.clubId
+                                                       pageSize:5
                                                       pageIndex:self.pageIndex
                                                         success:successBlock
                                                         failure:failureBlock];
@@ -151,21 +158,21 @@
     [IconHelper makeThisLabel:cell.chevronIconLabel anIcon:ICON_CHEVRON_RIGHT ofSize:24.0f];
     
     cell.usernameLabel.text = [NSString stringWithFormat:@"%@ %@", activity.athlete.firstName, activity.athlete.lastName];
-    cell.usernameLabel.hidden = self.showAthleteActivitiesOnly;
-    [cell.detailViewHeightConstraint setConstant:self.showAthleteActivitiesOnly ? 75 : 100];
+    cell.usernameLabel.hidden = self.mode == ActivitiesListModeCurrentAthlete;
+    [cell.detailViewHeightConstraint setConstant:(self.mode == ActivitiesListModeCurrentAthlete) ? 75 : 100];
     
     [cell.userImageView setImageWithURL:[NSURL URLWithString:activity.athlete.profileMediumURL]];
     cell.userImageView.layer.cornerRadius = CGRectGetWidth(cell.userImageView.frame)/2.0f;
     cell.userImageView.clipsToBounds = YES;
-    cell.userImageView.hidden = self.showAthleteActivitiesOnly;
-    cell.userWidthConstraint.constant = self.showAthleteActivitiesOnly ? 0.0f : 42.0f;
+    cell.userImageView.hidden = self.mode == ActivitiesListModeCurrentAthlete;
+    cell.userWidthConstraint.constant = (self.mode == ActivitiesListModeCurrentAthlete) ? 0.0f : 42.0f;
     
     return cell;
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.showAthleteActivitiesOnly ? 90.0f : 110.0f;
+    return (self.mode == ActivitiesListModeCurrentAthlete) ? 90.0f : 110.0f;
 }
 
 - (IBAction)moreAction:(id)sender

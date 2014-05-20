@@ -7,8 +7,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, ActivitiesListModes) {
+    ActivitiesListModeCurrentAthlete,
+    ActivitiesListModeFeed,
+    ActivitiesListModeClub
+    
+};
+
 @interface ActivitiesTableViewController : UITableViewController
 
-@property (nonatomic) BOOL showAthleteActivitiesOnly;
+@property (nonatomic) NSInteger clubId;
+@property (nonatomic) ActivitiesListModes mode;
 
 @end

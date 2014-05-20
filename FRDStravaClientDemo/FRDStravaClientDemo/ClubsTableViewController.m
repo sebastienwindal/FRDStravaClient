@@ -9,6 +9,7 @@
 #import "ClubsTableViewController.h"
 #import "FRDStravaClient+Club.h"
 #import "UIImageView+WebCache.h"
+#import "ClubDetailsTableViewController.h"
 
 
 @interface ClubsTableViewController ()
@@ -55,7 +56,6 @@
     return [self.clubs count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClubCell" forIndexPath:indexPath];
@@ -68,10 +68,15 @@
     
     return cell;
 }
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    StravaClub *club = self.clubs[indexPath.row];
+    
+    [segue.destinationViewController setClubId:club.id];
 }
 
 @end

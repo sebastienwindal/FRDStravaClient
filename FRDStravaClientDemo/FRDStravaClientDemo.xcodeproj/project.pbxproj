@@ -56,7 +56,7 @@
 		28AE8FFC192719EF00C3627E /* AthleteListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE8FFB192719EF00C3627E /* AthleteListTableViewController.m */; };
 		28AE8FFF1927203200C3627E /* FriendsAndFollowersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE8FFE1927203200C3627E /* FriendsAndFollowersTableViewController.m */; };
 		28AE90021927CB0C00C3627E /* AthleteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90011927CB0C00C3627E /* AthleteTableViewCell.m */; };
-		28AE90051927D72F00C3627E /* BothFollowingCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90041927D72F00C3627E /* BothFollowingCollectionViewController.m */; };
+		28AE90051927D72F00C3627E /* AthleteHeadShotsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90041927D72F00C3627E /* AthleteHeadShotsCollectionViewController.m */; };
 		28AE90081927D74900C3627E /* BothFollowingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90071927D74900C3627E /* BothFollowingCollectionViewCell.m */; };
 		28AE900B1927E39E00C3627E /* StravaGear.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE900A1927E39E00C3627E /* StravaGear.m */; };
 		28AE900E1927E68500C3627E /* FRDStravaClient+Gear.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE900D1927E68500C3627E /* FRDStravaClient+Gear.m */; };
@@ -64,6 +64,7 @@
 		28AE90141927EDE200C3627E /* StravaClub.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90131927EDE200C3627E /* StravaClub.m */; };
 		28AE90171927F1D900C3627E /* FRDStravaClient+Club.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE90161927F1D900C3627E /* FRDStravaClient+Club.m */; };
 		28AE901A192863DB00C3627E /* ClubsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE9019192863DB00C3627E /* ClubsTableViewController.m */; };
+		28AE901D19295EE200C3627E /* ClubDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE901C19295EE200C3627E /* ClubDetailsTableViewController.m */; };
 		28DA0FD019242A7A00ECB732 /* HeartRateStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */; };
 		28DA0FD319242E9400ECB732 /* GradeStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FD219242E9400ECB732 /* GradeStreamViewController.m */; };
 		28DA0FD6192434A700ECB732 /* CadenceStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FD5192434A700ECB732 /* CadenceStreamViewController.m */; };
@@ -169,8 +170,8 @@
 		28AE8FFE1927203200C3627E /* FriendsAndFollowersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsAndFollowersTableViewController.m; sourceTree = "<group>"; };
 		28AE90001927CB0C00C3627E /* AthleteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteTableViewCell.h; sourceTree = "<group>"; };
 		28AE90011927CB0C00C3627E /* AthleteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteTableViewCell.m; sourceTree = "<group>"; };
-		28AE90031927D72F00C3627E /* BothFollowingCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BothFollowingCollectionViewController.h; sourceTree = "<group>"; };
-		28AE90041927D72F00C3627E /* BothFollowingCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BothFollowingCollectionViewController.m; sourceTree = "<group>"; };
+		28AE90031927D72F00C3627E /* AthleteHeadShotsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteHeadShotsCollectionViewController.h; sourceTree = "<group>"; };
+		28AE90041927D72F00C3627E /* AthleteHeadShotsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteHeadShotsCollectionViewController.m; sourceTree = "<group>"; };
 		28AE90061927D74900C3627E /* BothFollowingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BothFollowingCollectionViewCell.h; sourceTree = "<group>"; };
 		28AE90071927D74900C3627E /* BothFollowingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BothFollowingCollectionViewCell.m; sourceTree = "<group>"; };
 		28AE90091927E39E00C3627E /* StravaGear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaGear.h; sourceTree = "<group>"; };
@@ -185,6 +186,8 @@
 		28AE90161927F1D900C3627E /* FRDStravaClient+Club.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FRDStravaClient+Club.m"; sourceTree = "<group>"; };
 		28AE9018192863DB00C3627E /* ClubsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubsTableViewController.h; sourceTree = "<group>"; };
 		28AE9019192863DB00C3627E /* ClubsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubsTableViewController.m; sourceTree = "<group>"; };
+		28AE901B19295EE200C3627E /* ClubDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubDetailsTableViewController.h; sourceTree = "<group>"; };
+		28AE901C19295EE200C3627E /* ClubDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubDetailsTableViewController.m; sourceTree = "<group>"; };
 		28DA0FCE19242A7A00ECB732 /* HeartRateStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartRateStreamViewController.h; sourceTree = "<group>"; };
 		28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartRateStreamViewController.m; sourceTree = "<group>"; };
 		28DA0FD119242E9400ECB732 /* GradeStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeStreamViewController.h; sourceTree = "<group>"; };
@@ -305,14 +308,16 @@
 				28AE8FFB192719EF00C3627E /* AthleteListTableViewController.m */,
 				28AE90001927CB0C00C3627E /* AthleteTableViewCell.h */,
 				28AE90011927CB0C00C3627E /* AthleteTableViewCell.m */,
-				28AE90031927D72F00C3627E /* BothFollowingCollectionViewController.h */,
-				28AE90041927D72F00C3627E /* BothFollowingCollectionViewController.m */,
+				28AE90031927D72F00C3627E /* AthleteHeadShotsCollectionViewController.h */,
+				28AE90041927D72F00C3627E /* AthleteHeadShotsCollectionViewController.m */,
 				28AE90061927D74900C3627E /* BothFollowingCollectionViewCell.h */,
 				28AE90071927D74900C3627E /* BothFollowingCollectionViewCell.m */,
 				28AE900F1927EA6D00C3627E /* GearViewController.h */,
 				28AE90101927EA6D00C3627E /* GearViewController.m */,
 				28AE9018192863DB00C3627E /* ClubsTableViewController.h */,
 				28AE9019192863DB00C3627E /* ClubsTableViewController.m */,
+				28AE901B19295EE200C3627E /* ClubDetailsTableViewController.h */,
+				28AE901C19295EE200C3627E /* ClubDetailsTableViewController.m */,
 				28199DB5191EE6B600EE7C4E /* IconHelper */,
 				28199D9F191EE02A00EE7C4E /* iPhone.storyboard */,
 				28199DA2191EE02A00EE7C4E /* Settings.bundle */,
@@ -561,12 +566,13 @@
 				28199D7E191EDF0100EE7C4E /* FRDStravaClient+Segment.m in Sources */,
 				28DA0FD019242A7A00ECB732 /* HeartRateStreamViewController.m in Sources */,
 				28AE900B1927E39E00C3627E /* StravaGear.m in Sources */,
+				28AE901D19295EE200C3627E /* ClubDetailsTableViewController.m in Sources */,
 				28DA0FE1192509B100ECB732 /* ActivityCalendarCollectionViewCell.m in Sources */,
 				28199D89191EDF0100EE7C4E /* StravaSegmentEffort.m in Sources */,
 				28199D7D191EDF0100EE7C4E /* FRDStravaClient+Lap.m in Sources */,
 				28199DAF191EE02B00EE7C4E /* IconHelper.m in Sources */,
 				28199D8D191EDF7400EE7C4E /* FRDStravaClient+ActivityStream.m in Sources */,
-				28AE90051927D72F00C3627E /* BothFollowingCollectionViewController.m in Sources */,
+				28AE90051927D72F00C3627E /* AthleteHeadShotsCollectionViewController.m in Sources */,
 				28199D87191EDF0100EE7C4E /* StravaMap.m in Sources */,
 				28199DA9191EE02B00EE7C4E /* ActivityDetailsViewController.m in Sources */,
 				28199D85191EDF0100EE7C4E /* StravaCommon.m in Sources */,

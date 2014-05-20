@@ -47,9 +47,9 @@
     }
     
     if ([segue.identifier isEqualToString:@"AthleteActivitiesSegue"]) {
-        [segue.destinationViewController setShowAthleteActivitiesOnly:YES];
+        [segue.destinationViewController setMode:ActivitiesListModeCurrentAthlete];
     } else if ([segue.identifier isEqualToString:@"FriendActivitiesSegue"]) {
-        [segue.destinationViewController setShowAthleteActivitiesOnly:NO];
+        [segue.destinationViewController setMode:ActivitiesListModeFeed];
         
     }
 }

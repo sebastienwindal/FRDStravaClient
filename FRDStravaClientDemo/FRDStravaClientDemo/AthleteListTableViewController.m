@@ -11,6 +11,7 @@
 #import "AthleteTableViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "AthleteDetaislViewController.h"
+#import "AthleteHeadShotsCollectionViewController.h"
 
 @interface AthleteListTableViewController ()
 
@@ -150,7 +151,10 @@
         StravaAthlete *athlete =  self.athletes[indexPath.row];
         
         UINavigationController *navVC = segue.destinationViewController;
-        [navVC.childViewControllers.firstObject setAthleteId:athlete.id];
+        AthleteHeadShotsCollectionViewController *vc = navVC.childViewControllers.firstObject;
+        
+        vc.athleteId = athlete.id;
+        vc.headShotListType = HeadShotListTypeCommonFollowers;
     }
 }
 
