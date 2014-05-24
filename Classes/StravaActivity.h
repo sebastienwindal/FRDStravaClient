@@ -36,9 +36,9 @@
 @property (nonatomic, readonly) BOOL private;
 @property (nonatomic, readonly) BOOL commute;
 
-@property (nonatomic, strong) NSString *locationCity;
-@property (nonatomic, strong) NSString *locationCountry;
-@property (nonatomic, strong) NSString *locationState;
+@property (nonatomic, copy, readonly) NSString *locationCity;
+@property (nonatomic, copy, readonly) NSString *locationCountry;
+@property (nonatomic, copy, readonly) NSString *locationState;
 
 @property (nonatomic, readonly) float averageSpeed;
 @property (nonatomic, readonly) float maxSpeed;

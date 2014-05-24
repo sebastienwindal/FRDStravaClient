@@ -48,12 +48,6 @@
              };
 }
 
-+ (NSDateFormatter *)dateFormatter {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
-    return dateFormatter;
-}
 
 #define HANDLE_NIL_FOR_KEY(keyname,ivar,value) if ([key isEqualToString:keyname]) { ivar = value; }
 
@@ -78,7 +72,7 @@
     HANDLE_NIL_FOR_KEY(@"maxHeartrate",     _maxHeartrate,      0);
     HANDLE_NIL_FOR_KEY(@"calories",         _calories,          0);
     HANDLE_NIL_FOR_KEY(@"commute",          _commute,           FALSE);
-    HANDLE_NIL_FOR_KEY(@"resourceState",    _commute,           kResourceStateUnknown);
+    HANDLE_NIL_FOR_KEY(@"resourceState",    _resourceState,     kResourceStateUnknown);
 }
 
 + (NSValueTransformer *)athleteJSONTransformer
