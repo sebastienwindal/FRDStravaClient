@@ -6,7 +6,7 @@
 //
 
 #import <Mantle/Mantle.h>
-
+#import "StravaCommon.h"
 
 typedef NS_ENUM(NSInteger, kStravaStreamResolution) {
     kStravaStreamResolutionUnknown,
@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, kStravaStreamType) {
 @property (nonatomic, readonly, copy) NSArray *data;
 @property (nonatomic, readonly) NSInteger originalSize;
 @property (nonatomic, readonly) kStravaStreamType seriesType;
+@property (nonatomic, readonly) kResourceState resourceState;
 
 + (NSValueTransformer *)typeJSONTransformer;
 

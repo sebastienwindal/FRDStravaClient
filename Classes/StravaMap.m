@@ -16,7 +16,8 @@
     return @{
              @"id": @"id",
              @"polyline": @"polyline",
-             @"summaryPolyline": @"summary_polyline"
+             @"summaryPolyline": @"summary_polyline",
+             @"resourceState": @"resource_state"
              };
 }
 
@@ -24,7 +25,8 @@
 
 -(void) setNilValueForKey:(NSString *)key
 {
-    HANDLE_NIL_FOR_KEY(@"id",       _id,        0);
+    HANDLE_NIL_FOR_KEY(@"id",               _id,            0);
+    HANDLE_NIL_FOR_KEY(@"resourceState",    _resourceState, kResourceStateUnknown);
 }
 
 

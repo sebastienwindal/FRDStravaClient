@@ -16,6 +16,7 @@
 
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly) NSInteger externalId;
+@property (nonatomic, readonly) kResourceState resourceState;
 @property (nonatomic, copy, readonly) StravaAthlete *athlete;
 @property (nonatomic, copy, readonly) StravaMap *map;
 @property (nonatomic, copy, readonly) NSArray *segmentEfforts;

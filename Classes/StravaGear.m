@@ -21,6 +21,7 @@
              @"modelName": @"model_name",
              @"frameType": @"frame_type",
              @"gearDescription": @"description",
+             @"resourceState":@"resource_state"
              };
 }
 
@@ -32,6 +33,7 @@
     HANDLE_NIL_FOR_KEY(@"primary",          _primary,        FALSE);
     HANDLE_NIL_FOR_KEY(@"distance",         _distance,       0.0f);
     HANDLE_NIL_FOR_KEY(@"frameType",        _frameType,      kGearFrameTypeUnknown);
+    HANDLE_NIL_FOR_KEY(@"resourceState",    _resourceState,  kResourceStateUnknown);
 }
 
 

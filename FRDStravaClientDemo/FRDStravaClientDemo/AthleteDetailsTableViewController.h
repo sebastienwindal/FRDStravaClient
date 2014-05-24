@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AthleteDetaislViewController : UIViewController
+@interface AthleteDetailsTableViewController : UITableViewController
 
 @property (nonatomic) NSInteger athleteId;
 

@@ -9,6 +9,8 @@
 #import <Mantle/Mantle.h>
 #import <CoreLocation/CoreLocation.h>
 #import "StravaActivity.h"
+#import "StravaCommon.h"
+
 
 @interface StravaSegment : MTLModel<MTLJSONSerializing>
 
@@ -36,5 +38,6 @@
 @property (nonatomic, readonly) NSTimeInterval prTime;
 @property (nonatomic, readonly) CGFloat prDistance;
 @property (nonatomic, readonly) BOOL starred;
+@property (nonatomic, readonly) kResourceState resourceState;
 
 @end

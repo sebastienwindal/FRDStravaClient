@@ -112,7 +112,7 @@
 -(void) fetchNextBatch
 {
     [self showSpinner];
-    [[FRDStravaClient sharedInstance] fetchActivitiesForCurrentUserBeforeDate:self.oldestDateWithAnActivity
+    [[FRDStravaClient sharedInstance] fetchActivitiesForCurrentAthleteBeforeDate:self.oldestDateWithAnActivity
                                                                       success:^(NSArray *activities) {
                                                                           [self processActivities:activities];
                                                                           [self showMoreButton];
@@ -208,7 +208,7 @@
                                                                    options:0];
 
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:newDate];
-    cell.dayLabel.text = [NSString stringWithFormat:@"%d", components.day];
+    cell.dayLabel.text = [NSString stringWithFormat:@"%ld", (long)components.day];
     ActivitySummary *summary = self.activitySummaries[newDate];
     cell.day = newDate;
     
@@ -299,7 +299,7 @@
 
 -(IBAction)valueChanged:(UISegmentedControl *)sender
 {
-    self.selectedIndex = sender.selectedSegmentIndex;
+    self.selectedIndex = (int)sender.selectedSegmentIndex;
     
     [self.collectionView reloadData];
 }

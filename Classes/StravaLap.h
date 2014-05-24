@@ -6,6 +6,8 @@
 //
 
 #import <Mantle/Mantle.h>
+#import "StravaCommon.h"
+
 
 @interface StravaLap : MTLModel<MTLJSONSerializing>
 
@@ -25,5 +27,6 @@
 @property (nonatomic, readonly) float kiloJoules;
 @property (nonatomic, readonly) float averageHeartrate;
 @property (nonatomic, readonly) float maxHeartrate;
+@property (nonatomic, readonly) kResourceState resourceState;
 
 @end

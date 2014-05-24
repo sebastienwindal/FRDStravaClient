@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <Mantle/Mantle.h>
 
+typedef NS_ENUM(NSInteger, kResourceState) {
+    kResourceStateUnknown = 0,
+    kResourceStateMeta,
+    kResourceStateSummary,
+    kResourceStateDetailed
+};
+
+
 typedef NS_ENUM(NSInteger, kActivityType) {
     kActivityTypeUnknown = 0,
     kActivityTypeRide,

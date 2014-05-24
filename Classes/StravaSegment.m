@@ -37,6 +37,7 @@
              @"prTime": @"pr_time",
              @"prDistance": @"pr_distance",
              @"starred": @"starred",
+             @"resourceState":@"resource_state"
              };
 }
 
@@ -62,6 +63,7 @@
     HANDLE_NIL_FOR_KEY(@"prTime",               _prTime,                0);
     HANDLE_NIL_FOR_KEY(@"prDistance",           _prDistance,            0);
     HANDLE_NIL_FOR_KEY(@"starred",              _starred,               FALSE);
+    HANDLE_NIL_FOR_KEY(@"ResourceState",        _resourceState,         kResourceStateUnknown);
 }
 
 + (NSValueTransformer *)activityTypeJSONTransformer

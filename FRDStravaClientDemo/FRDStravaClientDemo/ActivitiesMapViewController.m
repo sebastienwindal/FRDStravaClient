@@ -88,7 +88,7 @@
 -(void) fetchNextPage
 {
     [self showSpinner];
-    [[FRDStravaClient sharedInstance] fetchActivitiesForCurrentUser:10
+    [[FRDStravaClient sharedInstance] fetchActivitiesForCurrentAthleteWithPageSize:10
                                                           pageIndex:self.pageIndex
                                                             success:^(NSArray *activities) {
                                                                 self.pageIndex++;

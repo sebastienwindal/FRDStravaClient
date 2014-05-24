@@ -17,7 +17,8 @@
              @"data": @"data",
              @"seriesType": @"series_type",
              @"resolution": @"resolution",
-             @"originalSize": @"original_size"
+             @"originalSize": @"original_size",
+             @"resourceState": @"resource_state"
              };
 }
 
@@ -25,10 +26,12 @@
 
 -(void) setNilValueForKey:(NSString *)key
 {
-    HANDLE_NIL_FOR_KEY(@"type",       _type,        kStravaStreamTypeUnknown);
+    HANDLE_NIL_FOR_KEY(@"type",             _type,              kStravaStreamTypeUnknown);
     HANDLE_NIL_FOR_KEY(@"seriesType",       _seriesType,        kStravaStreamTypeUnknown);
     HANDLE_NIL_FOR_KEY(@"resolution",       _resolution,        kStravaStreamResolutionUnknown);
-    HANDLE_NIL_FOR_KEY(@"originalSize",       _originalSize,        0);
+    HANDLE_NIL_FOR_KEY(@"originalSize",     _originalSize,      0);
+    HANDLE_NIL_FOR_KEY(@"resourceState",    _resourceState,     kResourceStateUnknown);
+    
 }
 
 
@@ -45,7 +48,7 @@
                                @"tmperature": @(kStravaStreamTypeTemperature),
                                @"time": @(kStravaStreamTypeTime),
                                @"velocity_smooth": @(kStravaStreamTypeVelocitySmooth),
-                               @"watts": @(kStravaStreamTypeWatts)
+                               @"watts": @(kStravaStreamTypeWatts),
                                };
     
     return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:mapping

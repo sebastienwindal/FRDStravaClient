@@ -25,7 +25,7 @@
 @property (nonatomic, readonly) NSInteger startIndex;
 @property (nonatomic, readonly) NSInteger endIndex;
 @property (nonatomic, readonly) BOOL hidden;
-
+@property (nonatomic, readonly) kResourceState resourceState;
 
 
 @end

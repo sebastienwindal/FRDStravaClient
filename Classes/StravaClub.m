@@ -25,7 +25,8 @@
              @"state":@"state",
              @"country":@"country",
              @"private":@"private",
-             @"memberCount":@"member_count"
+             @"memberCount":@"member_count",
+             @"resourceState":@"resource_state"
              };
 }
 
@@ -61,6 +62,7 @@
     HANDLE_NIL_FOR_KEY(@"clubType",     _clubType,      kStravaClubTypesUnknown);
     HANDLE_NIL_FOR_KEY(@"sportType",    _sportType,     kStravaSportTypesUnknown);
     HANDLE_NIL_FOR_KEY(@"memberCount",  _memberCount,   0);
+    HANDLE_NIL_FOR_KEY(@"resourceState",_resourceState, kResourceStateUnknown);
 }
 
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BothFollowingCollectionViewCell : UICollectionViewCell
+@interface HeadShotCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *athelteImageView;
 

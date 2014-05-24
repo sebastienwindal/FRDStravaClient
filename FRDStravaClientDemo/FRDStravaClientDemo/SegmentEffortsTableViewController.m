@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSArray *efforts;
 @property (nonatomic) int pageIndex;
-@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
 
 @end
 
@@ -31,6 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.pageIndex = 1;
+    self.efforts = @[];
 
     [self showNextPage];
 }
@@ -44,7 +47,7 @@
                                                           pageIndex:self.pageIndex
                                                             success:^(NSArray *efforts) {
                                                                 [self hideSpinner];
-                                                                self.efforts = efforts;
+                                                                self.efforts = [self.efforts arrayByAddingObjectsFromArray:efforts];
                                                                 
                                                                 [self.tableView reloadData];
                                                                 self.pageIndex ++;
@@ -98,8 +101,8 @@
                                                             forIndexPath:indexPath];
     
     StravaSegmentEffort *effort = self.efforts[indexPath.row];
-    cell.textLabel.text = [self.dateFormatter stringFromDate:effort.startDate];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Athlete: %ld, duration:%f sec", (long) effort.athleteId, effort.elapsedTime];
+    cell.textLabel.text = [effort.startDate description];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Athlete: %ld, duration:%d sec", (long) effort.athleteId, (int)effort.elapsedTime];
     
     return cell;
 }

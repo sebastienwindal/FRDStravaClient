@@ -33,7 +33,7 @@
     
     [self showSpinner];
     
-    [[FRDStravaClient sharedInstance] fetchStarredSegmentsForCurrentUserWithSuccess:^(NSArray *segments) {
+    [[FRDStravaClient sharedInstance] fetchStarredSegmentsForCurrentAthleteWithSuccess:^(NSArray *segments) {
         self.segments = segments;
         [self.tableView reloadData];
         [self hideSpinner];
@@ -67,7 +67,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.segments count];
 }

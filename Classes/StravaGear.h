@@ -7,6 +7,7 @@
 //
 
 #import <Mantle/Mantle.h>
+#import "StravaCommon.h"
 
 typedef NS_ENUM(NSInteger,kGearFrameType) {
     kGearFrameTypeUnknown=0,
@@ -26,6 +27,7 @@ typedef NS_ENUM(NSInteger,kGearFrameType) {
 @property (nonatomic, copy, readonly)  NSString *modelName;
 @property (nonatomic, readonly)  kGearFrameType frameType;
 @property (nonatomic, copy, readonly) NSString *gearDescription;
+@property (nonatomic, readonly) kResourceState resourceState;
 
 
 @end

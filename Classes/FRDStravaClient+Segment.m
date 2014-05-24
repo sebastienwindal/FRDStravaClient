@@ -83,7 +83,7 @@
 }
 
 
--(void) fetchStarredSegmentsForCurrentUserWithSuccess:(void (^)(NSArray *segments))success
+-(void) fetchStarredSegmentsForCurrentAthleteWithSuccess:(void (^)(NSArray *segments))success
                                               failure:(void (^)(NSError *error))failure
 {
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
@@ -213,5 +213,43 @@
 
 }
 
+-(void) fetchKOMsForAthlete:(NSInteger)athleteId
+                   pageSize:(NSInteger)pageSize
+                  pageIndex:(NSInteger)pageIndex
+                    success:(void (^)(NSArray *efforts))success
+                    failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *params = @{ @"access_token" : self.accessToken,
+                              @"page":@(pageIndex),
+                              @"per_page":@(pageSize) };
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    
+    NSString *url = [NSString stringWithFormat:@"athletes/%ld/koms", (long)athleteId];
+    
+    [manager GET:url
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             NSError *error = nil;
+             
+             NSDictionary *wrapper = @{ @"efforts": responseObject };
+             
+             EffortArrayResponse *response = [MTLJSONAdapter modelOfClass:[EffortArrayResponse class]
+                                                       fromJSONDictionary:wrapper
+                                                                    error:&error];
+             
+             if (error) {
+                 failure(error);
+             } else {
+                 NSArray *arr = response.efforts;
+                 success(arr);
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             failure(error);
+         }];
+
+}
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "AthleteHeadShotsCollectionViewController.h"
-#import "BothFollowingCollectionViewCell.h"
+#import "HeadShotCollectionViewCell.h"
 #import "FRDStravaClient+Athlete.h"
 #import "FRDStravaClient+Club.h"
 #import "UIImageView+WebCache.h"
@@ -84,7 +84,7 @@
 -(UICollectionViewCell *) collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    BothFollowingCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BothFollowingCollectionViewCell" forIndexPath:indexPath];
+    HeadShotCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BothFollowingCollectionViewCell" forIndexPath:indexPath];
     
     StravaAthlete *athlete = self.athletes[indexPath.row];
     

@@ -15,7 +15,7 @@
 -(void) fetchClubsForCurrentAthleteWithSuccess:(void (^)(NSArray *clubs))success
                                        failure:(void (^)(NSError *error))failure;
 
--(void) fetchClubWithID:(NSInteger)clubID
+-(void) fetchClubWithID:(NSInteger)clubId
                  success:(void (^)(StravaClub *club))success
                     failure:(void (^)(NSError *error))failure;
 

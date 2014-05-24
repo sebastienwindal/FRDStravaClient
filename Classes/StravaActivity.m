@@ -17,6 +17,7 @@
              @"id": @"id",
              @"externalId": @"external_id",
              @"athlete": @"athlete",
+             @"resourceState": @"resource_state",
              @"map": @"map",
              @"name": @"name",
              @"activityDescription": @"description",
@@ -77,6 +78,7 @@
     HANDLE_NIL_FOR_KEY(@"maxHeartrate",     _maxHeartrate,      0);
     HANDLE_NIL_FOR_KEY(@"calories",         _calories,          0);
     HANDLE_NIL_FOR_KEY(@"commute",          _commute,           FALSE);
+    HANDLE_NIL_FOR_KEY(@"resourceState",    _commute,           kResourceStateUnknown);
 }
 
 + (NSValueTransformer *)athleteJSONTransformer

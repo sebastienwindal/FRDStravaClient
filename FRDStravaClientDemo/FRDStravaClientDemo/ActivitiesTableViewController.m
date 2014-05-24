@@ -106,12 +106,12 @@
     };
     
     if (self.mode == ActivitiesListModeCurrentAthlete) {
-        [[FRDStravaClient sharedInstance] fetchActivitiesForCurrentUser:5
+        [[FRDStravaClient sharedInstance] fetchActivitiesForCurrentAthleteWithPageSize:5
                                                               pageIndex:self.pageIndex
                                                                 success:successBlock
                                                                 failure:failureBlock];
     } else if (self.mode == ActivitiesListModeFeed) {
-        [[FRDStravaClient sharedInstance] fetchFriendActivities:5
+        [[FRDStravaClient sharedInstance] fetchFriendActivitiesWithPageSize:5
                                                       pageIndex:self.pageIndex
                                                         success:successBlock
                                                         failure:failureBlock];

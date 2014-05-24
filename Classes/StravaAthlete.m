@@ -20,7 +20,8 @@
              @"country": @"country",
              @"state":@"state",
              @"city":@"city",
-             @"sex":@"sex"
+             @"sex":@"sex",
+             @"resourceState": @"resource_state"
              };
 }
 
@@ -34,12 +35,14 @@
                                                      reverseDefaultValue:@"M"];
 }
 
+
 #define HANDLE_NIL_FOR_KEY(keyname,ivar,value) if ([key isEqualToString:keyname]) { ivar = value; }
 
 -(void) setNilValueForKey:(NSString *)key
 {
-    HANDLE_NIL_FOR_KEY(@"id",       _id,        0);
-    HANDLE_NIL_FOR_KEY(@"sex",      _sex,       kAthleteGenderMale);
+    HANDLE_NIL_FOR_KEY(@"id",               _id,            0);
+    HANDLE_NIL_FOR_KEY(@"sex",              _sex,           kAthleteGenderMale);
+    HANDLE_NIL_FOR_KEY(@"resourceState",    _resourceState, kResourceStateUnknown);
     
 }
 

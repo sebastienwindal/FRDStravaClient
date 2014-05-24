@@ -17,8 +17,8 @@
                    success:(void (^)(StravaSegment *segment))success
                    failure:(void (^)(NSError *error))failure;
 
--(void) fetchStarredSegmentsForCurrentUserWithSuccess:(void (^)(NSArray *segments))success
-                                              failure:(void (^)(NSError *error))failure;
+-(void) fetchStarredSegmentsForCurrentAthleteWithSuccess:(void (^)(NSArray *segments))success
+                                                 failure:(void (^)(NSError *error))failure;
 
 
 -(void) fetchSegmentEffortWithId:(NSInteger)segmentEffortId
@@ -37,5 +37,12 @@
                             pageIndex:(NSInteger)pageIndex
                               success:(void (^)(NSArray *efforts))success
                               failure:(void (^)(NSError *error))failure;
+
+-(void) fetchKOMsForAthlete:(NSInteger)athleteId
+                   pageSize:(NSInteger)pageSize
+                  pageIndex:(NSInteger)pageIndex
+                    success:(void (^)(NSArray *efforts))success
+                    failure:(void (^)(NSError *error))failure;
+
 
 @end

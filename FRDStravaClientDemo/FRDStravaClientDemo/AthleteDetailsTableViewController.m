@@ -6,18 +6,18 @@
 //  Copyright (c) 2014 Sebastien Windal. All rights reserved.
 //
 
-#import "AthleteDetaislViewController.h"
+#import "AthleteDetailsTableViewController.h"
 #import "FRDStravaClient+Athlete.h"
 #import "UIImageView+WebCache.h"
 
 
-@interface AthleteDetaislViewController ()
+@interface AthleteDetailsTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *athleteImageView;
 @property (weak, nonatomic) IBOutlet UITextView *athleteTextView;
 @end
 
-@implementation AthleteDetaislViewController
+@implementation AthleteDetailsTableViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,6 +55,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController respondsToSelector:@selector(setAthleteId:)]) {
+        [segue.destinationViewController setAthleteId:self.athleteId];
+    }
+}
 
 @end

@@ -28,7 +28,8 @@
              @"distance": @"start_date_local",
              @"startIndex": @"start_index",
              @"endIndex": @"end_index",
-             @"hidden": @"hidden"
+             @"hidden": @"hidden",
+             @"resourceState": @"resource_state"
              };
 }
 
@@ -47,6 +48,7 @@
     HANDLE_NIL_FOR_KEY(@"startIndex",           _startIndex,            0);
     HANDLE_NIL_FOR_KEY(@"endIndex",             _endIndex,              0);
     HANDLE_NIL_FOR_KEY(@"hidden",               _hidden,                FALSE);
+    HANDLE_NIL_FOR_KEY(@"resourceState",        _resourceState,         kResourceStateUnknown);
 }
 
 + (NSValueTransformer *) startDateJSONValueTransformer

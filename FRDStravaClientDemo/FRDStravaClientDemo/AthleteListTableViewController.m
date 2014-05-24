@@ -10,7 +10,7 @@
 #import "FRDStravaClient+Athlete.h"
 #import "AthleteTableViewCell.h"
 #import "UIImageView+WebCache.h"
-#import "AthleteDetaislViewController.h"
+#import "AthleteDetailsTableViewController.h"
 #import "AthleteHeadShotsCollectionViewController.h"
 
 @interface AthleteListTableViewController ()

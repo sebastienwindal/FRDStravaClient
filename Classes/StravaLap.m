@@ -28,7 +28,8 @@
              @"averageWatts": @"average_watts",
              @"kiloJoules": @"kilojoules",
              @"averageHeartrate": @"average_heartrate",
-             @"maxHeartrate": @"max_heartrate"
+             @"maxHeartrate": @"max_heartrate",
+             @"resourceState": @"resource_state"
              };
 }
 
@@ -50,6 +51,7 @@
     HANDLE_NIL_FOR_KEY(@"kiloJoules",       _kiloJoules,        0);
     HANDLE_NIL_FOR_KEY(@"averageHeartrate", _averageHeartrate,  0);
     HANDLE_NIL_FOR_KEY(@"maxHeartrate",     _maxHeartrate,      0);
+    HANDLE_NIL_FOR_KEY(@"resourceState",    _resourceState,     kResourceStateUnknown);
 }
 
 + (NSValueTransformer *)startDateJSONTransformer {

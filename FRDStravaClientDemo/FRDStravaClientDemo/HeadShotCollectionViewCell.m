@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Sebastien Windal. All rights reserved.
 //
 
-#import "BothFollowingCollectionViewCell.h"
+#import "HeadShotCollectionViewCell.h"
 
-@implementation BothFollowingCollectionViewCell
+@implementation HeadShotCollectionViewCell
 
 - (id)initWithFrame:(CGRect)frame
 {

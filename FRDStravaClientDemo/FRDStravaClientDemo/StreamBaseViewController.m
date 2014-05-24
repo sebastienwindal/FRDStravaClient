@@ -126,7 +126,7 @@
 {
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0,0,1,1)];
     
-    v.backgroundColor = [self colorForBarAtIndex:index];
+    v.backgroundColor = [self colorForBarAtIndex:(int)index];
     
     return v;
 }

@@ -66,7 +66,7 @@
          }];
 }
 
--(void) fetchActivitiesForCurrentUserWithSuccess:(void (^)(NSArray *activities))success
+-(void) fetchActivitiesForCurrentAthleteWithSuccess:(void (^)(NSArray *activities))success
                                          failure:(void (^)(NSError *error))failure
 {
     [self fetchActivitiesWithParameters:nil
@@ -75,7 +75,7 @@
                                 failure:failure];
 }
 
--(void) fetchActivitiesForCurrentUser:(NSInteger)pageSize
+-(void) fetchActivitiesForCurrentAthleteWithPageSize:(NSInteger)pageSize
                             pageIndex:(NSInteger)pageIndex
                               success:(void (^)(NSArray *activities))success
                               failure:(void (^)(NSError *error))failure
@@ -86,7 +86,7 @@
     [self fetchActivitiesWithParameters:params forFriends:NO success:success failure:failure];
 }
 
--(void) fetchActivitiesForCurrentUserAfterDate:(NSDate *)date
+-(void) fetchActivitiesForCurrentAthleteAfterDate:(NSDate *)date
                                        success:(void (^)(NSArray *activities))success
                                        failure:(void (^)(NSError *error))failure
 {
@@ -97,7 +97,7 @@
     [self fetchActivitiesWithParameters:params forFriends:NO success:success failure:failure];
 }
 
--(void) fetchActivitiesForCurrentUserBeforeDate:(NSDate *)date
+-(void) fetchActivitiesForCurrentAthleteBeforeDate:(NSDate *)date
                                         success:(void (^)(NSArray *activities))success
                                         failure:(void (^)(NSError *error))failure
 {
@@ -119,7 +119,7 @@
 
 }
 
--(void) fetchFriendActivities:(NSInteger)pageSize
+-(void) fetchFriendActivitiesWithPageSize:(NSInteger)pageSize
                     pageIndex:(NSInteger)pageIndex
                       success:(void (^)(NSArray *activities))success
                       failure:(void (^)(NSError *error))failure

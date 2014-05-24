@@ -7,6 +7,8 @@
 //
 
 #import <Mantle/Mantle.h>
+#import "StravaCommon.h"
+
 
 typedef NS_ENUM(NSInteger, kStravaClubTypes) {
     kStravaClubTypesUnknown = 0,
@@ -40,6 +42,7 @@ typedef NS_ENUM(NSInteger, kStravaSportTypes) {
 @property (nonatomic, readonly, copy) NSString *country;
 @property (nonatomic, readonly) BOOL private;
 @property (nonatomic, readonly) NSInteger memberCount;
+@property (nonatomic, readonly) kResourceState resourceState;
 
 
 @end

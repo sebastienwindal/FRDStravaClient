@@ -6,6 +6,8 @@
 //
 
 #import <Mantle/Mantle.h>
+#import "StravaCommon.h"
+
 
 typedef NS_ENUM(NSInteger,kAthleteGender) {
     kAthleteGenderFemale=0,
@@ -23,6 +25,6 @@ typedef NS_ENUM(NSInteger,kAthleteGender) {
 @property (nonatomic, copy, readonly) NSString *state;
 @property (nonatomic, copy, readonly) NSString *city;
 @property (nonatomic, readonly) kAthleteGender sex;
-
+@property (nonatomic, readonly) kResourceState resourceState;
 
 @end
