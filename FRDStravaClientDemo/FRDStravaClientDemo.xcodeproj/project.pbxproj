@@ -52,6 +52,9 @@
 		28199DB2191EE02B00EE7C4E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 28199DA2191EE02A00EE7C4E /* Settings.bundle */; };
 		28199DB3191EE02B00EE7C4E /* StarredSegmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */; };
 		28199DB4191EE02B00EE7C4E /* VelocityStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */; };
+		2853437E193054FC004DAC95 /* ActivityPhotoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853437D193054FC004DAC95 /* ActivityPhotoCollectionViewController.m */; };
+		285343811930552A004DAC95 /* ZonesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285343801930552A004DAC95 /* ZonesTableViewController.m */; };
+		28534384193055E0004DAC95 /* StravaActivityPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 28534383193055E0004DAC95 /* StravaActivityPhoto.m */; };
 		28591AAA1921BD6600298472 /* StreamBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28591AA91921BD6600298472 /* StreamBaseViewController.m */; };
 		28AE8FFC192719EF00C3627E /* AthleteListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE8FFB192719EF00C3627E /* AthleteListTableViewController.m */; };
 		28AE8FFF1927203200C3627E /* FriendsAndFollowersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE8FFE1927203200C3627E /* FriendsAndFollowersTableViewController.m */; };
@@ -164,6 +167,12 @@
 		28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarredSegmentsTableViewController.m; sourceTree = "<group>"; };
 		28199DA5191EE02B00EE7C4E /* VelocityStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityStreamViewController.h; sourceTree = "<group>"; };
 		28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityStreamViewController.m; sourceTree = "<group>"; };
+		2853437C193054FC004DAC95 /* ActivityPhotoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityPhotoCollectionViewController.h; sourceTree = "<group>"; };
+		2853437D193054FC004DAC95 /* ActivityPhotoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityPhotoCollectionViewController.m; sourceTree = "<group>"; };
+		2853437F1930552A004DAC95 /* ZonesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZonesTableViewController.h; sourceTree = "<group>"; };
+		285343801930552A004DAC95 /* ZonesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZonesTableViewController.m; sourceTree = "<group>"; };
+		28534382193055E0004DAC95 /* StravaActivityPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaActivityPhoto.h; sourceTree = "<group>"; };
+		28534383193055E0004DAC95 /* StravaActivityPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaActivityPhoto.m; sourceTree = "<group>"; };
 		28591AA81921BD6600298472 /* StreamBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamBaseViewController.h; sourceTree = "<group>"; };
 		28591AA91921BD6600298472 /* StreamBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamBaseViewController.m; sourceTree = "<group>"; };
 		28AE8FFA192719EF00C3627E /* AthleteListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteListTableViewController.h; sourceTree = "<group>"; };
@@ -336,6 +345,10 @@
 				28199D2F191EDCAF00EE7C4E /* Supporting Files */,
 				28AE9023192B928F00C3627E /* LapTableViewController.h */,
 				28AE9024192B928F00C3627E /* LapTableViewController.m */,
+				2853437C193054FC004DAC95 /* ActivityPhotoCollectionViewController.h */,
+				2853437D193054FC004DAC95 /* ActivityPhotoCollectionViewController.m */,
+				2853437F1930552A004DAC95 /* ZonesTableViewController.h */,
+				285343801930552A004DAC95 /* ZonesTableViewController.m */,
 			);
 			path = FRDStravaClientDemo;
 			sourceTree = "<group>";
@@ -396,6 +409,8 @@
 				28199D67191EDF0100EE7C4E /* StravaAccessTokenResponse.m */,
 				28199D68191EDF0100EE7C4E /* StravaActivity.h */,
 				28199D69191EDF0100EE7C4E /* StravaActivity.m */,
+				28534382193055E0004DAC95 /* StravaActivityPhoto.h */,
+				28534383193055E0004DAC95 /* StravaActivityPhoto.m */,
 				28199D6A191EDF0100EE7C4E /* StravaActivityUploadStatus.h */,
 				28199D6B191EDF0100EE7C4E /* StravaActivityUploadStatus.m */,
 				28199D6C191EDF0100EE7C4E /* StravaAthlete.h */,
@@ -565,6 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28199DA7191EE02B00EE7C4E /* ActivitiesMapViewController.m in Sources */,
+				28534384193055E0004DAC95 /* StravaActivityPhoto.m in Sources */,
 				28AE901A192863DB00C3627E /* ClubsTableViewController.m in Sources */,
 				28199D82191EDF0100EE7C4E /* StravaActivity.m in Sources */,
 				28DA0FD6192434A700ECB732 /* CadenceStreamViewController.m in Sources */,
@@ -572,6 +588,7 @@
 				28199D39191EDCAF00EE7C4E /* AppDelegate.m in Sources */,
 				28199D7B191EDF0100EE7C4E /* FRDStravaClient+Activity.m in Sources */,
 				28AE903E192E35E300C3627E /* KOMsTableViewController.m in Sources */,
+				2853437E193054FC004DAC95 /* ActivityPhotoCollectionViewController.m in Sources */,
 				28199DAD191EE02B00EE7C4E /* AuthViewController.m in Sources */,
 				28199DB3191EE02B00EE7C4E /* StarredSegmentsTableViewController.m in Sources */,
 				28199D7E191EDF0100EE7C4E /* FRDStravaClient+Segment.m in Sources */,
@@ -599,6 +616,7 @@
 				28199D7C191EDF0100EE7C4E /* FRDStravaClient+Athlete.m in Sources */,
 				28199DB4191EE02B00EE7C4E /* VelocityStreamViewController.m in Sources */,
 				28199D80191EDF0100EE7C4E /* FRDStravaClient.m in Sources */,
+				285343811930552A004DAC95 /* ZonesTableViewController.m in Sources */,
 				28199DAA191EE02B00EE7C4E /* ActivityHelper.m in Sources */,
 				28AE90021927CB0C00C3627E /* AthleteTableViewCell.m in Sources */,
 				28199D84191EDF0100EE7C4E /* StravaAthlete.m in Sources */,
