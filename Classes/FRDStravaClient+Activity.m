@@ -9,11 +9,12 @@
 #import "AFNetworking.h"
 #import "StravaActivity.h"
 #import <Mantle/Mantle.h>
-
+#import "StravaActivityPhoto.h"
 
 @interface ActivityResponse: MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSArray *activities;
+@property (nonatomic, copy, readonly) NSArray *photos;
 
 @end
 
@@ -21,12 +22,19 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
-    return @{ @"activities": @"activities" };
+    return @{ @"activities": @"activities",
+              @"photos": @"photos"
+              };
 }
 
 + (NSValueTransformer *)activitiesJSONTransformer
 {
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivity class]];
+}
+
++ (NSValueTransformer *)photosJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivityPhoto class]];
 }
 
 @end
@@ -150,6 +158,45 @@
     NSDictionary *params = @{ @"before": @((NSUInteger) sec) };
     
     [self fetchActivitiesWithParameters:params forFriends:YES success:success failure:failure];
+}
+
+
+-(void) fetchPhotosForActivity:(NSInteger)activityId
+                       success:(void (^)(NSArray *photos))success
+                       failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *params = @{ @"access_token" : self.accessToken };
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    
+    [manager GET:[NSString stringWithFormat:@"activities/%ld/photos", (long) activityId]
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             if (responseObject == nil) {
+                 success(@[]);
+                 return;
+             }
+             
+             NSError *error = nil;
+             
+             NSDictionary *wrapper = @{ @"photos": responseObject };
+             
+             ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
+                                                    fromJSONDictionary:wrapper
+                                                                 error:&error];
+             
+             if (error) {
+                 failure(error);
+             } else {
+                 NSArray *arr = response.photos;
+                 success(arr);
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             failure(error);
+         }];
+
 }
 
 

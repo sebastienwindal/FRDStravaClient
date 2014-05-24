@@ -55,6 +55,10 @@
                     success:(void (^)(StravaActivity *activity))success
                     failure:(void (^)(NSError *error))failure;
 
+// photos
 
+-(void) fetchPhotosForActivity:(NSInteger)activityId
+                       success:(void (^)(NSArray *photos))success
+                       failure:(void (^)(NSError *error))failure;
 
 @end

@@ -52,7 +52,7 @@
 		28199DB2191EE02B00EE7C4E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 28199DA2191EE02A00EE7C4E /* Settings.bundle */; };
 		28199DB3191EE02B00EE7C4E /* StarredSegmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */; };
 		28199DB4191EE02B00EE7C4E /* VelocityStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */; };
-		2853437E193054FC004DAC95 /* ActivityPhotoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853437D193054FC004DAC95 /* ActivityPhotoCollectionViewController.m */; };
+		2853437E193054FC004DAC95 /* ActivityPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853437D193054FC004DAC95 /* ActivityPhotoTableViewController.m */; };
 		285343811930552A004DAC95 /* ZonesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285343801930552A004DAC95 /* ZonesTableViewController.m */; };
 		28534384193055E0004DAC95 /* StravaActivityPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 28534383193055E0004DAC95 /* StravaActivityPhoto.m */; };
 		28591AAA1921BD6600298472 /* StreamBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28591AA91921BD6600298472 /* StreamBaseViewController.m */; };
@@ -167,8 +167,8 @@
 		28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarredSegmentsTableViewController.m; sourceTree = "<group>"; };
 		28199DA5191EE02B00EE7C4E /* VelocityStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityStreamViewController.h; sourceTree = "<group>"; };
 		28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelocityStreamViewController.m; sourceTree = "<group>"; };
-		2853437C193054FC004DAC95 /* ActivityPhotoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityPhotoCollectionViewController.h; sourceTree = "<group>"; };
-		2853437D193054FC004DAC95 /* ActivityPhotoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityPhotoCollectionViewController.m; sourceTree = "<group>"; };
+		2853437C193054FC004DAC95 /* ActivityPhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityPhotoTableViewController.h; sourceTree = "<group>"; };
+		2853437D193054FC004DAC95 /* ActivityPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityPhotoTableViewController.m; sourceTree = "<group>"; };
 		2853437F1930552A004DAC95 /* ZonesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZonesTableViewController.h; sourceTree = "<group>"; };
 		285343801930552A004DAC95 /* ZonesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZonesTableViewController.m; sourceTree = "<group>"; };
 		28534382193055E0004DAC95 /* StravaActivityPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaActivityPhoto.h; sourceTree = "<group>"; };
@@ -345,8 +345,8 @@
 				28199D2F191EDCAF00EE7C4E /* Supporting Files */,
 				28AE9023192B928F00C3627E /* LapTableViewController.h */,
 				28AE9024192B928F00C3627E /* LapTableViewController.m */,
-				2853437C193054FC004DAC95 /* ActivityPhotoCollectionViewController.h */,
-				2853437D193054FC004DAC95 /* ActivityPhotoCollectionViewController.m */,
+				2853437C193054FC004DAC95 /* ActivityPhotoTableViewController.h */,
+				2853437D193054FC004DAC95 /* ActivityPhotoTableViewController.m */,
 				2853437F1930552A004DAC95 /* ZonesTableViewController.h */,
 				285343801930552A004DAC95 /* ZonesTableViewController.m */,
 			);
@@ -588,7 +588,7 @@
 				28199D39191EDCAF00EE7C4E /* AppDelegate.m in Sources */,
 				28199D7B191EDF0100EE7C4E /* FRDStravaClient+Activity.m in Sources */,
 				28AE903E192E35E300C3627E /* KOMsTableViewController.m in Sources */,
-				2853437E193054FC004DAC95 /* ActivityPhotoCollectionViewController.m in Sources */,
+				2853437E193054FC004DAC95 /* ActivityPhotoTableViewController.m in Sources */,
 				28199DAD191EE02B00EE7C4E /* AuthViewController.m in Sources */,
 				28199DB3191EE02B00EE7C4E /* StarredSegmentsTableViewController.m in Sources */,
 				28199D7E191EDF0100EE7C4E /* FRDStravaClient+Segment.m in Sources */,
