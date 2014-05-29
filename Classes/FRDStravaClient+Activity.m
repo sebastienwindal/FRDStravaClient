@@ -9,8 +9,6 @@
 #import "AFNetworking.h"
 #import "StravaActivity.h"
 #import <Mantle/Mantle.h>
-#import "StravaActivityPhoto.h"
-#import "StravaActivityZone.h"
 
 
 @interface ActivityResponse: MTLModel<MTLJSONSerializing>
@@ -18,6 +16,8 @@
 @property (nonatomic, copy, readonly) NSArray *activities;
 @property (nonatomic, copy, readonly) NSArray *photos;
 @property (nonatomic, copy, readonly) NSArray *zones;
+@property (nonatomic, copy, readonly) NSArray *comments;
+@property (nonatomic, copy, readonly) NSArray *kudoers;
 
 @end
 
@@ -27,7 +27,9 @@
 {
     return @{ @"activities": @"activities",
               @"photos": @"photos",
-              @"zones": @"zones"
+              @"zones": @"zones",
+              @"comments": @"comments",
+              @"kudoers": @"kudoers"
               };
 }
 
@@ -44,6 +46,16 @@
 + (NSValueTransformer *)zonesJSONTransformer
 {
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivityZone class]];
+}
+
++ (NSValueTransformer *)commentsJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivityComment class]];
+}
+
++ (NSValueTransformer *)kudoersJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaAthlete class]];
 }
 
 @end
@@ -246,6 +258,97 @@
 
 }
 
+// activity comments
+
+-(void) fetchCommentsForActivity:(NSInteger)activityId
+                        markdown:(BOOL)markdown
+                        pageSize:(NSInteger)pageSize
+                       pageIndex:(NSInteger)pageIndex
+                         success:(void (^)(NSArray *comments))success
+                         failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *params = @{ @"access_token" : self.accessToken,
+                              @"page": @(pageIndex),
+                              @"per_page": @(pageSize) };
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    
+    [manager GET:[NSString stringWithFormat:@"activities/%ld/comments", (long) activityId]
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             if (responseObject == nil) {
+                 success(@[]);
+                 return;
+             }
+             
+             NSError *error = nil;
+             
+             NSDictionary *wrapper = @{ @"comments": responseObject };
+             
+             ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
+                                                    fromJSONDictionary:wrapper
+                                                                 error:&error];
+             
+             if (error) {
+                 failure(error);
+             } else {
+                 NSArray *arr = response.comments;
+                 success(arr);
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             failure(error);
+         }];
+
+}
+
+// kudos
+
+-(void) fetchKudoersForActivity:(NSInteger)activityId
+                       pageSize:(NSInteger)pageSize
+                      pageIndex:(NSInteger)pageIndex
+                        success:(void (^)(NSArray *athletes))success
+                        failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *params = @{ @"access_token" : self.accessToken,
+                              @"page": @(pageIndex),
+                              @"per_page": @(pageSize)  };
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    
+    [manager GET:[NSString stringWithFormat:@"activities/%ld/kudos", (long) activityId]
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             if (responseObject == nil) {
+                 success(@[]);
+                 return;
+             }
+             
+             NSError *error = nil;
+             
+             NSDictionary *wrapper = @{ @"kudoers": responseObject };
+             
+             ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
+                                                    fromJSONDictionary:wrapper
+                                                                 error:&error];
+             
+             if (error) {
+                 failure(error);
+             } else {
+                 NSArray *arr = response.kudoers;
+                 success(arr);
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             failure(error);
+         }];
+
+}
+
+
+
 #pragma private 
 
 -(void) fetchActivitiesWithParameters:(NSDictionary *)params
@@ -287,7 +390,6 @@
              failure(error);
          }];
 }
-
 
 
 

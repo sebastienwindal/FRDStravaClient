@@ -8,6 +8,9 @@
 #import "FRDStravaClient.h"
 #import "StravaActivity.h"
 #import "StravaActivityZone.h"
+#import "StravaActivityPhoto.h"
+#import "StravaActivityComment.h"
+
 
 @interface FRDStravaClient (Activity)
 
@@ -67,5 +70,23 @@
 -(void) fetchZonesForActivity:(NSInteger)activityId
                       success:(void (^)(NSArray *zones))success
                       failure:(void (^)(NSError *error))failure;
+
+// comments
+
+-(void) fetchCommentsForActivity:(NSInteger)activityId
+                        markdown:(BOOL)markdown
+                        pageSize:(NSInteger)pageSize
+                       pageIndex:(NSInteger)pageIndex
+                         success:(void (^)(NSArray *comments))success
+                         failure:(void (^)(NSError *error))failure;
+
+// kudos
+
+-(void) fetchKudoersForActivity:(NSInteger)activityId
+                       pageSize:(NSInteger)pageSize
+                      pageIndex:(NSInteger)pageIndex
+                        success:(void (^)(NSArray *comments))success
+                        failure:(void (^)(NSError *error))failure;
+
 
 @end

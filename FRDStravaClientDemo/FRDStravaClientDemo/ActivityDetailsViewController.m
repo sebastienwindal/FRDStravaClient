@@ -12,6 +12,8 @@
 #import "JBLineChartView.h"
 #import "JBBarChartView.h"
 #import "ActivityHelper.h"
+#import "AthleteHeadShotsCollectionViewController.h"
+
 
 @interface ActivityDetailsViewController ()
 
@@ -65,6 +67,12 @@
     }
     if ([segue.destinationViewController respondsToSelector:@selector(setGearId:)]) {
         [segue.destinationViewController setGearId:self.activity.gearId];
+    }
+    if ([segue.identifier isEqualToString:@"ActivityToKudoers"]) {
+        UINavigationController *navVC = segue.destinationViewController;
+        AthleteHeadShotsCollectionViewController *vc = navVC.childViewControllers.firstObject;
+        vc.activityId = self.activityId;
+        vc.headShotListType = HeadShotListTypeKudoers;
     }
 }
 

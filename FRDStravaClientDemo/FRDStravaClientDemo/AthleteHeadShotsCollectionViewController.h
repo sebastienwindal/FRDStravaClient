@@ -10,13 +10,15 @@
 
 typedef NS_ENUM(NSInteger, HeadShotListType) {
     HeadShotListTypeCommonFollowers,
-    HeadShotListTypeClubMembers
+    HeadShotListTypeClubMembers,
+    HeadShotListTypeKudoers,
 };
 
 @interface AthleteHeadShotsCollectionViewController : UICollectionViewController
 
 @property (nonatomic) NSInteger athleteId;
 @property (nonatomic) NSInteger clubId;
+@property (nonatomic) NSInteger activityId;
 
 @property (nonatomic) HeadShotListType headShotListType;
 

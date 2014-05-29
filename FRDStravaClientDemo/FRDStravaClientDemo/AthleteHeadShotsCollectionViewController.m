@@ -10,6 +10,7 @@
 #import "HeadShotCollectionViewCell.h"
 #import "FRDStravaClient+Athlete.h"
 #import "FRDStravaClient+Club.h"
+#import "FRDStravaClient+Activity.h"
 #import "UIImageView+WebCache.h"
 
 
@@ -62,6 +63,12 @@
                                                    pageIndex:1
                                                      success:successBlock
                                                      failure:failBlock];
+    } else if (self.headShotListType == HeadShotListTypeKudoers) {
+        [[FRDStravaClient sharedInstance] fetchKudoersForActivity:self.activityId
+                                                         pageSize:50
+                                                        pageIndex:1
+                                                          success:successBlock
+                                                          failure:failBlock];
     }
 }
 
