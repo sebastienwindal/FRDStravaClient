@@ -55,6 +55,7 @@
 		2853437E193054FC004DAC95 /* ActivityPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853437D193054FC004DAC95 /* ActivityPhotoTableViewController.m */; };
 		285343811930552A004DAC95 /* ZonesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285343801930552A004DAC95 /* ZonesTableViewController.m */; };
 		28534384193055E0004DAC95 /* StravaActivityPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 28534383193055E0004DAC95 /* StravaActivityPhoto.m */; };
+		2853438719310108004DAC95 /* StravaActivityZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853438619310108004DAC95 /* StravaActivityZone.m */; };
 		28591AAA1921BD6600298472 /* StreamBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28591AA91921BD6600298472 /* StreamBaseViewController.m */; };
 		28AE8FFC192719EF00C3627E /* AthleteListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE8FFB192719EF00C3627E /* AthleteListTableViewController.m */; };
 		28AE8FFF1927203200C3627E /* FriendsAndFollowersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE8FFE1927203200C3627E /* FriendsAndFollowersTableViewController.m */; };
@@ -77,6 +78,7 @@
 		28DA0FE1192509B100ECB732 /* ActivityCalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FE0192509B100ECB732 /* ActivityCalendarCollectionViewCell.m */; };
 		28DA0FE419252DCB00ECB732 /* HeaderPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FE319252DCB00ECB732 /* HeaderPickerView.m */; };
 		28DAF05D191F1FB5001DC529 /* SegmentEffortsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */; };
+		28E0CA5E19328B5E004DEA75 /* ZoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,8 @@
 		285343801930552A004DAC95 /* ZonesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZonesTableViewController.m; sourceTree = "<group>"; };
 		28534382193055E0004DAC95 /* StravaActivityPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaActivityPhoto.h; sourceTree = "<group>"; };
 		28534383193055E0004DAC95 /* StravaActivityPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaActivityPhoto.m; sourceTree = "<group>"; };
+		2853438519310108004DAC95 /* StravaActivityZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaActivityZone.h; sourceTree = "<group>"; };
+		2853438619310108004DAC95 /* StravaActivityZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaActivityZone.m; sourceTree = "<group>"; };
 		28591AA81921BD6600298472 /* StreamBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamBaseViewController.h; sourceTree = "<group>"; };
 		28591AA91921BD6600298472 /* StreamBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamBaseViewController.m; sourceTree = "<group>"; };
 		28AE8FFA192719EF00C3627E /* AthleteListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteListTableViewController.h; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 		28DA0FE319252DCB00ECB732 /* HeaderPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderPickerView.m; sourceTree = "<group>"; };
 		28DAF05B191F1FB5001DC529 /* SegmentEffortsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentEffortsTableViewController.h; sourceTree = "<group>"; };
 		28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentEffortsTableViewController.m; sourceTree = "<group>"; };
+		28E0CA5C19328B5E004DEA75 /* ZoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneTableViewCell.h; sourceTree = "<group>"; };
+		28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneTableViewCell.m; sourceTree = "<group>"; };
 		ED9078EBFF324CF9876BD37C /* libPods-FRDStravaClientDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRDStravaClientDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1AD5BB3633458F93C31110 /* Pods-FRDStravaClientDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRDStravaClientDemo.xcconfig"; path = "Pods/Pods-FRDStravaClientDemo.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -335,6 +341,14 @@
 				28AE901C19295EE200C3627E /* ClubDetailsTableViewController.m */,
 				28AE903C192E35E300C3627E /* KOMsTableViewController.h */,
 				28AE903D192E35E300C3627E /* KOMsTableViewController.m */,
+				28AE9023192B928F00C3627E /* LapTableViewController.h */,
+				28AE9024192B928F00C3627E /* LapTableViewController.m */,
+				2853437C193054FC004DAC95 /* ActivityPhotoTableViewController.h */,
+				2853437D193054FC004DAC95 /* ActivityPhotoTableViewController.m */,
+				2853437F1930552A004DAC95 /* ZonesTableViewController.h */,
+				285343801930552A004DAC95 /* ZonesTableViewController.m */,
+				28E0CA5C19328B5E004DEA75 /* ZoneTableViewCell.h */,
+				28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */,
 				28199DB5191EE6B600EE7C4E /* IconHelper */,
 				28199D9F191EE02A00EE7C4E /* iPhone.storyboard */,
 				28199DA2191EE02A00EE7C4E /* Settings.bundle */,
@@ -343,12 +357,6 @@
 				28199D38191EDCAF00EE7C4E /* AppDelegate.m */,
 				28199D3A191EDCAF00EE7C4E /* Images.xcassets */,
 				28199D2F191EDCAF00EE7C4E /* Supporting Files */,
-				28AE9023192B928F00C3627E /* LapTableViewController.h */,
-				28AE9024192B928F00C3627E /* LapTableViewController.m */,
-				2853437C193054FC004DAC95 /* ActivityPhotoTableViewController.h */,
-				2853437D193054FC004DAC95 /* ActivityPhotoTableViewController.m */,
-				2853437F1930552A004DAC95 /* ZonesTableViewController.h */,
-				285343801930552A004DAC95 /* ZonesTableViewController.m */,
 			);
 			path = FRDStravaClientDemo;
 			sourceTree = "<group>";
@@ -413,6 +421,8 @@
 				28534383193055E0004DAC95 /* StravaActivityPhoto.m */,
 				28199D6A191EDF0100EE7C4E /* StravaActivityUploadStatus.h */,
 				28199D6B191EDF0100EE7C4E /* StravaActivityUploadStatus.m */,
+				2853438519310108004DAC95 /* StravaActivityZone.h */,
+				2853438619310108004DAC95 /* StravaActivityZone.m */,
 				28199D6C191EDF0100EE7C4E /* StravaAthlete.h */,
 				28199D6D191EDF0100EE7C4E /* StravaAthlete.m */,
 				28AE90121927EDE200C3627E /* StravaClub.h */,
@@ -597,6 +607,7 @@
 				28AE900B1927E39E00C3627E /* StravaGear.m in Sources */,
 				28AE901D19295EE200C3627E /* ClubDetailsTableViewController.m in Sources */,
 				28DA0FE1192509B100ECB732 /* ActivityCalendarCollectionViewCell.m in Sources */,
+				2853438719310108004DAC95 /* StravaActivityZone.m in Sources */,
 				28199D89191EDF0100EE7C4E /* StravaSegmentEffort.m in Sources */,
 				28199D7D191EDF0100EE7C4E /* FRDStravaClient+Lap.m in Sources */,
 				28199DAF191EE02B00EE7C4E /* IconHelper.m in Sources */,
@@ -623,6 +634,7 @@
 				28199D7A191EDF0100EE7C4E /* FRDStravaClient+Access.m in Sources */,
 				28DAF05D191F1FB5001DC529 /* SegmentEffortsTableViewController.m in Sources */,
 				28199D7F191EDF0100EE7C4E /* FRDStravaClient+Upload.m in Sources */,
+				28E0CA5E19328B5E004DEA75 /* ZoneTableViewCell.m in Sources */,
 				28199D8A191EDF0100EE7C4E /* StravaStream.m in Sources */,
 				28DA0FE419252DCB00ECB732 /* HeaderPickerView.m in Sources */,
 				28AE8FFC192719EF00C3627E /* AthleteListTableViewController.m in Sources */,

@@ -10,11 +10,14 @@
 #import "StravaActivity.h"
 #import <Mantle/Mantle.h>
 #import "StravaActivityPhoto.h"
+#import "StravaActivityZone.h"
+
 
 @interface ActivityResponse: MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSArray *activities;
 @property (nonatomic, copy, readonly) NSArray *photos;
+@property (nonatomic, copy, readonly) NSArray *zones;
 
 @end
 
@@ -23,7 +26,8 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{ @"activities": @"activities",
-              @"photos": @"photos"
+              @"photos": @"photos",
+              @"zones": @"zones"
               };
 }
 
@@ -35,6 +39,11 @@
 + (NSValueTransformer *)photosJSONTransformer
 {
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivityPhoto class]];
+}
+
++ (NSValueTransformer *)zonesJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivityZone class]];
 }
 
 @end
@@ -199,6 +208,43 @@
 
 }
 
+-(void) fetchZonesForActivity:(NSInteger)activityId
+                      success:(void (^)(NSArray *zones))success
+                      failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *params = @{ @"access_token" : self.accessToken };
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    
+    [manager GET:[NSString stringWithFormat:@"activities/%ld/zones", (long) activityId]
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             if (responseObject == nil) {
+                 success(@[]);
+                 return;
+             }
+             
+             NSError *error = nil;
+             
+             NSDictionary *wrapper = @{ @"zones": responseObject };
+             
+             ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
+                                                    fromJSONDictionary:wrapper
+                                                                 error:&error];
+             
+             if (error) {
+                 failure(error);
+             } else {
+                 NSArray *arr = response.zones;
+                 success(arr);
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             failure(error);
+         }];
+
+}
 
 #pragma private 
 

@@ -10,4 +10,6 @@
 
 @interface ZonesTableViewController : UITableViewController
 
+@property (nonatomic) NSInteger activityId;
+
 @end

@@ -7,6 +7,7 @@
 
 #import "FRDStravaClient.h"
 #import "StravaActivity.h"
+#import "StravaActivityZone.h"
 
 @interface FRDStravaClient (Activity)
 
@@ -60,5 +61,11 @@
 -(void) fetchPhotosForActivity:(NSInteger)activityId
                        success:(void (^)(NSArray *photos))success
                        failure:(void (^)(NSError *error))failure;
+
+// zones
+
+-(void) fetchZonesForActivity:(NSInteger)activityId
+                      success:(void (^)(NSArray *zones))success
+                      failure:(void (^)(NSError *error))failure;
 
 @end

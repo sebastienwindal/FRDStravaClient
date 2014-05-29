@@ -7,8 +7,14 @@
 //
 
 #import "ZonesTableViewController.h"
+#import "FRDStravaClient+Activity.h"
+#import "ZoneTableViewCell.h"
+#import "ActivityHelper.h"
 
-@interface ZonesTableViewController ()
+
+@interface ZonesTableViewController () <JBBarChartViewDataSource, JBBarChartViewDelegate>
+
+@property (nonatomic, strong) NSArray *zones;
 
 @end
 
@@ -27,11 +33,19 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[FRDStravaClient sharedInstance] fetchZonesForActivity:self.activityId
+                                                    success:^(NSArray *zones) {
+                                                        self.zones = zones;
+                                                        [self.tableView reloadData];
+                                                    }
+                                                    failure:^(NSError *error) {
+                                                        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                     message:error.localizedDescription
+                                                                                                    delegate:nil
+                                                                                           cancelButtonTitle:@"Ok"
+                                                                                           otherButtonTitles:nil];
+                                                        [av show];
+                                                    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,78 +56,82 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.zones count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    ZoneTableViewCell *cell = (ZoneTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ZoneCell"
+                                                                                   forIndexPath:indexPath];
     
-    // Configure the cell...
+    StravaActivityZone *zone = self.zones[indexPath.row];
     
+    __block NSString *str = @"";
+    
+    [zone.distributionBuckets enumerateObjectsUsingBlock:^(StravaActivityZoneDistributionBucket *bucket, NSUInteger idx, BOOL *stop) {
+        str = [str stringByAppendingFormat:@"min %d max %d time %d", (int)bucket.min, (int)bucket.max, (int)bucket.time];
+    }];
+    
+    cell.zoneLabel.text = zone.type == kActivityZoneTypePower ? @"Power" : @"Heart Rate";
+    cell.chartView.delegate = self;
+    cell.chartView.dataSource = self;
+    [cell.chartView reloadData];
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+
+#pragma mark - JBBarChartViewDataSource
+
+-(StravaActivityZone *) zoneForChart:(JBBarChartView *)barChartView
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    CGRect chartFrame = [barChartView convertRect:barChartView.bounds toView:self.tableView];
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:chartFrame.origin];
+    
+    StravaActivityZone *zone = self.zones[indexPath.row];
+    
+    return zone;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSUInteger)numberOfBarsInBarChartView:(JBBarChartView *)barChartView
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    StravaActivityZone *zone = [self zoneForChart:barChartView];
+    
+    return [zone.distributionBuckets count];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSUInteger)index
 {
-}
-*/
+    StravaActivityZone *zone = [self zoneForChart:barChartView];
+    
+    __block NSTimeInterval maxTime = 0.0f;
+    
+    [zone.distributionBuckets enumerateObjectsUsingBlock:^(StravaActivityZoneDistributionBucket *obj, NSUInteger idx, BOOL *stop) {
+        maxTime = MAX(maxTime, obj.time);
+    }];
+    
+    StravaActivityZoneDistributionBucket *bucket = zone.distributionBuckets[index];
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+    NSTimeInterval t = bucket.time;
+    if (maxTime > 0)
+        return t * CGRectGetHeight(barChartView.frame) / maxTime;
+    return 0.0f;
+}
+
+- (UIColor *)barChartView:(JBBarChartView *)barChartView colorForBarViewAtIndex:(NSUInteger)index
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    StravaActivityZone *zone = [self zoneForChart:barChartView];
+    
+    if (zone.type == kActivityZoneTypeHeartRate) {
+        StravaActivityZoneDistributionBucket *bucket = zone.distributionBuckets[index];
+        
+        return [ActivityHelper colorForHeartRate:bucket.max];
+    }
+    return [UIColor blueColor];
 }
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
