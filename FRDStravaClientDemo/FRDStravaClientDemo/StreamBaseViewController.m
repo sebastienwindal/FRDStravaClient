@@ -84,11 +84,19 @@
                                                                    // streams need to be processed in this order
                                                                    // so the overlays added to the map can be added
                                                                    // with the right color.
-                                                                   [self processValueStream:valueStream];
-                                                                   [self processLatLngStream:locationStream];
+                                                                   if (valueStream) {
+                                                                       [self processValueStream:valueStream];
+                                                                   } else {
+                                                                       UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Stream not available" message:nil delegate:nil cancelButtonTitle:@"Close" otherButtonTitles: nil];
+                                                                       [av show];
+                                                                   }
+                                                                   if (locationStream) {
+                                                                       [self processLatLngStream:locationStream];
+                                                                   }
                                                                }
                                                                failure:^(NSError *error) {
-                                                                   
+                                                                   UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles: nil];
+                                                                   [av show];
                                                                }];
 
 }
