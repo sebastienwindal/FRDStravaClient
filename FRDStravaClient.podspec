@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
                    JSON conversion to usable objects.
                    DESC
 
-  # s.homepage     = "http://EXAMPLE/FRDStravaClient"
+  s.homepage     = "http://github.com/sebastienwindal/FRDStravaClient"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -62,8 +62,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
 
 
-
-  s.source       = { :git => "http://github.com/sebastienwindal/FRDStravaClient.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/sebastienwindal/FRDStravaClient.git", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -101,5 +100,5 @@ Pod::Spec.new do |s|
   
   s.dependency "AFNetworking", "~> 2.0"
   s.dependency "Mantle", "1.5"
-  
+
 end
