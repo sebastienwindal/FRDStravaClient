@@ -293,74 +293,16 @@
 		28199D2E191EDCAF00EE7C4E /* FRDStravaClientDemo */ = {
 			isa = PBXGroup;
 			children = (
-				28199D8E191EE02A00EE7C4E /* ActivitiesMapViewController.h */,
-				28199D8F191EE02A00EE7C4E /* ActivitiesMapViewController.m */,
-				28199D90191EE02A00EE7C4E /* ActivitiesTableViewController.h */,
-				28199D91191EE02A00EE7C4E /* ActivitiesTableViewController.m */,
-				28199D92191EE02A00EE7C4E /* ActivityDetailsViewController.h */,
-				28199D93191EE02A00EE7C4E /* ActivityDetailsViewController.m */,
-				28199D94191EE02A00EE7C4E /* ActivityHelper.h */,
-				28199D95191EE02A00EE7C4E /* ActivityHelper.m */,
-				28199D96191EE02A00EE7C4E /* ActivityTableViewCell.h */,
-				28199D97191EE02A00EE7C4E /* ActivityTableViewCell.m */,
-				28199D98191EE02A00EE7C4E /* AthleteDetailsTableViewController.h */,
-				28199D99191EE02A00EE7C4E /* AthleteDetailsTableViewController.m */,
-				28199D9A191EE02A00EE7C4E /* AuthViewController.h */,
-				28199D9B191EE02A00EE7C4E /* AuthViewController.m */,
-				28199DA0191EE02A00EE7C4E /* SecondTableViewController.h */,
-				28199DA1191EE02A00EE7C4E /* SecondTableViewController.m */,
-				28199DA3191EE02A00EE7C4E /* StarredSegmentsTableViewController.h */,
-				28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */,
-				28DAF05B191F1FB5001DC529 /* SegmentEffortsTableViewController.h */,
-				28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */,
-				28591AA81921BD6600298472 /* StreamBaseViewController.h */,
-				28591AA91921BD6600298472 /* StreamBaseViewController.m */,
-				28199DA5191EE02B00EE7C4E /* VelocityStreamViewController.h */,
-				28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */,
-				28DA0FD119242E9400ECB732 /* GradeStreamViewController.h */,
-				28DA0FD219242E9400ECB732 /* GradeStreamViewController.m */,
-				28DA0FCE19242A7A00ECB732 /* HeartRateStreamViewController.h */,
-				28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */,
-				28DA0FD4192434A700ECB732 /* CadenceStreamViewController.h */,
-				28DA0FD5192434A700ECB732 /* CadenceStreamViewController.m */,
-				28DA0FD71924EDCA00ECB732 /* ActivityCalendarViewController.h */,
-				28DA0FD81924EDCA00ECB732 /* ActivityCalendarViewController.m */,
-				28DA0FDF192509B100ECB732 /* ActivityCalendarCollectionViewCell.h */,
-				28DA0FE0192509B100ECB732 /* ActivityCalendarCollectionViewCell.m */,
-				28DA0FE219252DCB00ECB732 /* HeaderPickerView.h */,
-				28DA0FE319252DCB00ECB732 /* HeaderPickerView.m */,
-				28AE8FFD1927203200C3627E /* FriendsAndFollowersTableViewController.h */,
-				28AE8FFE1927203200C3627E /* FriendsAndFollowersTableViewController.m */,
-				28AE8FFA192719EF00C3627E /* AthleteListTableViewController.h */,
-				28AE8FFB192719EF00C3627E /* AthleteListTableViewController.m */,
-				28AE90001927CB0C00C3627E /* AthleteTableViewCell.h */,
-				28AE90011927CB0C00C3627E /* AthleteTableViewCell.m */,
-				28AE90031927D72F00C3627E /* AthleteHeadShotsCollectionViewController.h */,
-				28AE90041927D72F00C3627E /* AthleteHeadShotsCollectionViewController.m */,
-				28AE90061927D74900C3627E /* HeadShotCollectionViewCell.h */,
-				28AE90071927D74900C3627E /* HeadShotCollectionViewCell.m */,
-				28AE900F1927EA6D00C3627E /* GearViewController.h */,
-				28AE90101927EA6D00C3627E /* GearViewController.m */,
-				28AE9018192863DB00C3627E /* ClubsTableViewController.h */,
-				28AE9019192863DB00C3627E /* ClubsTableViewController.m */,
-				28AE901B19295EE200C3627E /* ClubDetailsTableViewController.h */,
-				28AE901C19295EE200C3627E /* ClubDetailsTableViewController.m */,
-				28AE903C192E35E300C3627E /* KOMsTableViewController.h */,
-				28AE903D192E35E300C3627E /* KOMsTableViewController.m */,
-				28AE9023192B928F00C3627E /* LapTableViewController.h */,
-				28AE9024192B928F00C3627E /* LapTableViewController.m */,
-				2853437C193054FC004DAC95 /* ActivityPhotoTableViewController.h */,
-				2853437D193054FC004DAC95 /* ActivityPhotoTableViewController.m */,
-				28E0CA9D1936D7B7004DEA75 /* ActivityCommentsTableViewController.h */,
-				28E0CA9E1936D7B7004DEA75 /* ActivityCommentsTableViewController.m */,
-				2853437F1930552A004DAC95 /* ZonesTableViewController.h */,
-				285343801930552A004DAC95 /* ZonesTableViewController.m */,
-				28E0CA5C19328B5E004DEA75 /* ZoneTableViewCell.h */,
-				28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */,
+				28199D57191EDF0100EE7C4E /* Classes */,
+				28E0CAA21937AC0F004DEA75 /* Authentication */,
+				28E0CAA11937AC06004DEA75 /* Athlete */,
+				28E0CAA01937ABEA004DEA75 /* Activities */,
+				28E0CAAB1937AD14004DEA75 /* Clubs */,
+				28E0CAAD1937AD4E004DEA75 /* Gear */,
+				28E0CAB21937ADDF004DEA75 /* Segments & Efforts */,
 				28199DB5191EE6B600EE7C4E /* IconHelper */,
 				28199D9F191EE02A00EE7C4E /* iPhone.storyboard */,
 				28199DA2191EE02A00EE7C4E /* Settings.bundle */,
-				28199D57191EDF0100EE7C4E /* Classes */,
 				28199D37191EDCAF00EE7C4E /* AppDelegate.h */,
 				28199D38191EDCAF00EE7C4E /* AppDelegate.m */,
 				28199D3A191EDCAF00EE7C4E /* Images.xcassets */,
@@ -464,6 +406,216 @@
 				28199D9E191EE02A00EE7C4E /* IconHelper.m */,
 			);
 			name = IconHelper;
+			sourceTree = "<group>";
+		};
+		28E0CAA01937ABEA004DEA75 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				28E0CAA51937AC52004DEA75 /* Calendar */,
+				28E0CAB11937AD7D004DEA75 /* Comments */,
+				28E0CAA41937AC47004DEA75 /* Details */,
+				28E0CAAE1937AD61004DEA75 /* Laps */,
+				28E0CAA91937ACDA004DEA75 /* List */,
+				28E0CAAA1937ACE7004DEA75 /* Map */,
+				28E0CAAF1937AD6A004DEA75 /* Photos */,
+				28E0CAA31937AC31004DEA75 /* Stream */,
+				28E0CAB01937AD70004DEA75 /* Zones */,
+				28199D94191EE02A00EE7C4E /* ActivityHelper.h */,
+				28199D95191EE02A00EE7C4E /* ActivityHelper.m */,
+			);
+			name = Activities;
+			sourceTree = "<group>";
+		};
+		28E0CAA11937AC06004DEA75 /* Athlete */ = {
+			isa = PBXGroup;
+			children = (
+				28E0CAA61937AC81004DEA75 /* Details */,
+				28E0CAA71937AC8E004DEA75 /* Friends */,
+				28E0CAAC1937AD28004DEA75 /* KOMS */,
+				28E0CAA81937ACAE004DEA75 /* List */,
+			);
+			name = Athlete;
+			sourceTree = "<group>";
+		};
+		28E0CAA21937AC0F004DEA75 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				28199D9A191EE02A00EE7C4E /* AuthViewController.h */,
+				28199D9B191EE02A00EE7C4E /* AuthViewController.m */,
+				28199DA0191EE02A00EE7C4E /* SecondTableViewController.h */,
+				28199DA1191EE02A00EE7C4E /* SecondTableViewController.m */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		28E0CAA31937AC31004DEA75 /* Stream */ = {
+			isa = PBXGroup;
+			children = (
+				28591AA81921BD6600298472 /* StreamBaseViewController.h */,
+				28591AA91921BD6600298472 /* StreamBaseViewController.m */,
+				28199DA5191EE02B00EE7C4E /* VelocityStreamViewController.h */,
+				28199DA6191EE02B00EE7C4E /* VelocityStreamViewController.m */,
+				28DA0FD119242E9400ECB732 /* GradeStreamViewController.h */,
+				28DA0FD219242E9400ECB732 /* GradeStreamViewController.m */,
+				28DA0FCE19242A7A00ECB732 /* HeartRateStreamViewController.h */,
+				28DA0FCF19242A7A00ECB732 /* HeartRateStreamViewController.m */,
+				28DA0FD4192434A700ECB732 /* CadenceStreamViewController.h */,
+				28DA0FD5192434A700ECB732 /* CadenceStreamViewController.m */,
+			);
+			name = Stream;
+			sourceTree = "<group>";
+		};
+		28E0CAA41937AC47004DEA75 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				28199D92191EE02A00EE7C4E /* ActivityDetailsViewController.h */,
+				28199D93191EE02A00EE7C4E /* ActivityDetailsViewController.m */,
+			);
+			name = Details;
+			sourceTree = "<group>";
+		};
+		28E0CAA51937AC52004DEA75 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				28DA0FE219252DCB00ECB732 /* HeaderPickerView.h */,
+				28DA0FE319252DCB00ECB732 /* HeaderPickerView.m */,
+				28DA0FD71924EDCA00ECB732 /* ActivityCalendarViewController.h */,
+				28DA0FD81924EDCA00ECB732 /* ActivityCalendarViewController.m */,
+				28DA0FDF192509B100ECB732 /* ActivityCalendarCollectionViewCell.h */,
+				28DA0FE0192509B100ECB732 /* ActivityCalendarCollectionViewCell.m */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		28E0CAA61937AC81004DEA75 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				28199D98191EE02A00EE7C4E /* AthleteDetailsTableViewController.h */,
+				28199D99191EE02A00EE7C4E /* AthleteDetailsTableViewController.m */,
+			);
+			name = Details;
+			sourceTree = "<group>";
+		};
+		28E0CAA71937AC8E004DEA75 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				28AE8FFD1927203200C3627E /* FriendsAndFollowersTableViewController.h */,
+				28AE8FFE1927203200C3627E /* FriendsAndFollowersTableViewController.m */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+		28E0CAA81937ACAE004DEA75 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				28AE8FFA192719EF00C3627E /* AthleteListTableViewController.h */,
+				28AE8FFB192719EF00C3627E /* AthleteListTableViewController.m */,
+				28AE90001927CB0C00C3627E /* AthleteTableViewCell.h */,
+				28AE90011927CB0C00C3627E /* AthleteTableViewCell.m */,
+				28AE90031927D72F00C3627E /* AthleteHeadShotsCollectionViewController.h */,
+				28AE90041927D72F00C3627E /* AthleteHeadShotsCollectionViewController.m */,
+				28AE90061927D74900C3627E /* HeadShotCollectionViewCell.h */,
+				28AE90071927D74900C3627E /* HeadShotCollectionViewCell.m */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		28E0CAA91937ACDA004DEA75 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				28199D90191EE02A00EE7C4E /* ActivitiesTableViewController.h */,
+				28199D91191EE02A00EE7C4E /* ActivitiesTableViewController.m */,
+				28199D96191EE02A00EE7C4E /* ActivityTableViewCell.h */,
+				28199D97191EE02A00EE7C4E /* ActivityTableViewCell.m */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		28E0CAAA1937ACE7004DEA75 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				28199D8E191EE02A00EE7C4E /* ActivitiesMapViewController.h */,
+				28199D8F191EE02A00EE7C4E /* ActivitiesMapViewController.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		28E0CAAB1937AD14004DEA75 /* Clubs */ = {
+			isa = PBXGroup;
+			children = (
+				28AE9018192863DB00C3627E /* ClubsTableViewController.h */,
+				28AE9019192863DB00C3627E /* ClubsTableViewController.m */,
+				28AE901B19295EE200C3627E /* ClubDetailsTableViewController.h */,
+				28AE901C19295EE200C3627E /* ClubDetailsTableViewController.m */,
+			);
+			name = Clubs;
+			sourceTree = "<group>";
+		};
+		28E0CAAC1937AD28004DEA75 /* KOMS */ = {
+			isa = PBXGroup;
+			children = (
+				28AE903C192E35E300C3627E /* KOMsTableViewController.h */,
+				28AE903D192E35E300C3627E /* KOMsTableViewController.m */,
+			);
+			name = KOMS;
+			sourceTree = "<group>";
+		};
+		28E0CAAD1937AD4E004DEA75 /* Gear */ = {
+			isa = PBXGroup;
+			children = (
+				28AE900F1927EA6D00C3627E /* GearViewController.h */,
+				28AE90101927EA6D00C3627E /* GearViewController.m */,
+			);
+			name = Gear;
+			sourceTree = "<group>";
+		};
+		28E0CAAE1937AD61004DEA75 /* Laps */ = {
+			isa = PBXGroup;
+			children = (
+				28AE9023192B928F00C3627E /* LapTableViewController.h */,
+				28AE9024192B928F00C3627E /* LapTableViewController.m */,
+			);
+			name = Laps;
+			sourceTree = "<group>";
+		};
+		28E0CAAF1937AD6A004DEA75 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				2853437C193054FC004DAC95 /* ActivityPhotoTableViewController.h */,
+				2853437D193054FC004DAC95 /* ActivityPhotoTableViewController.m */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		28E0CAB01937AD70004DEA75 /* Zones */ = {
+			isa = PBXGroup;
+			children = (
+				2853437F1930552A004DAC95 /* ZonesTableViewController.h */,
+				285343801930552A004DAC95 /* ZonesTableViewController.m */,
+				28E0CA5C19328B5E004DEA75 /* ZoneTableViewCell.h */,
+				28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */,
+			);
+			name = Zones;
+			sourceTree = "<group>";
+		};
+		28E0CAB11937AD7D004DEA75 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				28E0CA9D1936D7B7004DEA75 /* ActivityCommentsTableViewController.h */,
+				28E0CA9E1936D7B7004DEA75 /* ActivityCommentsTableViewController.m */,
+			);
+			name = Comments;
+			sourceTree = "<group>";
+		};
+		28E0CAB21937ADDF004DEA75 /* Segments & Efforts */ = {
+			isa = PBXGroup;
+			children = (
+				28199DA3191EE02A00EE7C4E /* StarredSegmentsTableViewController.h */,
+				28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */,
+				28DAF05B191F1FB5001DC529 /* SegmentEffortsTableViewController.h */,
+				28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */,
+			);
+			name = "Segments & Efforts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

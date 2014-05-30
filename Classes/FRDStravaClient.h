@@ -8,7 +8,9 @@
 #import <Foundation/Foundation.h>
 #import "StravaAccessTokenResponse.h"
 
-
+/**
+ `FRDStravaClient`. 
+ */
 @interface FRDStravaClient : NSObject
 
 @property (nonatomic, strong) NSString *clientSecret;
