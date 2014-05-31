@@ -16,7 +16,10 @@
      you can use parseStravaAuthCallback:withSuccess:failure to parse the callback data, including the authorization
      code required to get an access token to complete the Oauth Flow.
  
+    ## OAuth Flow
+ 
     The typical initial authorization flow should look like this:
+ 
     * iOS app calls authorizeCallbackURL:stateInfo:
     * upon success your app is launched back by Safari. In your AppDelegate application:handleOpenURL:, call 
       parseStravaAuthCallback:withSuccess:failure to parse the callback URL.
@@ -29,6 +32,7 @@
  
  @param callbackUrl The URL that will be called from Safari upon successful Authentication with the strava OAuth authorization web page. Typically you want your app to be launched back, so it should consist of a URL with a scheme you registered e.g. myAppRegisteredURLScheme://mydomain.com.
  @param stateInfo (optional) a NSString that will be passed back in the callback URL, as a state attribute (...&state=blah).
+
  */
 -(void) authorizeWithCallbackURL:(NSURL *)callbackUrl stateInfo:(NSString *)stateInfo;
 
@@ -40,6 +44,8 @@
  @params url the callback nsurl
  @params success Called with the authorization when OAuth was successful.
  @params failure Called when OAuth failed
+ 
+ @see -authorizeWithCallbackURL:stateInfo:
  */
 -(void) parseStravaAuthCallback:(NSURL *)url
                     withSuccess:(void (^)(NSString *stateInfo, NSString *code))success
@@ -51,6 +57,8 @@
  @params code the authorization code we just got in Step #2
  @params success Called when OAuth token exchange was successful. StravaAccessTokenResponse object contains the response token.
  @params failure Called when the OAuth token exchanged failed
+ 
+ @see -authorizeWithCallbackURL:stateInfo:
  */
 -(void) exchangeTokenForCode:(NSString *)code
                      success:(void (^)(StravaAccessTokenResponse *response))success
