@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   
   s.name         = "FRDStravaClient"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "A iOS Strava API client."
   s.description  = <<-DESC
                    A read-only and upload client for the Strava API written in obj-C,
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author    = "Sebastien Windal"
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/sebastienwindal/FRDStravaClient.git", :tag => "0.0.4" }
+  s.source       = { :git => "https://github.com/sebastienwindal/FRDStravaClient.git", :tag => "0.0.5" }
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.requires_arc = true
   s.dependency "AFNetworking", "~> 2.0"
