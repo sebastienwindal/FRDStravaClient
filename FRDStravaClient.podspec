@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   
   s.name         = "FRDStravaClient"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A iOS Strava API client."
   s.description  = <<-DESC
                    A read-only and upload client for the Strava API written in obj-C,
