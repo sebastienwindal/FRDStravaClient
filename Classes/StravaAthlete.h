@@ -8,12 +8,16 @@
 #import <Mantle/Mantle.h>
 #import "StravaCommon.h"
 
-
 typedef NS_ENUM(NSInteger,kAthleteGender) {
     kAthleteGenderFemale=0,
     kAthleteGenderMale=1
 } ;
 
+///
+/// Main athlete/user object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/athlete/
+///
 @interface StravaAthlete : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) NSInteger id;

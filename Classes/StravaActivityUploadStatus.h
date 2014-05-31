@@ -7,6 +7,11 @@
 
 #import <Mantle/Mantle.h>
 
+///
+/// Activity Upload Status object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/uploads/#post-file
+///
 @interface StravaActivityUploadStatus : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) NSInteger id;

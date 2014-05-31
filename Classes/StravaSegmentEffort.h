@@ -9,6 +9,11 @@
 #import "MTLModel.h"
 #import "StravaSegment.h"
 
+///
+/// Segment Effort object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/efforts/
+///
 @interface StravaSegmentEffort : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) NSInteger id;

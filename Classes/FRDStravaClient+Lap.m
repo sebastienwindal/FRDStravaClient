@@ -8,7 +8,7 @@
 #import <Mantle/Mantle.h>
 #import "AFNetworking.h"
 #import "FRDStravaClient+Lap.h"
-#import "StravaLap.h"
+#import "StravaActivityLap.h"
 
 @interface LapsResponse: MTLModel<MTLJSONSerializing>
 
@@ -26,7 +26,7 @@
 }
 + (NSValueTransformer *)lapsJSONTransformer
 {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaLap class]];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivityLap class]];
 }
 
 @end

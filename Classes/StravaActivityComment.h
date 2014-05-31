@@ -9,7 +9,11 @@
 #import <Mantle/Mantle.h>
 #import "StravaAthlete.h"
 
-
+///
+/// Activity Comment object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/comments/
+///
 @interface StravaActivityComment : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) NSInteger id;

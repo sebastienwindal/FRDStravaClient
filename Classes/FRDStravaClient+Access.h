@@ -11,6 +11,8 @@
 
 The Access category provides methods to authorize your app with the Strava Rest service.
  
+Strava API maching docs: http://strava.github.io/api/v3/oauth/ 
+
 ## OAuth Flow
 
 The typical authorization flow should look like this:

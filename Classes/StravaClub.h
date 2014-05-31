@@ -9,7 +9,9 @@
 #import <Mantle/Mantle.h>
 #import "StravaCommon.h"
 
-
+/// Possible club types.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/clubs/
 typedef NS_ENUM(NSInteger, kStravaClubTypes) {
     kStravaClubTypesUnknown = 0,
     kStravaClubTypeCasualClub,
@@ -19,6 +21,9 @@ typedef NS_ENUM(NSInteger, kStravaClubTypes) {
     kStravaClubTypesOther
 };
 
+/// Possible sport type for a club.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/clubs/
 typedef NS_ENUM(NSInteger, kStravaSportTypes) {
     kStravaSportTypesUnknown = 0,
     kStravaSportTypesCycling,
@@ -28,6 +33,11 @@ typedef NS_ENUM(NSInteger, kStravaSportTypes) {
 };
 
 
+///
+/// Club object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/clubs/
+///
 @interface StravaClub : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) NSInteger id;

@@ -11,7 +11,11 @@
 #import "StravaActivity.h"
 #import "StravaCommon.h"
 
-
+///
+/// Segment object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/segments/
+///
 @interface StravaSegment : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) NSInteger id;

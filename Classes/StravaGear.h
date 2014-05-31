@@ -9,14 +9,23 @@
 #import <Mantle/Mantle.h>
 #import "StravaCommon.h"
 
+///
+/// Possible bike types for a gear object.
+///
 typedef NS_ENUM(NSInteger,kGearFrameType) {
     kGearFrameTypeUnknown=0,
     kGearFrameTypeMountainBike,
     kGearFrameTypeCross,
     kGearFrameTypeRoad,
     kGearFrameTypeTimeTrial
-} ;
+};
 
+
+///
+/// Gear object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/gear/
+///
 @interface StravaGear : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly)  NSString *id;

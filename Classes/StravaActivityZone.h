@@ -15,7 +15,14 @@ typedef NS_ENUM(NSInteger, kActivityZoneType) {
     kActivityZoneTypePower
 };
 
-
+///
+/// Zone distribution bucket (heart rate zone or power distribution
+/// repartition slice e.g. 100-120Watts, 120-140watts, etc...).
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/activities/#zones
+///
+/// @see StravaActivityZone
+///
 @interface StravaActivityZoneDistributionBucket : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) CGFloat min;
@@ -24,6 +31,13 @@ typedef NS_ENUM(NSInteger, kActivityZoneType) {
 
 @end
 
+///
+/// Activity Zone object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/activities/#zones
+///
+/// @see StravaActivityZoneDistributionBucket
+///
 @interface StravaActivityZone : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) kActivityZoneType type;
@@ -34,6 +48,6 @@ typedef NS_ENUM(NSInteger, kActivityZoneType) {
 @property (nonatomic, readonly) CGFloat max;
 @property (nonatomic, readonly) CGFloat bikeWeight;
 @property (nonatomic, readonly) CGFloat athleteWeight;
-@property (nonatomic, readonly, copy) NSArray *distributionBuckets; // array of StravaActivityZoneDistributionBucket
+@property (nonatomic, readonly, copy) NSArray *distributionBuckets; /// NSArray of StravaActivityZoneDistributionBucket objects
 
 @end

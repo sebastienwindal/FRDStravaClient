@@ -10,8 +10,12 @@
 #import "StravaCommon.h"
 #import <CoreLocation/CoreLocation.h>
 
+///
+/// Activity Photo object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/photos/
+///
 @interface StravaActivityPhoto : MTLModel<MTLJSONSerializing>
-
 
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly) NSInteger activityId;

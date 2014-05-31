@@ -1,5 +1,5 @@
 //
-//  StravaLap.h
+//  StravaActivityLap.h
 //  FRDStravaClient
 //
 //  Created by Sebastien Windal on 4/24/14.
@@ -9,7 +9,12 @@
 #import "StravaCommon.h"
 
 
-@interface StravaLap : MTLModel<MTLJSONSerializing>
+///
+/// Activity Lap object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/activities/#laps
+///
+@interface StravaActivityLap : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, copy, readonly) NSString *name;

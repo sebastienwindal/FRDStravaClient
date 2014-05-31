@@ -1,14 +1,14 @@
 //
-//  StravaLap.m
+//  StravaActivityLap.m
 //  FRDStravaClient
 //
 //  Created by Sebastien Windal on 4/24/14.
 //
 
-#import "StravaLap.h"
+#import "StravaActivityLap.h"
 #import "StravaCommon.h"
 
-@implementation StravaLap
+@implementation StravaActivityLap
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {

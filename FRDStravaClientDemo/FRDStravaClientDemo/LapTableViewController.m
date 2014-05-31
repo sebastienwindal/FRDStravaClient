@@ -7,7 +7,7 @@
 //
 
 #import "LapTableViewController.h"
-#import "StravaLap.h"
+#import "StravaActivityLap.h"
 #import "FRDStravaClient+Lap.h"
 
 @interface LapTableViewController ()
@@ -58,7 +58,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LapCell" forIndexPath:indexPath];
     
-    StravaLap *lap = self.laps[indexPath.row];
+    StravaActivityLap *lap = self.laps[indexPath.row];
     
     cell.textLabel.text = lap.name;
     

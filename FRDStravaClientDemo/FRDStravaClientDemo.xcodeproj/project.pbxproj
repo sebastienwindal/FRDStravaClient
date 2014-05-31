@@ -32,7 +32,7 @@
 		28199D83191EDF0100EE7C4E /* StravaActivityUploadStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199D6B191EDF0100EE7C4E /* StravaActivityUploadStatus.m */; };
 		28199D84191EDF0100EE7C4E /* StravaAthlete.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199D6D191EDF0100EE7C4E /* StravaAthlete.m */; };
 		28199D85191EDF0100EE7C4E /* StravaCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199D6F191EDF0100EE7C4E /* StravaCommon.m */; };
-		28199D86191EDF0100EE7C4E /* StravaLap.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199D71191EDF0100EE7C4E /* StravaLap.m */; };
+		28199D86191EDF0100EE7C4E /* StravaActivityLap.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199D71191EDF0100EE7C4E /* StravaActivityLap.m */; };
 		28199D87191EDF0100EE7C4E /* StravaMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199D73191EDF0100EE7C4E /* StravaMap.m */; };
 		28199D88191EDF0100EE7C4E /* StravaSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199D75191EDF0100EE7C4E /* StravaSegment.m */; };
 		28199D89191EDF0100EE7C4E /* StravaSegmentEffort.m in Sources */ = {isa = PBXBuildFile; fileRef = 28199D77191EDF0100EE7C4E /* StravaSegmentEffort.m */; };
@@ -134,8 +134,8 @@
 		28199D6D191EDF0100EE7C4E /* StravaAthlete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaAthlete.m; sourceTree = "<group>"; };
 		28199D6E191EDF0100EE7C4E /* StravaCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaCommon.h; sourceTree = "<group>"; };
 		28199D6F191EDF0100EE7C4E /* StravaCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaCommon.m; sourceTree = "<group>"; };
-		28199D70191EDF0100EE7C4E /* StravaLap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaLap.h; sourceTree = "<group>"; };
-		28199D71191EDF0100EE7C4E /* StravaLap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaLap.m; sourceTree = "<group>"; };
+		28199D70191EDF0100EE7C4E /* StravaActivityLap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaActivityLap.h; sourceTree = "<group>"; };
+		28199D71191EDF0100EE7C4E /* StravaActivityLap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaActivityLap.m; sourceTree = "<group>"; };
 		28199D72191EDF0100EE7C4E /* StravaMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaMap.h; sourceTree = "<group>"; };
 		28199D73191EDF0100EE7C4E /* StravaMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaMap.m; sourceTree = "<group>"; };
 		28199D74191EDF0100EE7C4E /* StravaSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaSegment.h; sourceTree = "<group>"; };
@@ -369,6 +369,8 @@
 				28199D69191EDF0100EE7C4E /* StravaActivity.m */,
 				28E0CA971936D3BE004DEA75 /* StravaActivityComment.h */,
 				28E0CA981936D3BE004DEA75 /* StravaActivityComment.m */,
+				28199D70191EDF0100EE7C4E /* StravaActivityLap.h */,
+				28199D71191EDF0100EE7C4E /* StravaActivityLap.m */,
 				28534382193055E0004DAC95 /* StravaActivityPhoto.h */,
 				28534383193055E0004DAC95 /* StravaActivityPhoto.m */,
 				28199D6A191EDF0100EE7C4E /* StravaActivityUploadStatus.h */,
@@ -383,8 +385,6 @@
 				28199D6F191EDF0100EE7C4E /* StravaCommon.m */,
 				28AE90091927E39E00C3627E /* StravaGear.h */,
 				28AE900A1927E39E00C3627E /* StravaGear.m */,
-				28199D70191EDF0100EE7C4E /* StravaLap.h */,
-				28199D71191EDF0100EE7C4E /* StravaLap.m */,
 				28199D72191EDF0100EE7C4E /* StravaMap.h */,
 				28199D73191EDF0100EE7C4E /* StravaMap.m */,
 				28199D74191EDF0100EE7C4E /* StravaSegment.h */,
@@ -804,7 +804,7 @@
 				28AE8FFC192719EF00C3627E /* AthleteListTableViewController.m in Sources */,
 				28199D81191EDF0100EE7C4E /* StravaAccessTokenResponse.m in Sources */,
 				28AE900E1927E68500C3627E /* FRDStravaClient+Gear.m in Sources */,
-				28199D86191EDF0100EE7C4E /* StravaLap.m in Sources */,
+				28199D86191EDF0100EE7C4E /* StravaActivityLap.m in Sources */,
 				28AE90111927EA6D00C3627E /* GearViewController.m in Sources */,
 				28199D88191EDF0100EE7C4E /* StravaSegment.m in Sources */,
 				28199DB1191EE02B00EE7C4E /* SecondTableViewController.m in Sources */,

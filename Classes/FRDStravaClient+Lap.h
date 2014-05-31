@@ -6,7 +6,7 @@
 //
 
 #import "FRDStravaClient.h"
-#import "StravaLap.h"
+#import "StravaActivityLap.h"
 
 @interface FRDStravaClient (Lap)
 

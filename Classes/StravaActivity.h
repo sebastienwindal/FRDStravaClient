@@ -11,7 +11,11 @@
 #import "StravaMap.h"
 #import "StravaCommon.h"
 
-
+///
+/// Main activity object.
+///
+/// Strava API maching docs: http://strava.github.io/api/v3/activities/
+///
 @interface StravaActivity : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) NSInteger id;
@@ -19,7 +23,7 @@
 @property (nonatomic, readonly) kResourceState resourceState;
 @property (nonatomic, copy, readonly) StravaAthlete *athlete;
 @property (nonatomic, copy, readonly) StravaMap *map;
-@property (nonatomic, copy, readonly) NSArray *segmentEfforts;
+@property (nonatomic, copy, readonly) NSArray *segmentEfforts; /// NSArray of StravaSegmentEffort
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *activityDescription;
 @property (nonatomic, readonly) float distance;
