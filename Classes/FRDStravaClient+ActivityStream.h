@@ -17,11 +17,11 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/streams/#activity
  
- @params activityId the ID of the activity
- @params resolution Stream data resolution
- @params dataTypes an NSArray of kStravaStreamType NSNumber objects e.g. @[ @(kStravaStreamTypeHeartrate), @(kStravaStreamTypeCadence) ]
- @params success Success callback, streams is a NSArray of `StravaStream` objects, one element per dataTypes requested. If a requested dataType is not available for that activity, it will be omitted.
- @params failure Failure callback
+ @param activityId the ID of the activity
+ @param resolution Stream data resolution
+ @param dataTypes an NSArray of kStravaStreamType NSNumber objects e.g. @[ @(kStravaStreamTypeHeartrate), @(kStravaStreamTypeCadence) ]
+ @param success Success callback, streams is a NSArray of `StravaStream` objects, one element per dataTypes requested. If a requested dataType is not available for that activity, it will be omitted.
+ @param failure Failure callback
  
  */
 -(void) fetchActivityStreamForActivityId:(NSInteger)activityId

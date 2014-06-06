@@ -15,9 +15,9 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/activities/#laps
  
- @params activityId activity identifier
- @params success Success callback, laps is a NSArray of StravaActivityLap objects.
- @params failure Failure callback
+ @param activityId activity identifier
+ @param success Success callback, laps is a NSArray of StravaActivityLap objects.
+ @param failure Failure callback
  */
 -(void) fetchLapsForActivity:(NSInteger)activityId
                      success:(void (^)(NSArray *laps))success

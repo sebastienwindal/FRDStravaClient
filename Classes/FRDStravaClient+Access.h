@@ -41,9 +41,9 @@ After the user successfuly authorized your app, Safari will open your app by lau
  This method will parse the callback URL your app was launched with from Safari OAuth authentication page,
  and extract the authentication code you must use in step #3: exchangeTokenForCode:success:failure:.
  
- @params url the callback nsurl
- @params success Called with the authorization when OAuth was successful.
- @params failure Called when OAuth failed
+ @param url the callback nsurl
+ @param success Called with the authorization when OAuth was successful.
+ @param failure Called when OAuth failed
  
  @see -authorizeWithCallbackURL:stateInfo:
  */
@@ -54,9 +54,9 @@ After the user successfuly authorized your app, Safari will open your app by lau
 /**
  To be called in the final step of the OAuth flow.
  
- @params code the authorization code we just got in Step #2
- @params success Called when OAuth token exchange was successful. StravaAccessTokenResponse object contains the response token.
- @params failure Called when the OAuth token exchanged failed
+ @param code the authorization code we just got in Step #2
+ @param success Called when OAuth token exchange was successful. StravaAccessTokenResponse object contains the response token.
+ @param failure Called when the OAuth token exchanged failed
  
  @see -authorizeWithCallbackURL:stateInfo:
  */

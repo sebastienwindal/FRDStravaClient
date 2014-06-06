@@ -20,8 +20,8 @@
 
  Strava API related documentation: http://strava.github.io/api/v3/activities/#get-activities
  
- @params success Success callback, activities is a NSArray of `StravaActivity` objects.
- @params failure Failure callback
+ @param success Success callback, activities is a NSArray of `StravaActivity` objects.
+ @param failure Failure callback
  
  */
 
@@ -34,10 +34,10 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/activities/#get-activities
  
- @params pageSize how many activities per page
- @params pageIndex index of the page to fetch (first page is page 1)
- @params success Success callback, activities is a NSArray of `StravaActivity` objects, sorted newest first.
- @params failure Failure callback
+ @param pageSize how many activities per page
+ @param pageIndex index of the page to fetch (first page is page 1)
+ @param success Success callback, activities is a NSArray of `StravaActivity` objects, sorted newest first.
+ @param failure Failure callback
  
  */
 -(void) fetchActivitiesForCurrentAthleteWithPageSize:(NSInteger)pageSize
@@ -50,9 +50,9 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/activities/#get-activities
  
- @params date fetch activities older than this date
- @params success Success callback, activities is a NSArray of `StravaActivity` objects, sorted oldest first.
- @params failure Failure callback
+ @param date fetch activities older than this date
+ @param success Success callback, activities is a NSArray of `StravaActivity` objects, sorted oldest first.
+ @param failure Failure callback
  
  */
 -(void) fetchActivitiesForCurrentAthleteAfterDate:(NSDate *)date
@@ -65,9 +65,9 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/activities/#get-activities
  
- @params date fetch activities more recent than this date
- @params success Success callback, activities is a NSArray of `StravaActivity` objects, sorted newest first.
- @params failure Failure callback
+ @param date fetch activities more recent than this date
+ @param success Success callback, activities is a NSArray of `StravaActivity` objects, sorted newest first.
+ @param failure Failure callback
  
  */
 -(void) fetchActivitiesForCurrentAthleteBeforeDate:(NSDate *)date
@@ -81,8 +81,8 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/activities/#get-feed
  
- @params success Success callback, activities is a NSArray of `StravaActivity` objects, sorted newest first.
- @params failure Failure callback
+ @param success Success callback, activities is a NSArray of `StravaActivity` objects, sorted newest first.
+ @param failure Failure callback
  
  */
 -(void) fetchFriendActivitiesWithSuccess:(void (^)(NSArray *activities))success
@@ -94,10 +94,10 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/activities/#get-activities
  
- @params pageSize how many activities per page
- @params pageIndex index of the page to fetch (first page is page 1)
- @params success Success callback, activities is a NSArray of `StravaActivity` objects, sorted newest first.
- @params failure Failure callback
+ @param pageSize how many activities per page
+ @param pageIndex index of the page to fetch (first page is page 1)
+ @param success Success callback, activities is a NSArray of `StravaActivity` objects, sorted newest first.
+ @param failure Failure callback
  
  */
 -(void) fetchFriendActivitiesWithPageSize:(NSInteger)pageSize
@@ -112,10 +112,10 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/activities/#get-details
  
- @params activityId the activity ID to fetch
- @params includeAllEfforts Whether the `StravaActivity` object should include all segment efforts (in segmentEfforts property) or only important ones.
- @params success Success callback
- @params failure Failure callback
+ @param activityId the activity ID to fetch
+ @param includeAllEfforts Whether the `StravaActivity` object should include all segment efforts (in segmentEfforts property) or only important ones.
+ @param success Success callback
+ @param failure Failure callback
  
  */
 -(void) fetchActivityWithId:(NSInteger)activityId
@@ -132,9 +132,9 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/photos/#list
  
- @params activityId the activity ID
- @params success Success callback, photos is an array of `StravaActivityPhoto` objects.
- @params failure Failure callback
+ @param activityId the activity ID
+ @param success Success callback, photos is an array of `StravaActivityPhoto` objects.
+ @param failure Failure callback
  
  */
 -(void) fetchPhotosForActivity:(NSInteger)activityId
@@ -147,9 +147,9 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/activities/#zones
  
- @params activityId the activity ID
- @params success Success callback, zones is an array of StravaActivityZone objects.
- @params failure Failure callback
+ @param activityId the activity ID
+ @param success Success callback, zones is an array of StravaActivityZone objects.
+ @param failure Failure callback
  
  */
 -(void) fetchZonesForActivity:(NSInteger)activityId
@@ -161,12 +161,12 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/comments/#list
  
- @params activityId the activity ID
- @params markdown wether the comment text should be markdown formatted or not
- @params pageSize number of comments per page
- @params pageIndex index of the page to fetch (first page is page 1)
- @params success Success callback, comments is an array of `StravaActivityComment` objects.
- @params failure Failure callback
+ @param activityId the activity ID
+ @param markdown wether the comment text should be markdown formatted or not
+ @param pageSize number of comments per page
+ @param pageIndex index of the page to fetch (first page is page 1)
+ @param success Success callback, comments is an array of `StravaActivityComment` objects.
+ @param failure Failure callback
  
  */
 -(void) fetchCommentsForActivity:(NSInteger)activityId
@@ -181,11 +181,11 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/kudos/#list
  
- @params activityId the activity ID
- @params pageSize number of athletes/kudoers per page
- @params pageIndex index of the page to fetch (first page is page 1)
- @params success Success callback, athletes is an array of `StravaAthlete` objects.
- @params failure Failure callback
+ @param activityId the activity ID
+ @param pageSize number of athletes/kudoers per page
+ @param pageIndex index of the page to fetch (first page is page 1)
+ @param success Success callback, athletes is an array of `StravaAthlete` objects.
+ @param failure Failure callback
  
  */
 -(void) fetchKudoersForActivity:(NSInteger)activityId

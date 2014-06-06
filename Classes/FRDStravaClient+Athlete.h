@@ -15,9 +15,9 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/athlete/#get-another-details
  
- @params athleteId the ID of the athlete
- @params success Success callback
- @params failure Failure callback
+ @param athleteId the ID of the athlete
+ @param success Success callback
+ @param failure Failure callback
  */
 -(void) fetchAthleteWithId:(NSInteger)athleteId
                    success:(void (^)(StravaAthlete *athlete))success
@@ -28,8 +28,8 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/athlete/#get-details
  
- @params success Success callback
- @params failure Failure callback
+ @param success Success callback
+ @param failure Failure callback
  */
 -(void) fetchCurrentAthleteWithSuccess:(void (^)(StravaAthlete *athlete))success
                               failure:(void (^)(NSError *error))failure;
@@ -39,10 +39,10 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/follow/#followers
  
- @params pageSize number of athletes per page
- @params pageIndex index of page to fetch, first page index is 1.
- @params success Success callback, athletes is a NSArray of StravaAthlete objects.
- @params failure Failure callback
+ @param pageSize number of athletes per page
+ @param pageIndex index of page to fetch, first page index is 1.
+ @param success Success callback, athletes is a NSArray of StravaAthlete objects.
+ @param failure Failure callback
  */
 -(void) fetchCurrentAthleteFollowersWithPageSize:(NSInteger)pageSize
                                        pageIndex:(NSInteger)pageIndex
@@ -54,10 +54,10 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/follow/#friends
  
- @params pageSize number of athletes per page
- @params pageIndex index of page to fetch, first page index is 1.
- @params success Success callback, athletes is a NSArray of StravaAthlete objects.
- @params failure Failure callback
+ @param pageSize number of athletes per page
+ @param pageIndex index of page to fetch, first page index is 1.
+ @param success Success callback, athletes is a NSArray of StravaAthlete objects.
+ @param failure Failure callback
  */
 -(void) fetchCurrentAthleteFriendsWithPageSize:(NSInteger)pageSize
                                      pageIndex:(NSInteger)pageIndex
@@ -69,11 +69,11 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/follow/#followers
  
- @params athleteId athlete Id
- @params pageSize number of athletes per page
- @params pageIndex index of page to fetch, first page index is 1.
- @params success Success callback, athletes is a NSArray of StravaAthlete objects.
- @params failure Failure callback
+ @param athleteId athlete Id
+ @param pageSize number of athletes per page
+ @param pageIndex index of page to fetch, first page index is 1.
+ @param success Success callback, athletes is a NSArray of StravaAthlete objects.
+ @param failure Failure callback
  */
 -(void) fetchFollowersForAthlete:(NSInteger)athleteId
                         pageSize:(NSInteger)pageSize
@@ -86,11 +86,11 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/follow/#friends
  
- @params athleteId athlete Id
- @params pageSize number of athletes per page
- @params pageIndex index of page to fetch, first page index is 1.
- @params success Success callback, athletes is a NSArray of StravaAthlete objects.
- @params failure Failure callback
+ @param athleteId athlete Id
+ @param pageSize number of athletes per page
+ @param pageIndex index of page to fetch, first page index is 1.
+ @param success Success callback, athletes is a NSArray of StravaAthlete objects.
+ @param failure Failure callback
  */
 -(void) fetchFriendsForAthlete:(NSInteger)athleteId
                       pageSize:(NSInteger)pageSize
@@ -103,11 +103,11 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/follow/#friends
  
- @params athleteId athlete Id
- @params pageSize number of athletes per page
- @params pageIndex index of page to fetch, first page index is 1.
- @params success Success callback, athletes is a NSArray of StravaAthlete objects.
- @params failure Failure callback
+ @param athleteId athlete Id
+ @param pageSize number of athletes per page
+ @param pageIndex index of page to fetch, first page index is 1.
+ @param success Success callback, athletes is a NSArray of StravaAthlete objects.
+ @param failure Failure callback
  */
 -(void) fetchCommonFollowersOfCurrentAthleteAndAthlete:(NSInteger)athleteId
                                               pageSize:(NSInteger)pageSize

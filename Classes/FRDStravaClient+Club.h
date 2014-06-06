@@ -17,8 +17,8 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/clubs/#get-athletes
  
- @params success Success callback, athletes is a NSArray of StravaClub objects.
- @params failure Failure callback
+ @param success Success callback, athletes is a NSArray of StravaClub objects.
+ @param failure Failure callback
  */
 -(void) fetchClubsForCurrentAthleteWithSuccess:(void (^)(NSArray *clubs))success
                                        failure:(void (^)(NSError *error))failure;
@@ -28,9 +28,9 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/clubs/#get-details
  
- @params clubId club identifier
- @params success Success callback, athletes is a NSArray of StravaClub objects.
- @params failure Failure callback
+ @param clubId club identifier
+ @param success Success callback, athletes is a NSArray of StravaClub objects.
+ @param failure Failure callback
  */
 -(void) fetchClubWithID:(NSInteger)clubId
                  success:(void (^)(StravaClub *club))success
@@ -41,11 +41,11 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/clubs/#get-members
  
- @params clubId club Id
- @params pageSize number of athletes per page
- @params pageIndex index of page to fetch, first page index is 1.
- @params success Success callback, users is a NSArray of StravaAthlete objects.
- @params failure Failure callback
+ @param clubId club Id
+ @param pageSize number of athletes per page
+ @param pageIndex index of page to fetch, first page index is 1.
+ @param success Success callback, users is a NSArray of StravaAthlete objects.
+ @param failure Failure callback
  */
 -(void) fetchMembersOfClub:(NSInteger)clubId
                   pageSize:(NSInteger)pageSize
@@ -58,11 +58,11 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/clubs/#get-activities
  
- @params clubId club Id
- @params pageSize number of activities per page
- @params pageIndex index of page to fetch, first page index is 1.
- @params success Success callback, users is a NSArray of StravaActivity objects.
- @params failure Failure callback
+ @param clubId club Id
+ @param pageSize number of activities per page
+ @param pageIndex index of page to fetch, first page index is 1.
+ @param success Success callback, users is a NSArray of StravaActivity objects.
+ @param failure Failure callback
  */
 -(void) fetchActivitiesOfClub:(NSInteger)clubId
                      pageSize:(NSInteger)pageSize

@@ -30,7 +30,7 @@
 ///
 /// Matching Strava Api documentation: http://strava.github.io/api/#polylines
 ///
-/// @params encodedPoints A NSString, as returned by the Rest API, containing a list of GPS coordinates encoded Google polyline algorithm format
+/// @param encodedPoints A NSString, as returned by the Rest API, containing a list of GPS coordinates encoded Google polyline algorithm format
 ///
 /// @return a NSArray of NSValue wrapped CLLocationCoordinate2D structs.
 ///

@@ -17,9 +17,9 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/segments/#retrieve
  
- @params segmentId segment identifier
- @params success Success callback
- @params failure Failure callback
+ @param segmentId segment identifier
+ @param success Success callback
+ @param failure Failure callback
  */
 -(void) fetchSegmentWithId:(NSInteger)segmentId
                    success:(void (^)(StravaSegment *segment))success
@@ -30,8 +30,8 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/segments/#starred
  
- @params success Success callback, segments is a NSArray of StravaSegment objects.
- @params failure Failure callback
+ @param success Success callback, segments is a NSArray of StravaSegment objects.
+ @param failure Failure callback
  */
 -(void) fetchStarredSegmentsForCurrentAthleteWithSuccess:(void (^)(NSArray *segments))success
                                                  failure:(void (^)(NSError *error))failure;
@@ -41,9 +41,9 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/efforts/#retrieve
  
- @params segmentEffortId segment effort Id
- @params success Success callback
- @params failure Failure callback
+ @param segmentEffortId segment effort Id
+ @param success Success callback
+ @param failure Failure callback
  */
 -(void) fetchSegmentEffortWithId:(NSInteger)segmentEffortId
                          success:(void (^)(StravaSegmentEffort *segmentEffort))success
@@ -57,11 +57,11 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/segments/#efforts
  
- @params segmentId segment ID
- @params pageSize number of efforts per page
- @params pageIndex page index, first page index is 1
- @params success Success callback, segments is a NSArray of StravaSegmentEffort objects.
- @params failure Failure callback
+ @param segmentId segment ID
+ @param pageSize number of efforts per page
+ @param pageIndex page index, first page index is 1
+ @param success Success callback, segments is a NSArray of StravaSegmentEffort objects.
+ @param failure Failure callback
  */
 -(void) fetchSegmentEffortsForSegment:(NSInteger)segmentId
                              pageSize:(NSInteger)pageSize
@@ -73,12 +73,12 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/segments/#efforts
  
- @params segmentId segment ID
- @params athleteId athlete ID
- @params pageSize number of efforts per page
- @params pageIndex page index, first page index is 1
- @params success Success callback, segments is a NSArray of StravaSegmentEffort objects.
- @params failure Failure callback
+ @param segmentId segment ID
+ @param athleteId athlete ID
+ @param pageSize number of efforts per page
+ @param pageIndex page index, first page index is 1
+ @param success Success callback, segments is a NSArray of StravaSegmentEffort objects.
+ @param failure Failure callback
  */
 -(void) fetchSegmentEffortsForSegment:(NSInteger)segmentId
                               athlete:(NSInteger)athleteId
@@ -92,11 +92,11 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/athlete/#koms
  
- @params athleteId athlete ID
- @params pageSize number of efforts per page
- @params pageIndex page index, first page index is 1
- @params success Success callback, efforts is a NSArray of StravaSegmentEffort objects.
- @params failure Failure callback
+ @param athleteId athlete ID
+ @param pageSize number of efforts per page
+ @param pageIndex page index, first page index is 1
+ @param success Success callback, efforts is a NSArray of StravaSegmentEffort objects.
+ @param failure Failure callback
  */
 -(void) fetchKOMsForAthlete:(NSInteger)athleteId
                    pageSize:(NSInteger)pageSize

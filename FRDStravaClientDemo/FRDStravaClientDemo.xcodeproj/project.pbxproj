@@ -110,9 +110,9 @@
 		28199D49191EDCAF00EE7C4E /* FRDStravaClientDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FRDStravaClientDemoTests-Info.plist"; sourceTree = "<group>"; };
 		28199D4B191EDCAF00EE7C4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		28199D4D191EDCAF00EE7C4E /* FRDStravaClientDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRDStravaClientDemoTests.m; sourceTree = "<group>"; };
-		28199D58191EDF0100EE7C4E /* FRDStravaClient+Access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FRDStravaClient+Access.h"; sourceTree = "<group>"; };
+		28199D58191EDF0100EE7C4E /* FRDStravaClient+Access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "FRDStravaClient+Access.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		28199D59191EDF0100EE7C4E /* FRDStravaClient+Access.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FRDStravaClient+Access.m"; sourceTree = "<group>"; };
-		28199D5A191EDF0100EE7C4E /* FRDStravaClient+Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FRDStravaClient+Activity.h"; sourceTree = "<group>"; };
+		28199D5A191EDF0100EE7C4E /* FRDStravaClient+Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "FRDStravaClient+Activity.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		28199D5B191EDF0100EE7C4E /* FRDStravaClient+Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FRDStravaClient+Activity.m"; sourceTree = "<group>"; };
 		28199D5C191EDF0100EE7C4E /* FRDStravaClient+Athlete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FRDStravaClient+Athlete.h"; sourceTree = "<group>"; };
 		28199D5D191EDF0100EE7C4E /* FRDStravaClient+Athlete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FRDStravaClient+Athlete.m"; sourceTree = "<group>"; };

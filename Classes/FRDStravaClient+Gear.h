@@ -16,9 +16,9 @@
  
  Strava API related documentation: http://strava.github.io/api/v3/gear/#show
  
- @params gearId gear identifier
- @params success Success callback
- @params failure Failure callback
+ @param gearId gear identifier
+ @param success Success callback
+ @param failure Failure callback
  */
 -(void) fetchGearWithId:(NSString *)gearId
                 success:(void (^)(StravaGear *gear))success
