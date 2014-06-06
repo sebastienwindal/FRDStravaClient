@@ -11,6 +11,15 @@
 
 @interface FRDStravaClient (Gear)
 
+/**
+ Fetch Gear details by Id. Only works if the gear is owned by curent logged-in user.
+ 
+ Strava API related documentation: http://strava.github.io/api/v3/gear/#show
+ 
+ @params gearId gear identifier
+ @params success Success callback
+ @params failure Failure callback
+ */
 -(void) fetchGearWithId:(NSString *)gearId
                 success:(void (^)(StravaGear *gear))success
                 failure:(void (^)(NSError *error))failure;

@@ -64,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="353" y="48"/>
         </scene>
-        <!--Clubs Table View Controller-->
+        <!--Clubs Table View Controller - Clubs-->
         <scene sceneID="yus-Md-5rH">
             <objects>
                 <tableViewController id="NUe-gQ-eh4" customClass="ClubsTableViewController" sceneMemberID="viewController">
@@ -90,13 +90,13 @@
                             <outlet property="delegate" destination="NUe-gQ-eh4" id="h88-MO-DE2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="BLu-sk-QcI"/>
+                    <navigationItem key="navigationItem" title="Clubs" id="BLu-sk-QcI"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9o-4f-2Tb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="791" y="1362"/>
         </scene>
-        <!--Club Details Table View Controller-->
+        <!--Club Details Table View Controller - Club Details-->
         <scene sceneID="88o-J0-Rzn">
             <objects>
                 <tableViewController id="0ib-cD-FKV" customClass="ClubDetailsTableViewController" sceneMemberID="viewController">
@@ -188,7 +188,7 @@
                             <outlet property="delegate" destination="0ib-cD-FKV" id="gut-hq-q8q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aJj-3y-SS2"/>
+                    <navigationItem key="navigationItem" title="Club Details" id="aJj-3y-SS2"/>
                     <connections>
                         <outlet property="textView" destination="GrD-7z-81i" id="xY7-2R-3z0"/>
                     </connections>
@@ -479,7 +479,7 @@
             </objects>
             <point key="canvasLocation" x="823" y="48"/>
         </scene>
-        <!--Activity Calendar View Controller-->
+        <!--Activity Calendar View Controller - Activity Calendar-->
         <scene sceneID="l5E-8a-fcH">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="TKJ-Ci-XKX" customClass="ActivityCalendarViewController" sceneMemberID="viewController">
@@ -608,13 +608,13 @@
                             <outlet property="delegate" destination="TKJ-Ci-XKX" id="vdp-EM-xbs"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="PTT-Xe-9lY"/>
+                    <navigationItem key="navigationItem" title="Activity Calendar" id="PTT-Xe-9lY"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrG-j7-Odt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-337" y="1106"/>
         </scene>
-        <!--Activities Map View Controller-->
+        <!--Activities Map View Controller - Activity Map-->
         <scene sceneID="QUD-9f-aaf">
             <objects>
                 <viewController id="nUx-rC-usx" customClass="ActivitiesMapViewController" sceneMemberID="viewController">
@@ -642,7 +642,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yDs-Lp-itD">
+                    <navigationItem key="navigationItem" title="Activity Map" id="yDs-Lp-itD">
                         <barButtonItem key="rightBarButtonItem" title="more" id="HXK-fi-hjw">
                             <connections>
                                 <action selector="moreAction:" destination="nUx-rC-usx" id="zDM-Rg-xc6"/>
@@ -658,7 +658,7 @@
             </objects>
             <point key="canvasLocation" x="154" y="1106"/>
         </scene>
-        <!--Activities Table View Controller-->
+        <!--Activities Table View Controller - Activity List-->
         <scene sceneID="EtQ-SL-y9R">
             <objects>
                 <tableViewController id="TSc-TS-pdm" customClass="ActivitiesTableViewController" sceneMemberID="viewController">
@@ -820,7 +820,7 @@
                             <outlet property="delegate" destination="TSc-TS-pdm" id="SOL-ai-Alq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Y5c-3h-isJ">
+                    <navigationItem key="navigationItem" title="Activity List" id="Y5c-3h-isJ">
                         <barButtonItem key="rightBarButtonItem" title="more" id="BX1-WL-Q7h">
                             <connections>
                                 <action selector="moreAction:" destination="TSc-TS-pdm" id="1ef-Fi-dRX"/>
@@ -1308,10 +1308,10 @@
             </objects>
             <point key="canvasLocation" x="3358" y="1222"/>
         </scene>
-        <!--Velocity Stream View Controller-->
+        <!--Velocity Stream View Controller - Velocity Stream-->
         <scene sceneID="Qox-qT-1zc">
             <objects>
-                <viewController id="sax-qq-LHk" customClass="VelocityStreamViewController" sceneMemberID="viewController">
+                <viewController title="Velocity Stream" id="sax-qq-LHk" customClass="VelocityStreamViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FM2-Sp-QFZ"/>
                         <viewControllerLayoutGuide type="bottom" id="hpH-0Q-rL5"/>
@@ -1353,7 +1353,7 @@
                             <constraint firstItem="d22-uq-Ssv" firstAttribute="top" secondItem="FM2-Sp-QFZ" secondAttribute="bottom" constant="1" id="wFm-8Y-a3C"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zCn-Pq-gWb"/>
+                    <navigationItem key="navigationItem" title="Velocity Stream" id="zCn-Pq-gWb"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="300"/>
                     <connections>
@@ -1636,7 +1636,7 @@
             </objects>
             <point key="canvasLocation" x="1166" y="-682"/>
         </scene>
-        <!--Athlete Details Table View Controller-->
+        <!--Athlete Details Table View Controller - Athlete Details-->
         <scene sceneID="Hyd-Df-B3d">
             <objects>
                 <tableViewController id="eHi-pc-0iv" customClass="AthleteDetailsTableViewController" sceneMemberID="viewController">
@@ -1700,7 +1700,7 @@
                             <outlet property="delegate" destination="eHi-pc-0iv" id="Uax-bV-ylI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="MU0-X4-QGz"/>
+                    <navigationItem key="navigationItem" title="Athlete Details" id="MU0-X4-QGz"/>
                     <connections>
                         <outlet property="athleteImageView" destination="MGU-14-X6d" id="vRR-B1-ypb"/>
                         <outlet property="athleteTextView" destination="qxA-VY-JVM" id="uth-U9-usH"/>
@@ -1755,7 +1755,7 @@
             </objects>
             <point key="canvasLocation" x="2252" y="-677"/>
         </scene>
-        <!--Heart Rate Stream View Controller-->
+        <!--Heart Rate Stream View Controller - Heart Rate Stream-->
         <scene sceneID="sdA-tl-Eqz">
             <objects>
                 <viewController id="uAg-TL-AiJ" customClass="HeartRateStreamViewController" sceneMemberID="viewController">
@@ -1785,7 +1785,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rYi-jc-uIU"/>
+                    <navigationItem key="navigationItem" title="Heart Rate Stream" id="rYi-jc-uIU"/>
                     <connections>
                         <outlet property="barChartView" destination="hNn-V5-ySF" id="Sa8-co-vWn"/>
                         <outlet property="mapView" destination="IfD-aZ-Ccs" id="J2S-xt-MJV"/>
@@ -1796,7 +1796,7 @@
             </objects>
             <point key="canvasLocation" x="2864" y="2152"/>
         </scene>
-        <!--Grade Stream View Controller-->
+        <!--Grade Stream View Controller - Grade Stream-->
         <scene sceneID="Z9U-ew-sDu">
             <objects>
                 <viewController id="GIZ-zF-gOD" customClass="GradeStreamViewController" sceneMemberID="viewController">
@@ -1841,7 +1841,7 @@
                             <constraint firstItem="mYF-s6-VdB" firstAttribute="top" secondItem="i7U-bm-z0Q" secondAttribute="bottom" constant="2" id="y3R-Hm-WQQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hwv-Ht-SXr"/>
+                    <navigationItem key="navigationItem" title="Grade Stream" id="hwv-Ht-SXr"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="300"/>
                     <connections>
@@ -1854,7 +1854,7 @@
             </objects>
             <point key="canvasLocation" x="2052" y="2346"/>
         </scene>
-        <!--Cadence Stream View Controller-->
+        <!--Cadence Stream View Controller - Cadence Stream-->
         <scene sceneID="uad-i2-fu6">
             <objects>
                 <viewController id="7Zi-uz-C3d" customClass="CadenceStreamViewController" sceneMemberID="viewController">
@@ -1899,7 +1899,7 @@
                             <constraint firstAttribute="trailing" secondItem="esU-rp-vjr" secondAttribute="trailing" constant="20" id="vnH-T1-WR2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sDk-3z-JfA"/>
+                    <navigationItem key="navigationItem" title="Cadence Stream" id="sDk-3z-JfA"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="300"/>
                     <connections>
@@ -1937,9 +1937,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xWl-ur-oyM"/>
         <segue reference="OaX-DF-f1l"/>
+        <segue reference="eX3-Qo-eba"/>
+        <segue reference="doP-5p-IrF"/>
         <segue reference="qEd-Zc-cQG"/>
-        <segue reference="SSZ-By-M7D"/>
     </inferredMetricsTieBreakers>
 </document>

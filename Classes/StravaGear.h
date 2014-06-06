@@ -12,6 +12,8 @@
 ///
 /// Possible bike types for a gear object.
 ///
+/// Strava API maching docs: http://strava.github.io/api/v3/gear/
+///
 typedef NS_ENUM(NSInteger,kGearFrameType) {
     kGearFrameTypeUnknown=0,
     kGearFrameTypeMountainBike,

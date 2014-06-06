@@ -10,6 +10,7 @@
 
 /**
  `FRDStravaClient`. 
+
  */
 @interface FRDStravaClient : NSObject
 

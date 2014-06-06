@@ -12,6 +12,7 @@
 /// Stream resolution.
 ///
 /// Matching Strava API docs: http://strava.github.io/api/v3/streams/
+///
 typedef NS_ENUM(NSInteger, kStravaStreamResolution) {
     kStravaStreamResolutionUnknown,
     kStravaStreamResolutionLow,
@@ -23,6 +24,7 @@ typedef NS_ENUM(NSInteger, kStravaStreamResolution) {
 /// Stream type.
 ///
 /// Matching Strava API docs: http://strava.github.io/api/v3/streams/
+///
 typedef NS_ENUM(NSInteger, kStravaStreamType) {
     kStravaStreamTypeUnknown,
     kStravaStreamTypeTime,

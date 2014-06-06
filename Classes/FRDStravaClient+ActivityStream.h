@@ -11,6 +11,19 @@
 
 @interface FRDStravaClient (ActivityStream)
 
+
+/**
+ Fetch activity streams for the specified activity. Only work for activities owned by the current authenticated user.
+ 
+ Strava API related documentation: http://strava.github.io/api/v3/streams/#activity
+ 
+ @params activityId the ID of the activity
+ @params resolution Stream data resolution
+ @params dataTypes an NSArray of kStravaStreamType NSNumber objects e.g. @[ @(kStravaStreamTypeHeartrate), @(kStravaStreamTypeCadence) ]
+ @params success Success callback, streams is a NSArray of `StravaStream` objects, one element per dataTypes requested. If a requested dataType is not available for that activity, it will be omitted.
+ @params failure Failure callback
+ 
+ */
 -(void) fetchActivityStreamForActivityId:(NSInteger)activityId
                               resolution:(kStravaStreamResolution)resolution
                                dataTypes:(NSArray *)dataTypes

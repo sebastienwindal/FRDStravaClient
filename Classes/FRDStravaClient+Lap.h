@@ -10,6 +10,15 @@
 
 @interface FRDStravaClient (Lap)
 
+/**
+ Fetch laps of specified activity.
+ 
+ Strava API related documentation: http://strava.github.io/api/v3/activities/#laps
+ 
+ @params activityId activity identifier
+ @params success Success callback, laps is a NSArray of StravaActivityLap objects.
+ @params failure Failure callback
+ */
 -(void) fetchLapsForActivity:(NSInteger)activityId
                      success:(void (^)(NSArray *laps))success
                      failure:(void (^)(NSError *error))failure;

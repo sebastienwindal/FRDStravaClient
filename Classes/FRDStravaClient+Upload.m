@@ -84,4 +84,37 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
      
 }
 
+
+-(void) checkStatusOfUpload:(NSInteger)uploadId
+                    success:(void (^)(StravaActivityUploadStatus *uploadStatus))success
+                    failure:(void (^)(NSError *error))failure
+{
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    
+    NSDictionary *params = @{ @"access_token" : self.accessToken };
+
+    [manager GET:[NSString stringWithFormat:@"uploads/%ld", (long)uploadId]
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSError *error;
+             StravaActivityUploadStatus *status = [MTLJSONAdapter modelOfClass:[StravaActivityUploadStatus class]
+                                                            fromJSONDictionary:responseObject
+                                                                         error:&error];
+             
+             if (error) {
+                 failure(error);
+             } else {
+                 if (status.error.length > 0) {
+                     error = [[NSError alloc] initWithDomain:@"FRDStravaClientDomain"
+                                                        code:1
+                                                    userInfo:@{NSLocalizedDescriptionKey: status.error}];
+                     failure(error);
+                 }
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             failure(error);
+         }];
+}
+
 @end

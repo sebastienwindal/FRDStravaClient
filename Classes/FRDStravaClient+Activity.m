@@ -159,28 +159,6 @@
     [self fetchActivitiesWithParameters:params forFriends:YES success:success failure:failure];
 }
 
--(void) fetchFriendActivitiesAfterDate:(NSDate *)date
-                               success:(void (^)(NSArray *activities))success
-                               failure:(void (^)(NSError *error))failure
-{
-    NSTimeInterval sec = [date timeIntervalSince1970];
-    
-    NSDictionary *params = @{ @"after": @((NSUInteger) sec) };
-    
-    [self fetchActivitiesWithParameters:params forFriends:YES success:success failure:failure];
-}
-
--(void) fetchFriendActivitiesBeforeDate:(NSDate *)date
-                                success:(void (^)(NSArray *activities))success
-                                failure:(void (^)(NSError *error))failure
-{
-    NSTimeInterval sec = [date timeIntervalSince1970];
-    
-    NSDictionary *params = @{ @"before": @((NSUInteger) sec) };
-    
-    [self fetchActivitiesWithParameters:params forFriends:YES success:success failure:failure];
-}
-
 
 -(void) fetchPhotosForActivity:(NSInteger)activityId
                        success:(void (^)(NSArray *photos))success
