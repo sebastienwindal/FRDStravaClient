@@ -17,7 +17,7 @@ Strava API maching docs: http://strava.github.io/api/v3/oauth/
 
 The typical authorization flow should look like this:
 
-1. iOS app calls `authorizeCallbackURL:stateInfo:`.
+1. iOS app calls `authorizeWithCallbackURL:stateInfo:`.
 2. Upon success your app is launched back by Safari. In your AppDelegate `application:handleOpenURL:`, call `parseStravaAuthCallback:withSuccess:failure:` to parse the callback URL.
 3. In the success block of `parseStravaAuthCallback:withSuccess:failure:` call `exchangeTokenForCode:success:failure:`
 4. Upon success you are now good to go for this session... The `accessToken` in the shared instance of FRDStravaClient was automatically set and all REST calls issued by the FRDStravaClient sharedInstance should be sent with the required token. You may also want at this point to save the access token somewhere safely in your app persistent storage (like the keychain), for future run of your app, to be able to bypass that whole painful OAuth dance. Call the `setAccessToken:` method of the `[FRDStravaClient sharedInstance]` with your saved access token...
