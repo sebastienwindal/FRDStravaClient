@@ -37,8 +37,8 @@ the Rest API endpoints. FRDStravaClient calls are grouped into 9 categories `FRD
 To start using it, start by calling: 
 
 ```obj-C
-	[[FRDStravaClient sharedInstance] initializeWithClientId:clientID
-                                                clientSecret:clientSecret];
+[[FRDStravaClient sharedInstance] initializeWithClientId:clientID
+                                            clientSecret:clientSecret];
 ```
 
 clientID and clientSecret should match: your app configuration on
@@ -73,45 +73,45 @@ The typical authorization/OAUTH flow in your app should look like this:
 iOS app calls `authorizeWithCallbackURL:stateInfo:`. This method will launch Safari at the Strava OAUTH web page where users will be prompted to login and grant Strava access to your app. The domain of the callback URL must match the Authorization Callback Domain you configured with Strava (at this location: https://www.strava.com/settings/api ). The URL scheme should be one you configured in your app plist as Custom URL Scheme, so your app can be launched back by Safari upon success.
 
 ```obj-C
-	NSString *strURL = @"yourAppURLScheme://domain.registered.with.strava";
-    
-    [[FRDStravaClient sharedInstance] authorizeWithCallbackURL:[NSURL URLWithString:strURL]
-                                                     stateInfo:nil];
+NSString *strURL = @"yourAppURLScheme://domain.registered.with.strava";
+
+[[FRDStravaClient sharedInstance] authorizeWithCallbackURL:[NSURL URLWithString:strURL]
+                                                 stateInfo:nil];
 ```
 
 #### 2. Handling callback
 Upon success your app is launched back by Safari. In your AppDelegate `application:handleOpenURL:`, call `parseStravaAuthCallback:withSuccess:failure:` to parse the callback URL.
 
 ```obj-C
-	- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-	{
-	    [[FRDStravaClient sharedInstance] parseStravaAuthCallback:url
-	                                                  withSuccess:^(NSString *stateInfo, NSString *code) {
-	                                                  	  // load appropriate view controller/view and
-	                                                  	  // make it initiate the token exchange using "code"
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    [[FRDStravaClient sharedInstance] parseStravaAuthCallback:url
+                                                  withSuccess:^(NSString *stateInfo, NSString *code) {
+                                                  	  // load appropriate view controller/view and
+                                                  	  // make it initiate the token exchange using "code"
 
-	                                                  }
-	                                                      failure:^(NSString *stateInfo, NSString *error) {
-	                                                          // show error
-	                                                      }];
-	    
-	    return YES;
-	}
+                                                  }
+                                                      failure:^(NSString *stateInfo, NSString *error) {
+                                                          // show error
+                                                      }];
+    
+    return YES;
+}
 ```
 #### 3. token exchange
 Whatever you do in the success block of `parseStravaAuthCallback:withSuccess:failure:` should
 end up calling `exchangeTokenForCode:success:failure:` with the code we just got back:
 
 ```obj-C
-	[[FRDStravaClient sharedInstance] exchangeTokenForCode:code
-	                                               success:^(StravaAccessTokenResponse *response) {
-		                                                    // we are all good,
-		                                                    // save response.accessToken somewhere safe in persistent storage
-	                                                       
-	                                                        // response.athlete is the curently logged in user btw...
-	                                                    } failure:^(NSError *error) {
-	                                                        // show error
-	                                                    }];
+[[FRDStravaClient sharedInstance] exchangeTokenForCode:code
+                                               success:^(StravaAccessTokenResponse *response) {
+	                                                    // we are all good,
+	                                                    // save response.accessToken somewhere safe in persistent storage
+                                                       
+                                                        // response.athlete is the curently logged in user btw...
+                                                    } failure:^(NSError *error) {
+                                                        // show error
+                                                    }];
 ```
 #### 4. save and use token for future launch
 Upon success you are now good to go for this session... The `accessToken` in the shared instance of FRDStravaClient was automatically set and all REST calls issued by the FRDStravaClient sharedInstance will be sent with the required token.
@@ -119,23 +119,23 @@ Upon success you are now good to go for this session... The `accessToken` in the
 At this point your should save the access token somewhere safely in your app persistent storage (like the keychain), for future run of your app, to be able to bypass that whole painful OAuth dance. Next time your app is run just call the `setAccessToken:` method of the `[FRDStravaClient sharedInstance]` with your saved access token:
 
 ```obj-C
-	// check if we already went through the OAUTH dance before
-    NSString *previousToken = .... fetch your token from persistent storage
-    
-    if ([previousToken length] > 0) {
-        // this is the important part, configure the client with that token.
-        [[FRDStravaClient sharedInstance] setAccessToken:previousToken];
+// check if we already went through the OAUTH dance before
+NSString *previousToken = .... fetch your token from persistent storage
 
-        // let's make a simple call to check our token is still valid:
-        [[FRDStravaClient sharedInstance] fetchCurrentAthleteWithSuccess:^(StravaAthlete *athlete) {
-														            // all good
-														        }
-                                                                 failure:^(NSError *error) {
-                                                                    // the token is expired
-                                                                    [[FRDStravaClient sharedInstance] setAccessToken:nil];
+if ([previousToken length] > 0) {
+    // this is the important part, configure the client with that token.
+    [[FRDStravaClient sharedInstance] setAccessToken:previousToken];
 
-                                                                    // we need to request access again, by going to 1.
-                                                                 }];
+    // let's make a simple call to check our token is still valid:
+    [[FRDStravaClient sharedInstance] fetchCurrentAthleteWithSuccess:^(StravaAthlete *athlete) {
+													            // all good
+													        }
+                                                             failure:^(NSError *error) {
+                                                                // the token is expired
+                                                                [[FRDStravaClient sharedInstance] setAccessToken:nil];
+
+                                                                // we need to request access again, by going to 1.
+                                                             }];
 
 ```
 
