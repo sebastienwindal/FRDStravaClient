@@ -52,7 +52,7 @@
        parameters:nil
 constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     
-            [formData appendPartWithFormData:[@"1" dataUsingEncoding:NSUTF8StringEncoding] name:@"private"];
+            [formData appendPartWithFormData:[private ? @"1" : @"0" dataUsingEncoding:NSUTF8StringEncoding] name:@"private"];
             [formData appendPartWithFormData:[activityTypeStr dataUsingEncoding:NSUTF8StringEncoding] name:@"activity_type"];
             [formData appendPartWithFormData:[dataTypeStr dataUsingEncoding:NSUTF8StringEncoding] name:@"data_type"];
 
