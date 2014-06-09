@@ -78,6 +78,9 @@
 		28DA0FE1192509B100ECB732 /* ActivityCalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FE0192509B100ECB732 /* ActivityCalendarCollectionViewCell.m */; };
 		28DA0FE419252DCB00ECB732 /* HeaderPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA0FE319252DCB00ECB732 /* HeaderPickerView.m */; };
 		28DAF05D191F1FB5001DC529 /* SegmentEffortsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */; };
+		28E01E561945EF3B0018AB6C /* FitnessHistoryDetail.tcx in Resources */ = {isa = PBXBuildFile; fileRef = 28E01E551945EF3B0018AB6C /* FitnessHistoryDetail.tcx */; };
+		28E01E5A1945F01D0018AB6C /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E01E591945F01D0018AB6C /* UploadViewController.m */; };
+		28E01E5C1945FC3B0018AB6C /* FitnessHistoryDetail.tcx.gz in Resources */ = {isa = PBXBuildFile; fileRef = 28E01E5B1945FC3B0018AB6C /* FitnessHistoryDetail.tcx.gz */; };
 		28E0CA5E19328B5E004DEA75 /* ZoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */; };
 		28E0CA991936D3BE004DEA75 /* StravaActivityComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0CA981936D3BE004DEA75 /* StravaActivityComment.m */; };
 		28E0CA9F1936D7B7004DEA75 /* ActivityCommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0CA9E1936D7B7004DEA75 /* ActivityCommentsTableViewController.m */; };
@@ -223,6 +226,10 @@
 		28DA0FE319252DCB00ECB732 /* HeaderPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderPickerView.m; sourceTree = "<group>"; };
 		28DAF05B191F1FB5001DC529 /* SegmentEffortsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentEffortsTableViewController.h; sourceTree = "<group>"; };
 		28DAF05C191F1FB5001DC529 /* SegmentEffortsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentEffortsTableViewController.m; sourceTree = "<group>"; };
+		28E01E551945EF3B0018AB6C /* FitnessHistoryDetail.tcx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FitnessHistoryDetail.tcx; sourceTree = "<group>"; };
+		28E01E581945F01D0018AB6C /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
+		28E01E591945F01D0018AB6C /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
+		28E01E5B1945FC3B0018AB6C /* FitnessHistoryDetail.tcx.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = FitnessHistoryDetail.tcx.gz; sourceTree = "<group>"; };
 		28E0CA5C19328B5E004DEA75 /* ZoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneTableViewCell.h; sourceTree = "<group>"; };
 		28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneTableViewCell.m; sourceTree = "<group>"; };
 		28E0CA971936D3BE004DEA75 /* StravaActivityComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaActivityComment.h; sourceTree = "<group>"; };
@@ -300,6 +307,7 @@
 				28E0CAAB1937AD14004DEA75 /* Clubs */,
 				28E0CAAD1937AD4E004DEA75 /* Gear */,
 				28E0CAB21937ADDF004DEA75 /* Segments & Efforts */,
+				28E01E571945F0000018AB6C /* Upload */,
 				28199DB5191EE6B600EE7C4E /* IconHelper */,
 				28199D9F191EE02A00EE7C4E /* iPhone.storyboard */,
 				28199DA2191EE02A00EE7C4E /* Settings.bundle */,
@@ -406,6 +414,17 @@
 				28199D9E191EE02A00EE7C4E /* IconHelper.m */,
 			);
 			name = IconHelper;
+			sourceTree = "<group>";
+		};
+		28E01E571945F0000018AB6C /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				28E01E551945EF3B0018AB6C /* FitnessHistoryDetail.tcx */,
+				28E01E5B1945FC3B0018AB6C /* FitnessHistoryDetail.tcx.gz */,
+				28E01E581945F01D0018AB6C /* UploadViewController.h */,
+				28E01E591945F01D0018AB6C /* UploadViewController.m */,
+			);
+			name = Upload;
 			sourceTree = "<group>";
 		};
 		28E0CAA01937ABEA004DEA75 /* Activities */ = {
@@ -695,6 +714,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E01E5C1945FC3B0018AB6C /* FitnessHistoryDetail.tcx.gz in Resources */,
+				28E01E561945EF3B0018AB6C /* FitnessHistoryDetail.tcx in Resources */,
 				28199DAE191EE02B00EE7C4E /* icomoon.ttf in Resources */,
 				28199D33191EDCAF00EE7C4E /* InfoPlist.strings in Resources */,
 				28199DB2191EE02B00EE7C4E /* Settings.bundle in Resources */,
@@ -763,6 +784,7 @@
 				2853437E193054FC004DAC95 /* ActivityPhotoTableViewController.m in Sources */,
 				28199DAD191EE02B00EE7C4E /* AuthViewController.m in Sources */,
 				28199DB3191EE02B00EE7C4E /* StarredSegmentsTableViewController.m in Sources */,
+				28E01E5A1945F01D0018AB6C /* UploadViewController.m in Sources */,
 				28199D7E191EDF0100EE7C4E /* FRDStravaClient+Segment.m in Sources */,
 				28DA0FD019242A7A00ECB732 /* HeartRateStreamViewController.m in Sources */,
 				28AE9025192B928F00C3627E /* LapTableViewController.m in Sources */,

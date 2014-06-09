@@ -29,8 +29,11 @@
     NSString *activityTypeStr = [[[StravaCommon activityTypeJSONTransformer] reverseTransformedValue:@(activityType)] lowercaseString];
     
     NSDictionary *dict = @{     @(kUploadDataTypeFIT): @"fit",
-                                @(kUploadDataTypesGPX): @"gpx",
-                                @(kUploadDataTypesTCX): @"tcx"
+                                @(kUploadDataTypeGPX): @"gpx",
+                                @(kUploadDataTypeTCX): @"tcx",
+                                @(kUploadDataTypeFITGZ): @"fit.gz",
+                                @(kUploadDataTypeGPXGZ): @"gpx.gz",
+                                @(kUploadDataTypeTCXGZ): @"tcx.gz"
                                 };
     
     NSString *dataTypeStr = dict[@(dataType)];
@@ -77,6 +80,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                       failure(error);
                   }
               }
+              success(status);
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               failure(error);
@@ -111,6 +115,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                      failure(error);
                  }
              }
+             success(status);
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              failure(error);

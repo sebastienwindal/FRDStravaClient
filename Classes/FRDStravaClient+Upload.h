@@ -11,8 +11,11 @@
 
 typedef NS_ENUM(NSInteger, kUploadDataType) {
     kUploadDataTypeFIT,
-    kUploadDataTypesGPX,
-    kUploadDataTypesTCX
+    kUploadDataTypeGPX,
+    kUploadDataTypeTCX,
+    kUploadDataTypeFITGZ,
+    kUploadDataTypeGPXGZ,
+    kUploadDataTypeTCXGZ
 };
 
 @interface FRDStravaClient (Upload)
