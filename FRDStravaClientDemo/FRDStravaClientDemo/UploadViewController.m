@@ -67,6 +67,21 @@
     [self uploadURL:url dataType:kUploadDataTypeTCX name:@"TCX test"];
 }
 
+- (IBAction)uploadGPXAction:(id)sender
+{
+    NSString *urlPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"gpx"];
+    NSURL *url = [NSURL fileURLWithPath:urlPath];
+    
+    [self uploadURL:url dataType:kUploadDataTypeGPX name:@"GPX test"];
+}
+
+- (IBAction)uploadGPXGZAction:(id)sender
+{
+    NSString *urlPath = [[NSBundle mainBundle] pathForResource:@"3gaps" ofType:@"gpx.gz"];
+    NSURL *url = [NSURL fileURLWithPath:urlPath];
+    
+    [self uploadURL:url dataType:kUploadDataTypeGPXGZ name:@"GPX GZ test"];
+}
 
 -(void) uploadURL:(NSURL *)url dataType:(kUploadDataType)dataType name:(NSString *)name
 {
@@ -77,7 +92,7 @@
                                                 name:name
                                         activityType:kActivityTypeRide
                                             dataType:dataType
-                                             private:YES
+                                             private:NO
                                              success:^(StravaActivityUploadStatus *uploadStatus) {
                                                  self.isUploading = NO;
                                                  self.statusTextView.text = [uploadStatus debugDescription];

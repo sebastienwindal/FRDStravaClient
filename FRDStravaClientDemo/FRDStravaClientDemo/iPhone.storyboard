@@ -525,15 +525,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.98431372549999996" green="0.16862745100000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ig-30-PJ2">
+                                <rect key="frame" x="20" y="225" width="280" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="upload 3gaps.gpx.gz">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadGPXGZAction:" destination="AoH-HS-Hf1" eventType="touchUpInside" id="TJw-hF-YNZ"/>
+                                </connections>
+                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8i-yF-deQ">
-                                <rect key="frame" x="0.0" y="297" width="320" height="271"/>
+                                <rect key="frame" x="0.0" y="391" width="320" height="177"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caD-l7-EUs">
-                                <rect key="frame" x="20" y="250" width="280" height="39"/>
+                                <rect key="frame" x="20" y="344" width="280" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Check upload status for:">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -552,6 +562,16 @@
                                     <action selector="uploadTCXGZAction:" destination="AoH-HS-Hf1" eventType="touchUpInside" id="xsl-zt-zDB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huU-Dq-QAp">
+                                <rect key="frame" x="20" y="176" width="280" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="upload test.gpx">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadGPXAction:" destination="AoH-HS-Hf1" eventType="touchUpInside" id="9A6-mk-Aj4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -562,6 +582,8 @@
                         <outlet property="statusTextView" destination="b8i-yF-deQ" id="y6e-c9-v2t"/>
                         <outletCollection property="uploadButtons" destination="e6Q-XF-Hkx" id="Js6-eo-C6C"/>
                         <outletCollection property="uploadButtons" destination="gyK-en-E4C" id="fat-vD-gL9"/>
+                        <outletCollection property="uploadButtons" destination="huU-Dq-QAp" id="kzy-Up-i0i"/>
+                        <outletCollection property="uploadButtons" destination="5ig-30-PJ2" id="87K-02-uO6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCN-dA-yqa" userLabel="First Responder" sceneMemberID="firstResponder"/>

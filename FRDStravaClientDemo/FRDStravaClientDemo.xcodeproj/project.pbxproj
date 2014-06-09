@@ -81,6 +81,8 @@
 		28E01E561945EF3B0018AB6C /* FitnessHistoryDetail.tcx in Resources */ = {isa = PBXBuildFile; fileRef = 28E01E551945EF3B0018AB6C /* FitnessHistoryDetail.tcx */; };
 		28E01E5A1945F01D0018AB6C /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E01E591945F01D0018AB6C /* UploadViewController.m */; };
 		28E01E5C1945FC3B0018AB6C /* FitnessHistoryDetail.tcx.gz in Resources */ = {isa = PBXBuildFile; fileRef = 28E01E5B1945FC3B0018AB6C /* FitnessHistoryDetail.tcx.gz */; };
+		28E01E5F19466D2B0018AB6C /* test.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 28E01E5D19466D2B0018AB6C /* test.gpx */; };
+		28E01E6019466D2B0018AB6C /* 3gaps.gpx.gz in Resources */ = {isa = PBXBuildFile; fileRef = 28E01E5E19466D2B0018AB6C /* 3gaps.gpx.gz */; };
 		28E0CA5E19328B5E004DEA75 /* ZoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */; };
 		28E0CA991936D3BE004DEA75 /* StravaActivityComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0CA981936D3BE004DEA75 /* StravaActivityComment.m */; };
 		28E0CA9F1936D7B7004DEA75 /* ActivityCommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0CA9E1936D7B7004DEA75 /* ActivityCommentsTableViewController.m */; };
@@ -230,6 +232,8 @@
 		28E01E581945F01D0018AB6C /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
 		28E01E591945F01D0018AB6C /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		28E01E5B1945FC3B0018AB6C /* FitnessHistoryDetail.tcx.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = FitnessHistoryDetail.tcx.gz; sourceTree = "<group>"; };
+		28E01E5D19466D2B0018AB6C /* test.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.gpx; sourceTree = "<group>"; };
+		28E01E5E19466D2B0018AB6C /* 3gaps.gpx.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = 3gaps.gpx.gz; sourceTree = "<group>"; };
 		28E0CA5C19328B5E004DEA75 /* ZoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneTableViewCell.h; sourceTree = "<group>"; };
 		28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneTableViewCell.m; sourceTree = "<group>"; };
 		28E0CA971936D3BE004DEA75 /* StravaActivityComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaActivityComment.h; sourceTree = "<group>"; };
@@ -421,6 +425,8 @@
 			children = (
 				28E01E551945EF3B0018AB6C /* FitnessHistoryDetail.tcx */,
 				28E01E5B1945FC3B0018AB6C /* FitnessHistoryDetail.tcx.gz */,
+				28E01E5D19466D2B0018AB6C /* test.gpx */,
+				28E01E5E19466D2B0018AB6C /* 3gaps.gpx.gz */,
 				28E01E581945F01D0018AB6C /* UploadViewController.h */,
 				28E01E591945F01D0018AB6C /* UploadViewController.m */,
 			);
@@ -719,6 +725,8 @@
 				28199DAE191EE02B00EE7C4E /* icomoon.ttf in Resources */,
 				28199D33191EDCAF00EE7C4E /* InfoPlist.strings in Resources */,
 				28199DB2191EE02B00EE7C4E /* Settings.bundle in Resources */,
+				28E01E5F19466D2B0018AB6C /* test.gpx in Resources */,
+				28E01E6019466D2B0018AB6C /* 3gaps.gpx.gz in Resources */,
 				28199D3B191EDCAF00EE7C4E /* Images.xcassets in Resources */,
 				28199DB0191EE02B00EE7C4E /* iPhone.storyboard in Resources */,
 			);
