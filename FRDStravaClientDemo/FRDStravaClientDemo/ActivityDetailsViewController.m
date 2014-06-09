@@ -50,8 +50,8 @@
                                                   }
                                                   failure:^(NSError *error) {
                                                       [self hideSpinner];
-                                                      UIAlertView *av = [[UIAlertView alloc] initWithTitle:@""
-                                                  message:nil
+                                                      UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"FAILED"
+                                                  message:error.localizedDescription
                                                   delegate:nil
                                                   cancelButtonTitle:@"Close"
                                                                                          otherButtonTitles: nil];
