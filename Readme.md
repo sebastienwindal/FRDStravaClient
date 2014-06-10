@@ -9,7 +9,7 @@ FRDStravaClient is an objective-C iOS library to the [Strava v3 API](http://stra
 It supports read operations for most of the API endpoints and activity upload.
 
 The library was originaly developed to support my app [SpinSpin](http://www.spinspinapp.com), an indoor cycling app, and open-sourced
-for prosperity (MIT license). It is not affiliated with Strava. [SpinSpin](http://www.spinspinapp.com) uses only a small subset of
+for prosperity ([MIT license](LICENSE)). It is not affiliated with Strava. [SpinSpin](http://www.spinspinapp.com) uses only a small subset of
 the library, so I also made a quick test demo app included in this repo and described in the second half of this page.
 
 FRDStravaClient uses [AFNetworking](https://github.com/AFNetworking/AFNetworking) for networking,
