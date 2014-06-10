@@ -6,11 +6,11 @@
 
 FRDStravaClient is an objective-C iOS library to the [Strava v3 API](http://strava.github.io/api/).
 
-It supports read operations for most of the API endpoints as well as activity upload.
+It supports read operations for most of the API endpoints and activity upload.
 
 The library was originaly developed to support my app [SpinSpin](http://www.spinspinapp.com), an indoor cycling app, and open-sourced
 for prosperity (MIT license). It is not affiliated with Strava. [SpinSpin](http://www.spinspinapp.com) uses only a small subset of
-the library, so I also made a quick test demo app described in the second half of this page.
+the library, so I also made a quick test demo app included in this repo and described in the second half of this page.
 
 FRDStravaClient uses [AFNetworking](https://github.com/AFNetworking/AFNetworking) for networking,
 and [Mantle](https://github.com/Mantle/Mantle) to convert the JSON NSDictionary responses into usable model objects.
@@ -19,8 +19,8 @@ It consists of a bunch of model objects `StravaXXX` (e.g. `StravaActivity`,
 `StravaAthlete`, etc...) and a client class `FRDStravaClient` that encapsulates the AFHTTPRequestOperationManager calls.
 
 Model objects are all subclasses of `MTLModel`, and they closely follow the structure of the Strava API response objects.
-FRDStravaClient is a singleton object (use `[FRDStravaClient sharedInstance]`) with a bunch of methods that match closely
-the Rest API endpoints. FRDStravaClient calls are grouped into 9 categories `FRDStravaClient+XXX` e.g. `FRDStravaClient+Activity`,
+FRDStravaClient is a singleton object (use `[FRDStravaClient sharedInstance]`) with  fetch request methods that match
+the Rest API endpoints. FRDStravaClient fetch calls are grouped into 9 categories `FRDStravaClient+XXX` e.g. `FRDStravaClient+Activity`,
 `FRDStravaClient+Athlete`, etc... They all follow the same pattern:
 
 ```obj-C
@@ -34,7 +34,7 @@ the Rest API endpoints. FRDStravaClient calls are grouped into 9 categories `FRD
                    failure:(void (^)(NSError *error))failure;
 ```
 
-To start using it, start by calling: 
+To get started, just initialize with: 
 
 ```obj-C
 [[FRDStravaClient sharedInstance] initializeWithClientId:clientID
@@ -144,13 +144,13 @@ if ([previousToken length] > 0) {
 
 ## The test App
 
-This is an ugly, quick and dirty app, done for testing purpose only. Copy and paste at your own risk.
+This is a quick and dirty app done for testing purpose only. Copy and paste at your own risk.
 
-To be able to run it:
-* register you own app with Strava
-* run the demo app, the app will install its settings bundle to the settings.
+To run it:
+* register an app with Strava
+* run the demo app, it will install its settings bundle to the system settings.
 * open the demo app settings from the iPhone/Simulator global settings and configure client ID, secret and callback domain
-of your strava app:
+of your Strava app:
 
 ![Demo app config](screenshots/demoappconfig.png)
 
@@ -158,4 +158,4 @@ of your strava app:
 
 Once you do that, re-launch the app, it should work. Sample screenshots:
 
-![screenshot](screenshots/s1.png) ![screenshot](screenshots/s2.png) ![screenshot](screenshots/s5.png) ![screenshot](screenshots/s11.png) ![screenshot](screenshots/s12.png) ![screenshot](screenshots/s9.png) ![screenshot](screenshots/s6.png) ![screenshot](screenshots/s3.png) ![screenshot](screenshots/s4.png)  ![screenshot](screenshots/s7.png)
+![screenshot](screenshots/s1.png) ![screenshot](screenshots/s2.png) ![screenshot](screenshots/s5.png) ![screenshot](screenshots/s11.png) ![screenshot](screenshots/s12.png) ![screenshot](screenshots/s9.png) ![screenshot](screenshots/s6.png) ![screenshot](screenshots/s3.png)
