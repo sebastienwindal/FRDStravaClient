@@ -7,8 +7,7 @@
 //
 
 #import "StreamBaseViewController.h"
-#import "StravaStream.h"
-#import "FRDStravaClient+ActivityStream.h"
+#import "FRDStravaClientImports.h"
 
 @interface StreamBaseViewController ()
 

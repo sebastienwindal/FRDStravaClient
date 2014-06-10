@@ -7,7 +7,7 @@
 //
 
 #import "ActivityCommentsTableViewController.h"
-#import "FRDStravaClient+Activity.h"
+#import "FRDStravaClientImports.h"
 
 
 @interface ActivityCommentsTableViewController ()

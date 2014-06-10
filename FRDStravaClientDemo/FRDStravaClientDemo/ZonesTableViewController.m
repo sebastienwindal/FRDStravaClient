@@ -7,7 +7,7 @@
 //
 
 #import "ZonesTableViewController.h"
-#import "FRDStravaClient+Activity.h"
+#import "FRDStravaClientImports.h"
 #import "ZoneTableViewCell.h"
 #import "ActivityHelper.h"
 

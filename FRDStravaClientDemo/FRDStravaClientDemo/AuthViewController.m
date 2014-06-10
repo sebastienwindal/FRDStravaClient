@@ -6,11 +6,8 @@
 //  Copyright (c) 2014 Sebastien Windal. All rights reserved.
 //
 
+#import "FRDStravaClientImports.h"
 #import "AuthViewController.h"
-#import "FRDStravaClient.h"
-#import "FRDStravaClient+Access.h"
-#import "FRDStravaClient+Athlete.h"
-
 #import "SecondTableViewController.h"
 
 #define ACCESS_TOKEN_KEY @"ACCESS_TOKEN_KEY"

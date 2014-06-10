@@ -7,8 +7,7 @@
 //
 
 #import "ActivityPhotoTableViewController.h"
-#import "FRDStravaClient+Activity.h"
-#import "StravaActivityPhoto.h"
+#import "FRDStravaClientImports.h"
 
 @interface ActivityPhotoTableViewController ()
 

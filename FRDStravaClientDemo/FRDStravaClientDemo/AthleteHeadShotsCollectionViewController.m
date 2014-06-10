@@ -7,10 +7,8 @@
 //
 
 #import "AthleteHeadShotsCollectionViewController.h"
+#import "FRDStravaClientImports.h"
 #import "HeadShotCollectionViewCell.h"
-#import "FRDStravaClient+Athlete.h"
-#import "FRDStravaClient+Club.h"
-#import "FRDStravaClient+Activity.h"
 #import "UIImageView+WebCache.h"
 
 

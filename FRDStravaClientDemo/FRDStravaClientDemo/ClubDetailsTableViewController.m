@@ -7,7 +7,7 @@
 //
 
 #import "ClubDetailsTableViewController.h"
-#import "FRDStravaClient+Club.h"
+#import "FRDStravaClientImports.h"
 #import "AthleteHeadShotsCollectionViewController.h"
 #import "ActivitiesTableViewController.h"
 

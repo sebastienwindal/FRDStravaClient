@@ -7,7 +7,7 @@
 //
 
 #import "UploadViewController.h"
-#import "FRDStravaClient+Upload.h"
+#import "FRDStravaClientImports.h"
 
 @interface UploadViewController ()
 

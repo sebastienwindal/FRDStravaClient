@@ -7,7 +7,7 @@
 //
 
 #import "ClubsTableViewController.h"
-#import "FRDStravaClient+Club.h"
+#import "FRDStravaClientImports.h"
 #import "UIImageView+WebCache.h"
 #import "ClubDetailsTableViewController.h"
 

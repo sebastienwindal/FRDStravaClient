@@ -10,7 +10,13 @@
 
 /**
  `FRDStravaClient`. 
-
+ 
+ This is a singleton, use [FRDStravaClient sharedInstance].
+ Initialization steps:
+ 
+    1. call initializeWithClientId:clientSecret: passing your app data.
+    2. If you don't have any saved access token from a previous successful OAUTH authorization, follow the flow described in FRDStravaClient+Access.h.
+       If you do, set your access token using [[FRDStravaClient sharedInstance] setAccessToken:yourSavedToken];
  */
 @interface FRDStravaClient : NSObject
 

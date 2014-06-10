@@ -7,7 +7,7 @@
 //
 
 #import "StarredSegmentsTableViewController.h"
-#import "FRDStravaClient+Segment.h"
+#import "FRDStravaClientImports.h"
 #import "SegmentEffortsTableViewController.h"
 
 @interface StarredSegmentsTableViewController ()

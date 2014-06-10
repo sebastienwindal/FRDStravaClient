@@ -7,8 +7,7 @@
 //
 
 #import "LapTableViewController.h"
-#import "StravaActivityLap.h"
-#import "FRDStravaClient+Lap.h"
+#import "FRDStravaClientImports.h"
 
 @interface LapTableViewController ()
 

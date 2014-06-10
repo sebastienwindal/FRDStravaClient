@@ -7,7 +7,7 @@
 //
 
 #import "SegmentEffortsTableViewController.h"
-#import "FRDStravaClient+Segment.h"
+#import "FRDStravaClientImports.h"
 
 @interface SegmentEffortsTableViewController ()
 

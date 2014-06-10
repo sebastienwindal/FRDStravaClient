@@ -7,8 +7,8 @@
 //
 
 #import "AthleteDetailsTableViewController.h"
-#import "FRDStravaClient+Athlete.h"
 #import "UIImageView+WebCache.h"
+#import "FRDStravaClientImports.h"
 
 
 @interface AthleteDetailsTableViewController ()

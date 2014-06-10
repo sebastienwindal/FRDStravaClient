@@ -7,7 +7,7 @@
 //
 
 #import "GearViewController.h"
-#import "FRDStravaClient+Gear.h"
+#import "FRDStravaClientImports.h"
 
 
 @interface GearViewController ()

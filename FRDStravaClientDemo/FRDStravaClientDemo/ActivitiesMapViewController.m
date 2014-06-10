@@ -7,8 +7,8 @@
 //
 
 #import "ActivitiesMapViewController.h"
+#import "FRDStravaClientImports.h"
 #import <MapKit/MapKit.h>
-#import "FRDStravaClient+Activity.h"
 #import "ActivityHelper.h"
 
 

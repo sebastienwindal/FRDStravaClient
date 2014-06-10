@@ -7,8 +7,8 @@
 //
 
 #import "ActivityCalendarViewController.h"
+#import "FRDStravaClientImports.h"
 #import "ActivityHelper.h"
-#import "FRDStravaClient+Activity.h"
 #import "ActivityCalendarCollectionViewCell.h"
 #import "EDColor.h"
 #import "HeaderPickerView.h"

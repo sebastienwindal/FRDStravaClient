@@ -7,8 +7,8 @@
 //
 
 #import "ActivityDetailsViewController.h"
+#import "FRDStravaClientImports.h"
 #import "GearViewController.h"
-#import "FRDStravaClient+Activity.h"
 #import "JBLineChartView.h"
 #import "JBBarChartView.h"
 #import "ActivityHelper.h"

@@ -7,7 +7,8 @@
 //
 
 #import "KOMsTableViewController.h"
-#import "FRDStravaClient+Segment.h"
+
+#import "FRDStravaClientImports.h"
 
 @interface KOMsTableViewController ()
 

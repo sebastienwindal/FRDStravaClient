@@ -6,14 +6,14 @@
 //
 
 #import "ActivitiesTableViewController.h"
-#import "FRDStravaClient+Activity.h"
-#import "FRDStravaClient+Club.h"
+
+#import "FRDStravaClientImports.h"
+
 #import "ActivityTableViewCell.h"
 #import "ActivityHelper.h"
 #import "IconHelper.h"
 #import "UIImageView+WebCache.h"
 #import "ActivityDetailsViewController.h"
-#import "StravaActivity.h"
 
 @interface ActivitiesTableViewController ()
 

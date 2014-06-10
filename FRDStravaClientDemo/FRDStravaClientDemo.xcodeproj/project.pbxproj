@@ -234,6 +234,7 @@
 		28E01E5B1945FC3B0018AB6C /* FitnessHistoryDetail.tcx.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = FitnessHistoryDetail.tcx.gz; sourceTree = "<group>"; };
 		28E01E5D19466D2B0018AB6C /* test.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.gpx; sourceTree = "<group>"; };
 		28E01E5E19466D2B0018AB6C /* 3gaps.gpx.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = 3gaps.gpx.gz; sourceTree = "<group>"; };
+		28E01E9F194742E80018AB6C /* FRDStravaClientImports.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRDStravaClientImports.h; sourceTree = "<group>"; };
 		28E0CA5C19328B5E004DEA75 /* ZoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneTableViewCell.h; sourceTree = "<group>"; };
 		28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneTableViewCell.m; sourceTree = "<group>"; };
 		28E0CA971936D3BE004DEA75 /* StravaActivityComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StravaActivityComment.h; sourceTree = "<group>"; };
@@ -375,6 +376,7 @@
 				28199D63191EDF0100EE7C4E /* FRDStravaClient+Upload.m */,
 				28199D64191EDF0100EE7C4E /* FRDStravaClient.h */,
 				28199D65191EDF0100EE7C4E /* FRDStravaClient.m */,
+				28E01E9F194742E80018AB6C /* FRDStravaClientImports.h */,
 				28199D66191EDF0100EE7C4E /* StravaAccessTokenResponse.h */,
 				28199D67191EDF0100EE7C4E /* StravaAccessTokenResponse.m */,
 				28199D68191EDF0100EE7C4E /* StravaActivity.h */,
