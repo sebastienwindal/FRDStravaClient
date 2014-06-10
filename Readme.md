@@ -52,7 +52,7 @@ and then implement the OAUTH workflow described below.
 
 Using cocoapods:
 
-`pod "FRDStravaClient", "~> 1.0.0"`
+`pod "FRDStravaClient", "~> 1.0.1"`
 
 And `#import FRDStravaClientImports.h` in your source files.
 
@@ -64,7 +64,7 @@ You need all the stuff in the `Classes/` folder, `AFNetworking` version x.x and 
 
 The library header files have appledoc comments with appropriate links to the API section, you can check them in the
 code or in the   
-[FRDStravaClient Cocoadocs page](http://cocoadocs.org/docsets/FRDStravaClient/1.0.0/).
+[FRDStravaClient Cocoadocs page](http://cocoadocs.org/docsets/FRDStravaClient/1.0.1/).
 
 ### OAUTH Flow
 
