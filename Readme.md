@@ -147,6 +147,7 @@ if ([previousToken length] > 0) {
 This is a quick and dirty app done for testing purpose only. Copy and paste at your own risk.
 
 To run it:
+* run `pod update` in the FRDStravaClientDemo folder and open `FRDStravaClientDemo.xcworkspace` in XCode.
 * register an app with Strava
 * run the demo app, it will install its settings bundle to the system settings.
 * open the demo app settings from the iPhone/Simulator global settings and configure client ID, secret and callback domain
