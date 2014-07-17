@@ -78,9 +78,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                                          code:1
                                                      userInfo:@{NSLocalizedDescriptionKey: status.error}];
                       failure(error);
+                  } else {
+                      success(status);
                   }
               }
-              success(status);
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               failure(error);
