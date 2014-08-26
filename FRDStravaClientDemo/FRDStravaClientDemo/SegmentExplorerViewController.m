@@ -28,7 +28,7 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
 	
 	[self.segmentsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CELL_IDENTIFIER];
 	
-	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(55.3617609,-3.4433238), 10000, 10000);
+	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(39.8373177,2.8104037), 10000, 10000);
 	[self.mapView setRegion:region];
 }
 
@@ -86,19 +86,8 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
 }
 
 - (void)plotSegment:(StravaSegment *)segment
-{
-	NSArray *coordinateValues = [StravaMap decodePolyline:segment.points];
-	
-    CLLocationCoordinate2D allCoordinates[[coordinateValues count]];
-    
-	for (int i=0; i < [coordinateValues count]; i++)
-	{
-		NSValue *coordinateValue = coordinateValues[i];
-		allCoordinates[i] = [coordinateValue MKCoordinateValue];
-	}
-	
-    MKPolyline *segmentOverlay = [MKPolyline polylineWithCoordinates:allCoordinates count:[coordinateValues count]];
-
+{	
+	MKPolyline *segmentOverlay = [StravaMap decodePolylineToMKPolyline:segment.points];
     [self.mapView addOverlay:segmentOverlay];
 }
 
