@@ -141,6 +141,60 @@
     
 }
 
+-(NSString *)boundsValueForRegion:(MKCoordinateRegion)region
+{
+	CLLocationDegrees southWestLat = region.center.latitude - .5 * region.span.latitudeDelta;
+	CLLocationDegrees southWestLon = region.center.longitude - .5 * region.span.longitudeDelta;
+	CLLocationDegrees northEastLat = region.center.latitude + .5 * region.span.latitudeDelta;
+	CLLocationDegrees northEastLon = region.center.longitude + .5 * region.span.longitudeDelta;
+	
+	return [NSString stringWithFormat:@"%f,%f,%f,%f", southWestLat, southWestLon, northEastLat, northEastLon];
+}
+
+- (BOOL)isValidCategory:(NSInteger)category
+{
+	return category >= 0 && category <= 5;
+}
+
+-(void) fetchSegmentsWithRegion:(MKCoordinateRegion)region
+				   activityType:(kActivityType)activityType
+						success:(void (^)(NSArray *segments))success
+						failure:(void (^)(NSError *error))failure
+{
+	AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+	
+	NSString *url = @"segments/explore";
+	
+	NSMutableDictionary *params = [NSMutableDictionary dictionary];
+	[params setObject:self.accessToken forKey:@"access_token"];
+	[params setObject:[self boundsValueForRegion:region] forKey:@"bounds"];
+	
+	if (activityType == kActivityTypeRun)
+	{
+		[params setObject:@"running" forKey:@"activity_type"];
+	}
+	
+	[manager GET:url
+	  parameters:params
+		 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+			 
+			 NSError *error = nil;
+			 
+			 StravaSegmentArrayWrapper *result = [MTLJSONAdapter modelOfClass:[StravaSegmentArrayWrapper class]
+														   fromJSONDictionary:responseObject
+																		error:&error];
+			 
+			 if (error) {
+				 failure(error);
+			 } else {
+				 success(result.segments);
+			 }
+		 }
+		 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+			 failure(error);
+		 }];
+}
+
 -(void) fetchSegmentEffortsForSegment:(NSInteger)segmentId
                              pageSize:(NSInteger)pageSize
                             pageIndex:(NSInteger)pageIndex

@@ -37,7 +37,8 @@
              @"prTime": @"pr_time",
              @"prDistance": @"pr_distance",
              @"starred": @"starred",
-             @"resourceState":@"resource_state"
+             @"resourceState":@"resource_state",
+			 @"points":@"points"
              };
 }
 

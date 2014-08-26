@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yVB-4j-4ge">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yVB-4j-4ge">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -454,8 +454,34 @@
                                             <segue destination="XRq-e9-WeA" kind="push" id="xAw-JN-Zg8"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Vsx-fB-OrY">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="4WS-BQ-5eb">
                                         <rect key="frame" x="0.0" y="817" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4WS-BQ-5eb" id="3vY-Pd-KpW">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Segment Explorer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZc-yH-qj5">
+                                                    <rect key="frame" x="20" y="10" width="212" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="www.strava.com/api/v3/segments/explore" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdB-58-tGd">
+                                                    <rect key="frame" x="20" y="33" width="269" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Pdk-kq-kGN" kind="push" id="lZh-JP-PVE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Vsx-fB-OrY">
+                                        <rect key="frame" x="0.0" y="877" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vsx-fB-OrY" id="REH-wj-ohi">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
@@ -497,6 +523,60 @@
                 <exit id="9dC-Kv-mbW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="823" y="48"/>
+        </scene>
+        <!--Segment Explorer View Controller-->
+        <scene sceneID="CxG-Mu-Iy1">
+            <objects>
+                <viewController id="Pdk-kq-kGN" customClass="SegmentExplorerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cQH-Ik-PKV"/>
+                        <viewControllerLayoutGuide type="bottom" id="v6i-tO-act"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E2K-Rl-7s2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PPP-OC-3k2">
+                                <rect key="frame" x="0.0" y="64" width="320" height="257"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="257" id="MTe-c5-Kvm"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="Pdk-kq-kGN" id="bym-yG-oLY"/>
+                                </connections>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IEG-x2-Kt7">
+                                <rect key="frame" x="0.0" y="322" width="320" height="246"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pdk-kq-kGN" id="nc5-MX-TuJ"/>
+                                    <outlet property="delegate" destination="Pdk-kq-kGN" id="8Vh-V2-2E6"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IEG-x2-Kt7" secondAttribute="trailing" id="6H7-j4-SLj"/>
+                            <constraint firstAttribute="trailing" secondItem="PPP-OC-3k2" secondAttribute="trailing" id="ACu-Xb-9Zn"/>
+                            <constraint firstItem="IEG-x2-Kt7" firstAttribute="leading" secondItem="E2K-Rl-7s2" secondAttribute="leading" id="AEg-20-lIt"/>
+                            <constraint firstItem="PPP-OC-3k2" firstAttribute="leading" secondItem="E2K-Rl-7s2" secondAttribute="leading" id="CGE-9d-GRU"/>
+                            <constraint firstItem="IEG-x2-Kt7" firstAttribute="top" secondItem="PPP-OC-3k2" secondAttribute="bottom" constant="1" id="Itu-iZ-JqQ"/>
+                            <constraint firstItem="IEG-x2-Kt7" firstAttribute="top" secondItem="PPP-OC-3k2" secondAttribute="bottom" constant="1" id="Sh2-gS-QDC"/>
+                            <constraint firstItem="PPP-OC-3k2" firstAttribute="top" secondItem="cQH-Ik-PKV" secondAttribute="bottom" id="eFR-4R-7hu"/>
+                            <constraint firstItem="v6i-tO-act" firstAttribute="top" secondItem="IEG-x2-Kt7" secondAttribute="bottom" id="f81-gO-LMq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jPx-qR-pIr"/>
+                    <connections>
+                        <outlet property="mapView" destination="PPP-OC-3k2" id="A2N-zI-qn3"/>
+                        <outlet property="segmentsTableView" destination="IEG-x2-Kt7" id="IFv-Ic-syT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZD6-sI-fUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282" y="-707"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="e9i-hV-ZM9">
@@ -2048,9 +2128,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xWl-ur-oyM"/>
+        <segue reference="eX3-Qo-eba"/>
         <segue reference="OaX-DF-f1l"/>
-        <segue reference="doP-5p-IrF"/>
         <segue reference="qEd-Zc-cQG"/>
+        <segue reference="doP-5p-IrF"/>
     </inferredMetricsTieBreakers>
 </document>

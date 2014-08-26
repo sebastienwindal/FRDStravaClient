@@ -7,7 +7,7 @@
 
 #import <Mantle/Mantle.h>
 #import "StravaCommon.h"
-
+#import <MapKit/MapKit.h>
 
 ///
 /// Activity Map object.
@@ -35,5 +35,6 @@
 /// @return a NSArray of NSValue wrapped CLLocationCoordinate2D structs.
 ///
 + (NSArray *) decodePolyline:(NSString *)encodedPoints;
++ (MKPolyline *)decodePolylineToMKPolyline:(NSString *)encodedPoints;
 
 @end
