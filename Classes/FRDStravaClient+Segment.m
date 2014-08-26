@@ -141,6 +141,50 @@
     
 }
 
+-(NSString *)boundsValueForRegion:(MKCoordinateRegion)region
+{
+	CLLocationDegrees southWestLat = region.center.latitude - .5 * region.span.latitudeDelta;
+	CLLocationDegrees southWestLon = region.center.longitude - .5 * region.span.longitudeDelta;
+	CLLocationDegrees northEastLat = region.center.latitude + .5 * region.span.latitudeDelta;
+	CLLocationDegrees northEastLon = region.center.longitude + .5 * region.span.longitudeDelta;
+	
+	return [NSString stringWithFormat:@"%f,%f,%f,%f", southWestLat, southWestLon, northEastLat, northEastLon];
+}
+
+-(void) fetchSegmentsWithRegion:(MKCoordinateRegion)region
+				   activityType:(kActivityType)activityType
+						 minCat:(NSUInteger)minCat
+						 maxCat:(NSUInteger)maxCat
+						success:(void (^)(NSArray *segments))success
+						failure:(void (^)(NSError *error))failure
+{
+	AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+	
+	NSString *url = @"segments/explore";
+	
+	NSDictionary *params = @{ @"access_token" : self.accessToken, @"bounds":[self boundsValueForRegion:region]};
+	
+	[manager GET:url
+	  parameters:params
+		 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+			 
+			 NSError *error = nil;
+			 
+			 StravaSegmentArrayWrapper *result = [MTLJSONAdapter modelOfClass:[StravaSegmentArrayWrapper class]
+														   fromJSONDictionary:responseObject
+																		error:&error];
+			 
+			 if (error) {
+				 failure(error);
+			 } else {
+				 success(result.segments);
+			 }
+		 }
+		 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+			 failure(error);
+		 }];
+}
+
 -(void) fetchSegmentEffortsForSegment:(NSInteger)segmentId
                              pageSize:(NSInteger)pageSize
                             pageIndex:(NSInteger)pageIndex

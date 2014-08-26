@@ -9,6 +9,7 @@
 #import "FRDStravaClient.h"
 #import "StravaSegment.h"
 #import "StravaSegmentEffort.h"
+#import <MapKit/MapKit.h>
 
 
 @interface FRDStravaClient (Segment)
@@ -49,7 +50,24 @@
                          success:(void (^)(StravaSegmentEffort *segmentEffort))success
                          failure:(void (^)(NSError *error))failure;
 
-
+/**
+ Explore segments by bounding box
+ 
+ Strava API related documentation: http://strava.github.io/api/v3/efforts/#explore
+ 
+ @param region MKCoordinateRegion bounding box
+ @param activityType activity type
+ @param minCat NSUInteger minumum category
+ @param maxCat NSUInteger maximum category
+ @param success Success callback
+ @param failure Failure callback
+ */
+-(void) fetchSegmentsWithRegion:(MKCoordinateRegion)region
+				   activityType:(kActivityType)activityType
+						 minCat:(NSUInteger)minCat
+						 maxCat:(NSUInteger)maxCat
+						success:(void (^)(NSArray *segments))success
+						failure:(void (^)(NSError *error))failure;
 
 
 /**

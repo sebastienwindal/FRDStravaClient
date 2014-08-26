@@ -86,6 +86,7 @@
 		28E0CA5E19328B5E004DEA75 /* ZoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0CA5D19328B5E004DEA75 /* ZoneTableViewCell.m */; };
 		28E0CA991936D3BE004DEA75 /* StravaActivityComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0CA981936D3BE004DEA75 /* StravaActivityComment.m */; };
 		28E0CA9F1936D7B7004DEA75 /* ActivityCommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0CA9E1936D7B7004DEA75 /* ActivityCommentsTableViewController.m */; };
+		756B5F4E19AD1D5C009961A4 /* SegmentExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 756B5F4D19AD1D5C009961A4 /* SegmentExplorerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +242,8 @@
 		28E0CA981936D3BE004DEA75 /* StravaActivityComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StravaActivityComment.m; sourceTree = "<group>"; };
 		28E0CA9D1936D7B7004DEA75 /* ActivityCommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCommentsTableViewController.h; sourceTree = "<group>"; };
 		28E0CA9E1936D7B7004DEA75 /* ActivityCommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCommentsTableViewController.m; sourceTree = "<group>"; };
+		756B5F4C19AD1D5C009961A4 /* SegmentExplorerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentExplorerViewController.h; sourceTree = "<group>"; };
+		756B5F4D19AD1D5C009961A4 /* SegmentExplorerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentExplorerViewController.m; sourceTree = "<group>"; };
 		ED9078EBFF324CF9876BD37C /* libPods-FRDStravaClientDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRDStravaClientDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1AD5BB3633458F93C31110 /* Pods-FRDStravaClientDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRDStravaClientDemo.xcconfig"; path = "Pods/Pods-FRDStravaClientDemo.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -637,6 +640,8 @@
 		28E0CAB21937ADDF004DEA75 /* Segments & Efforts */ = {
 			isa = PBXGroup;
 			children = (
+				756B5F4C19AD1D5C009961A4 /* SegmentExplorerViewController.h */,
+				756B5F4D19AD1D5C009961A4 /* SegmentExplorerViewController.m */,
 				28199DA3191EE02A00EE7C4E /* StarredSegmentsTableViewController.h */,
 				28199DA4191EE02A00EE7C4E /* StarredSegmentsTableViewController.m */,
 				28DAF05B191F1FB5001DC529 /* SegmentEffortsTableViewController.h */,
@@ -791,6 +796,7 @@
 				28199D39191EDCAF00EE7C4E /* AppDelegate.m in Sources */,
 				28199D7B191EDF0100EE7C4E /* FRDStravaClient+Activity.m in Sources */,
 				28AE903E192E35E300C3627E /* KOMsTableViewController.m in Sources */,
+				756B5F4E19AD1D5C009961A4 /* SegmentExplorerViewController.m in Sources */,
 				2853437E193054FC004DAC95 /* ActivityPhotoTableViewController.m in Sources */,
 				28199DAD191EE02B00EE7C4E /* AuthViewController.m in Sources */,
 				28199DB3191EE02B00EE7C4E /* StarredSegmentsTableViewController.m in Sources */,
