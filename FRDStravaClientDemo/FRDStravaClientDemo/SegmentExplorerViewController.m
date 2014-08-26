@@ -121,6 +121,8 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
 {
 	[super viewDidLoad];
 	
+	self.title = @"Segment Explorer";
+	
 	[self.segmentsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CELL_IDENTIFIER];
 	
 	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(39.8373177,2.8104037), 10000, 10000);
