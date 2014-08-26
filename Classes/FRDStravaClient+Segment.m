@@ -151,10 +151,13 @@
 	return [NSString stringWithFormat:@"%f,%f,%f,%f", southWestLat, southWestLon, northEastLat, northEastLon];
 }
 
+- (BOOL)isValidCategory:(NSInteger)category
+{
+	return category >= 0 && category <= 5;
+}
+
 -(void) fetchSegmentsWithRegion:(MKCoordinateRegion)region
 				   activityType:(kActivityType)activityType
-						 minCat:(NSUInteger)minCat
-						 maxCat:(NSUInteger)maxCat
 						success:(void (^)(NSArray *segments))success
 						failure:(void (^)(NSError *error))failure
 {
@@ -162,7 +165,14 @@
 	
 	NSString *url = @"segments/explore";
 	
-	NSDictionary *params = @{ @"access_token" : self.accessToken, @"bounds":[self boundsValueForRegion:region]};
+	NSMutableDictionary *params = [NSMutableDictionary dictionary];
+	[params setObject:self.accessToken forKey:@"access_token"];
+	[params setObject:[self boundsValueForRegion:region] forKey:@"bounds"];
+	
+	if (activityType == kActivityTypeRun)
+	{
+		[params setObject:@"running" forKey:@"activity_type"];
+	}
 	
 	[manager GET:url
 	  parameters:params

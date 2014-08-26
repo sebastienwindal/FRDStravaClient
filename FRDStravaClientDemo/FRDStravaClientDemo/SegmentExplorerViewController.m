@@ -149,7 +149,7 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
 	
 	[self clearSegments];
 	
-	[[FRDStravaClient sharedInstance] fetchSegmentsWithRegion:self.mapView.region activityType:kActivityTypeRide minCat:0 maxCat:0 success:^(NSArray *segments) {
+	[[FRDStravaClient sharedInstance] fetchSegmentsWithRegion:self.mapView.region activityType:kActivityTypeRide success:^(NSArray *segments) {
 
 		[self hideSpinner];
 		self.segments = segments;
