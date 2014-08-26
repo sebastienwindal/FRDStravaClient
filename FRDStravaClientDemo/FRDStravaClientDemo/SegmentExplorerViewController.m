@@ -12,6 +12,101 @@
 
 NSString * const CELL_IDENTIFIER = @"segmentCell";
 
+@interface SegmentAnnotation : NSObject <MKAnnotation>
+
+- (instancetype)initWithSegment:(StravaSegment *)segment;
+
+@end
+
+@implementation SegmentAnnotation
+
+@synthesize coordinate, title;
+
+- (instancetype)initWithSegment:(StravaSegment *)segment
+{
+    self = [super init];
+	
+    if (self)
+	{
+		coordinate = segment.startLocation;
+		title = segment.name;
+    }
+	
+    return self;
+}
+
+@end
+
+
+@interface SegmentStartAnnotation : SegmentAnnotation
+@end
+
+@implementation SegmentStartAnnotation
+
+@synthesize subtitle;
+
+- (instancetype)initWithSegment:(StravaSegment *)segment
+{
+    self = [super initWithSegment:segment];
+	
+    if (self)
+	{
+		subtitle = @"Start";
+    }
+	
+    return self;
+}
+
+@end
+
+
+@interface SegmentEndAnnotation : SegmentAnnotation
+@end
+
+@implementation SegmentEndAnnotation
+
+@synthesize subtitle;
+
+- (instancetype)initWithSegment:(StravaSegment *)segment
+{
+    self = [super initWithSegment:segment];
+	
+    if (self)
+	{
+		subtitle = @"End";
+    }
+	
+    return self;
+}
+
+@end
+
+
+@interface SegmentAnnotationView : MKAnnotationView
+
+- (instancetype)initWithAnnotation:(SegmentAnnotation *)annotation reuseIdentifier:(NSString *)reuseIdentifier;
+
+@end
+
+@implementation SegmentAnnotationView
+
+- (instancetype)initWithAnnotation:(SegmentAnnotation *)annotation reuseIdentifier:(NSString *)reuseIdentifier;
+{
+    self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+    
+	if (self)
+	{
+        self.canShowCallout = YES;
+		self.enabled = YES;
+		self.image = [annotation isKindOfClass:[SegmentStartAnnotation class]] ? [UIImage imageNamed:@"segExpStart"] : [UIImage imageNamed:@"segExpFinish"];
+    }
+	
+    return self;
+}
+
+@end
+
+
 @interface SegmentExplorerViewController () <UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate>
 
 @property (nonatomic, strong) NSArray *segments;
@@ -35,6 +130,7 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
 - (void)clearSegments
 {
 	[self.mapView removeOverlays:self.mapView.overlays];
+	[self.mapView removeAnnotations:self.mapView.annotations];
 	
 	NSMutableArray *indexes = [NSMutableArray array];
     for(int i=0; i<[self.segments count]; i++)
@@ -85,17 +181,24 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
     self.navigationItem.rightBarButtonItem = nil;
 }
 
-- (void)plotSegment:(StravaSegment *)segment
-{	
+- (void)plotSegmentOverlay:(StravaSegment *)segment
+{
 	MKPolyline *segmentOverlay = [StravaMap decodePolylineToMKPolyline:segment.points];
     [self.mapView addOverlay:segmentOverlay];
+}
+
+- (void)plotSegmentAnnotations:(StravaSegment *)segment
+{
+	[self.mapView addAnnotation:[[SegmentStartAnnotation alloc] initWithSegment:segment]];
+	[self.mapView addAnnotation:[[SegmentEndAnnotation alloc] initWithSegment:segment]];
 }
 
 - (void)plotAllSegments
 {
 	for (StravaSegment *segment in self.segments)
 	{
-		[self plotSegment:segment];
+		[self plotSegmentOverlay:segment];
+		[self plotSegmentAnnotations:segment];
 	}
 }
 
@@ -116,6 +219,24 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
 	return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	StravaSegment *segment = self.segments[indexPath.row];
+	
+	for (SegmentAnnotation *annotation in self.mapView.annotations)
+	{
+		if ([annotation isKindOfClass:[SegmentStartAnnotation class]])
+		{
+			if ([annotation.title isEqualToString:segment.name])
+			{
+				[self.mapView selectAnnotation:annotation animated:YES];
+			}
+		}
+	}
+	
+	[self.segmentsTableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
@@ -133,5 +254,27 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
     return polylineView;
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+	static NSString *startID = @"StartAnnotation";
+	static NSString *endID = @"EndAnnotation";
+	
+	BOOL isStart = [annotation isKindOfClass:[SegmentStartAnnotation class]] ? YES : NO;
+	
+	NSString *identifier = isStart ? startID : endID;
+	
+	SegmentAnnotationView *annotationView = (SegmentAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+	
+	if (annotationView == nil)
+	{
+		annotationView = [[SegmentAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+	}
+	else
+	{
+		annotationView.annotation = annotation;
+	}
+	
+	return annotationView;
+}
 
 @end
