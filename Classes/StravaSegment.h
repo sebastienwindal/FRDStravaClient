@@ -43,5 +43,6 @@
 @property (nonatomic, readonly) CGFloat prDistance;
 @property (nonatomic, readonly) BOOL starred;
 @property (nonatomic, readonly) kResourceState resourceState;
+@property (nonatomic, copy, readonly) NSString *points;
 
 @end

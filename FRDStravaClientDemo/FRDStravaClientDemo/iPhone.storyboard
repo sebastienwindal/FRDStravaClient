@@ -542,6 +542,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="257" id="MTe-c5-Kvm"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="Pdk-kq-kGN" id="bym-yG-oLY"/>
+                                </connections>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IEG-x2-Kt7">
                                 <rect key="frame" x="0.0" y="322" width="320" height="246"/>

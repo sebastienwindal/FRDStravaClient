@@ -12,7 +12,7 @@
 
 NSString * const CELL_IDENTIFIER = @"segmentCell";
 
-@interface SegmentExplorerViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SegmentExplorerViewController () <UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate>
 
 @property (nonatomic, strong) NSArray *segments;
 @property (weak, nonatomic) IBOutlet UITableView *segmentsTableView;
@@ -22,23 +22,43 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
 
 @implementation SegmentExplorerViewController
 
-
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	
 	[self.segmentsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CELL_IDENTIFIER];
 	
+	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(55.3617609,-3.4433238), 10000, 10000);
+	[self.mapView setRegion:region];
+}
+
+- (void)clearSegments
+{
+	[self.mapView removeOverlays:self.mapView.overlays];
+	
+	NSMutableArray *indexes = [NSMutableArray array];
+    for(int i=0; i<[self.segments count]; i++)
+    {
+        [indexes addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+    }
+	
+	self.segments = nil;
+	
+	[self.segmentsTableView deleteRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)loadSegments
+{
 	[self showSpinner];
 	
-	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(53.315044, -1.8052778), 5000, 5000);
+	[self clearSegments];
 	
-	[self.mapView setRegion:region];
-	
-	[[FRDStravaClient sharedInstance] fetchSegmentsWithRegion:region activityType:kActivityTypeRide minCat:0 maxCat:0 success:^(NSArray *segments) {
+	[[FRDStravaClient sharedInstance] fetchSegmentsWithRegion:self.mapView.region activityType:kActivityTypeRide minCat:0 maxCat:0 success:^(NSArray *segments) {
+
 		[self hideSpinner];
 		self.segments = segments;
 		[self.segmentsTableView reloadData];
+		[self plotAllSegments];
 		
 	} failure:^(NSError *error) {
 		
@@ -65,6 +85,31 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
     self.navigationItem.rightBarButtonItem = nil;
 }
 
+- (void)plotSegment:(StravaSegment *)segment
+{
+	NSArray *coordinateValues = [StravaMap decodePolyline:segment.points];
+	
+    CLLocationCoordinate2D allCoordinates[[coordinateValues count]];
+    
+	for (int i=0; i < [coordinateValues count]; i++)
+	{
+		NSValue *coordinateValue = coordinateValues[i];
+		allCoordinates[i] = [coordinateValue MKCoordinateValue];
+	}
+	
+    MKPolyline *segmentOverlay = [MKPolyline polylineWithCoordinates:allCoordinates count:[coordinateValues count]];
+
+    [self.mapView addOverlay:segmentOverlay];
+}
+
+- (void)plotAllSegments
+{
+	for (StravaSegment *segment in self.segments)
+	{
+		[self plotSegment:segment];
+	}
+}
+
 #pragma mark - UITableViewDelegate/DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -81,5 +126,23 @@ NSString * const CELL_IDENTIFIER = @"segmentCell";
 	
 	return cell;
 }
+
+#pragma mark - MKMapViewDelegate
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+	[self loadSegments];
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+    
+	polylineView.strokeColor = [UIColor redColor];
+	polylineView.lineWidth = 5.0;
+    
+    return polylineView;
+}
+
 
 @end
