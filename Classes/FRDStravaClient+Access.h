@@ -37,6 +37,15 @@ After the user successfuly authorized your app, Safari will open your app by lau
 -(void) authorizeWithCallbackURL:(NSURL *)callbackUrl stateInfo:(NSString *)stateInfo;
 
 /**
+ Initiate a OAUTH authorization with Strava. This method allows to specify a custom authorization scope.
+ 
+ @param callbackUrl The URL that will be called from Safari upon successful Authentication with the strava OAuth authorization web page. Typically you want your app to be launched back, so it should consist of a URL with a scheme you registered e.g. myAppRegisteredURLScheme://mydomain.com.
+ @param stateInfo (optional) a NSString that will be passed back in the callback URL, as a state attribute (...&state=blah).
+ @param scope (optional) a NSString that specifies the requested authorization scope ad comma delimited string of ‘view_private’ and/or ‘write’, leave blank for read-only permissions.
+ */
+-(void) authorizeWithCallbackURL:(NSURL *)callbackUrl stateInfo:(NSString *)stateInfo scope:(NSString *)scope;
+
+/**
  Method used in step #2 of the OAuth flow. See authorizeWithCallbackURL:stateInfo for detailed description.
  This method will parse the callback URL your app was launched with from Safari OAuth authentication page,
  and extract the authentication code you must use in step #3: exchangeTokenForCode:success:failure:.

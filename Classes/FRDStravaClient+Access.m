@@ -12,14 +12,21 @@
 
 -(void) authorizeWithCallbackURL:(NSURL *)callbackUrl stateInfo:(NSString *)stateInfo
 {
+    [self authorizeWithCallbackURL:callbackUrl stateInfo:stateInfo scope:@"write"];
+}
+
+-(void) authorizeWithCallbackURL:(NSURL *)callbackUrl stateInfo:(NSString *)stateInfo scope:(NSString *)scope {
     NSAssert(self.clientId != 0, @"clientID is 0, did you call initializeWithClientId:clientSecred: ?");
     NSAssert(self.clientSecret.length != 0, @"clientSecret is empty, did you call initializeWithClientId:clientSecred: ?");
     
     if (stateInfo == nil) {
         stateInfo = @"";
     }
+    if (scope == nil) {
+        scope = @"";
+    }
     
-    NSString *urlStr = [NSString stringWithFormat:@"https://www.strava.com/oauth/authorize?client_id=%ld&response_type=code&redirect_uri=%@&scope=write&state=%@&approval_prompt=force", (long)self.clientId, [callbackUrl absoluteString], [stateInfo stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    NSString *urlStr = [NSString stringWithFormat:@"https://www.strava.com/oauth/authorize?client_id=%ld&response_type=code&redirect_uri=%@&scope=%@&state=%@&approval_prompt=force", (long)self.clientId, [callbackUrl absoluteString], scope, [stateInfo stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
                                                                                                                                                                                                                                              
     
     NSURL *url = [NSURL URLWithString:urlStr];
