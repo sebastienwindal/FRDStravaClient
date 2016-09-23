@@ -16,29 +16,22 @@
                 success:(void (^)(StravaGear *gear))success
                 failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
-    [manager GET:[NSString stringWithFormat:@"gear/%@", gearId]
-      parameters:@{ @"access_token" : self.accessToken}
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             NSError *error = nil;
-             
-             StravaGear *gear = [MTLJSONAdapter modelOfClass:[StravaGear class]
-                                            fromJSONDictionary:responseObject
-                                                         error:&error];
-             
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 success(gear);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
-
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
+    [manager GET:[NSString stringWithFormat:@"gear/%@", gearId] parameters:@{ @"access_token" : self.accessToken} progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error = nil;
+        StravaGear *gear = [MTLJSONAdapter modelOfClass:[StravaGear class]
+                                     fromJSONDictionary:responseObject
+                                                  error:&error];
+        if (error) {
+            failure(error);
+        } else {
+            success(gear);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 @end

@@ -67,7 +67,7 @@
                     success:(void (^)(StravaActivity *))success
                     failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSMutableDictionary *params = [@{ @"access_token" : self.accessToken } mutableCopy];
     if (includeAllEfforts) {
@@ -76,27 +76,27 @@
     
     [manager GET:[NSString stringWithFormat:@"activities/%ld", (long)activityId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             NSError *error = nil;
-             
-             StravaActivity *activity = [MTLJSONAdapter modelOfClass:[StravaActivity class]
-                                                  fromJSONDictionary:responseObject
-                                                               error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 success(activity);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
+        progress:^(NSProgress * _Nonnull downloadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSError *error = nil;
+            
+            StravaActivity *activity = [MTLJSONAdapter modelOfClass:[StravaActivity class]
+                                                 fromJSONDictionary:responseObject
+                                                              error:&error];
+            
+            if (error) {
+                failure(error);
+            } else {
+                success(activity);
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failure(error);
+        }];
 }
 
 -(void) fetchActivitiesForCurrentAthleteWithSuccess:(void (^)(NSArray *activities))success
-                                         failure:(void (^)(NSError *error))failure
+                                            failure:(void (^)(NSError *error))failure
 {
     [self fetchActivitiesWithParameters:nil
                              forFriends:NO
@@ -105,9 +105,9 @@
 }
 
 -(void) fetchActivitiesForCurrentAthleteWithPageSize:(NSInteger)pageSize
-                            pageIndex:(NSInteger)pageIndex
-                              success:(void (^)(NSArray *activities))success
-                              failure:(void (^)(NSError *error))failure
+                                           pageIndex:(NSInteger)pageIndex
+                                             success:(void (^)(NSArray *activities))success
+                                             failure:(void (^)(NSError *error))failure
 {
     NSDictionary *params = @{ @"page": @(pageIndex),
                               @"per_page": @(pageSize) };
@@ -116,8 +116,8 @@
 }
 
 -(void) fetchActivitiesForCurrentAthleteAfterDate:(NSDate *)date
-                                       success:(void (^)(NSArray *activities))success
-                                       failure:(void (^)(NSError *error))failure
+                                          success:(void (^)(NSArray *activities))success
+                                          failure:(void (^)(NSError *error))failure
 {
     NSTimeInterval sec = [date timeIntervalSince1970];
     
@@ -127,13 +127,13 @@
 }
 
 -(void) fetchActivitiesForCurrentAthleteBeforeDate:(NSDate *)date
-                                        success:(void (^)(NSArray *activities))success
-                                        failure:(void (^)(NSError *error))failure
+                                           success:(void (^)(NSArray *activities))success
+                                           failure:(void (^)(NSError *error))failure
 {
     NSTimeInterval sec = [date timeIntervalSince1970];
     
     NSDictionary *params = @{ @"before": @((NSUInteger) sec) };
-
+    
     [self fetchActivitiesWithParameters:params forFriends:NO success:success failure:failure];
 }
 
@@ -145,13 +145,13 @@
                              forFriends:YES
                                 success:success
                                 failure:failure];
-
+    
 }
 
 -(void) fetchFriendActivitiesWithPageSize:(NSInteger)pageSize
-                    pageIndex:(NSInteger)pageIndex
-                      success:(void (^)(NSArray *activities))success
-                      failure:(void (^)(NSError *error))failure
+                                pageIndex:(NSInteger)pageIndex
+                                  success:(void (^)(NSArray *activities))success
+                                  failure:(void (^)(NSError *error))failure
 {
     NSDictionary *params = @{ @"page": @(pageIndex),
                               @"per_page": @(pageSize) };
@@ -166,36 +166,34 @@
 {
     NSDictionary *params = @{ @"access_token" : self.accessToken };
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     [manager GET:[NSString stringWithFormat:@"activities/%ld/photos", (long) activityId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             if (responseObject == nil) {
-                 success(@[]);
-                 return;
-             }
-             
-             NSError *error = nil;
-             
-             NSDictionary *wrapper = @{ @"photos": responseObject };
-             
-             ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
-                                                    fromJSONDictionary:wrapper
-                                                                 error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 NSArray *arr = response.photos;
-                 success(arr);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
-
+        progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject == nil) {
+            success(@[]);
+            return;
+        }
+        
+        NSError *error = nil;
+        
+        NSDictionary *wrapper = @{ @"photos": responseObject };
+        
+        ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
+                                               fromJSONDictionary:wrapper
+                                                            error:&error];
+        
+        if (error) {
+            failure(error);
+        } else {
+            NSArray *arr = response.photos;
+            success(arr);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 -(void) fetchZonesForActivity:(NSInteger)activityId
@@ -203,37 +201,35 @@
                       failure:(void (^)(NSError *error))failure
 {
     NSDictionary *params = @{ @"access_token" : self.accessToken };
-    
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
+
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     [manager GET:[NSString stringWithFormat:@"activities/%ld/zones", (long) activityId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             if (responseObject == nil) {
-                 success(@[]);
-                 return;
-             }
-             
-             NSError *error = nil;
-             
-             NSDictionary *wrapper = @{ @"zones": responseObject };
-             
-             ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
-                                                    fromJSONDictionary:wrapper
-                                                                 error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 NSArray *arr = response.zones;
-                 success(arr);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
-
+        progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject == nil) {
+            success(@[]);
+            return;
+        }
+        
+        NSError *error = nil;
+        
+        NSDictionary *wrapper = @{ @"zones": responseObject };
+        
+        ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
+                                               fromJSONDictionary:wrapper
+                                                            error:&error];
+        
+        if (error) {
+            failure(error);
+        } else {
+            NSArray *arr = response.zones;
+            success(arr);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 // activity comments
@@ -249,36 +245,34 @@
                               @"page": @(pageIndex),
                               @"per_page": @(pageSize) };
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     [manager GET:[NSString stringWithFormat:@"activities/%ld/comments", (long) activityId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             if (responseObject == nil) {
-                 success(@[]);
-                 return;
-             }
-             
-             NSError *error = nil;
-             
-             NSDictionary *wrapper = @{ @"comments": responseObject };
-             
-             ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
-                                                    fromJSONDictionary:wrapper
-                                                                 error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 NSArray *arr = response.comments;
-                 success(arr);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
-
+        progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject == nil) {
+            success(@[]);
+            return;
+        }
+        
+        NSError *error = nil;
+        
+        NSDictionary *wrapper = @{ @"comments": responseObject };
+        
+        ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
+                                               fromJSONDictionary:wrapper
+                                                            error:&error];
+        
+        if (error) {
+            failure(error);
+        } else {
+            NSArray *arr = response.comments;
+            success(arr);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 // kudos
@@ -293,41 +287,40 @@
                               @"page": @(pageIndex),
                               @"per_page": @(pageSize)  };
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
+
     [manager GET:[NSString stringWithFormat:@"activities/%ld/kudos", (long) activityId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             if (responseObject == nil) {
-                 success(@[]);
-                 return;
-             }
-             
-             NSError *error = nil;
-             
-             NSDictionary *wrapper = @{ @"kudoers": responseObject };
-             
-             ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
-                                                    fromJSONDictionary:wrapper
-                                                                 error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 NSArray *arr = response.kudoers;
-                 success(arr);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
-
+        progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject == nil) {
+            success(@[]);
+            return;
+        }
+        
+        NSError *error = nil;
+        
+        NSDictionary *wrapper = @{ @"kudoers": responseObject };
+        
+        ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
+                                               fromJSONDictionary:wrapper
+                                                            error:&error];
+        
+        if (error) {
+            failure(error);
+        } else {
+            NSArray *arr = response.kudoers;
+            success(arr);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 
 
-#pragma private 
+#pragma private
 
 -(void) fetchActivitiesWithParameters:(NSDictionary *)params
                            forFriends:(BOOL)showFriends
@@ -337,38 +330,35 @@
     if (params == nil) {
         params = @{};
     }
-
+    
     // add the access token to the provided params dictionary.
     NSMutableDictionary *mutableParams = [params mutableCopy];
     
     [mutableParams addEntriesFromDictionary:@{ @"access_token" : self.accessToken }];
-
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
+    
     [manager GET:showFriends ? @"activities/following" : @"activities"
-      parameters:mutableParams
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             NSError *error = nil;
-             
-             NSDictionary *wrapper = @{ @"activities": responseObject };
-             
-             ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
-                                                    fromJSONDictionary:wrapper
-                                                                 error:&error];
-
-             if (error) {
-                 failure(error);
-             } else {
-                 NSArray *arr = response.activities;
-                 success(arr);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
+      parameters:mutableParams progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error = nil;
+        
+        NSDictionary *wrapper = @{ @"activities": responseObject };
+        
+        ActivityResponse *response = [MTLJSONAdapter modelOfClass:[ActivityResponse class]
+                                               fromJSONDictionary:wrapper
+                                                            error:&error];
+        
+        if (error) {
+            failure(error);
+        } else {
+            NSArray *arr = response.activities;
+            success(arr);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
-
-
 
 @end
