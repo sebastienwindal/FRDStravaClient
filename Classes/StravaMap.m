@@ -29,8 +29,6 @@
     HANDLE_NIL_FOR_KEY(@"resourceState",    _resourceState, kResourceStateUnknown);
 }
 
-
-
 + (NSArray *) decodePolyline:(NSString *)encodedPoints
 {
     NSString *escapedEncodedPoints = [encodedPoints stringByReplacingOccurrencesOfString:@"\\\\" withString:@"\\"];
