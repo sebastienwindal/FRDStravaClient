@@ -10,13 +10,9 @@
 
 @interface FRDStravaClient()
 
-
 @end
 
-
-
 @implementation FRDStravaClient
-
 
 +(FRDStravaClient *) sharedInstance
 {
