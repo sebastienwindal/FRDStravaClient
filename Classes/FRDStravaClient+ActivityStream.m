@@ -39,8 +39,7 @@
                                  success:(void (^)(NSArray *streams))success
                                  failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSMutableString *typesStr = [@"" mutableCopy];
     
@@ -56,26 +55,25 @@
     
     [manager GET:[NSString stringWithFormat:@"activities/%ld/streams/%@", (long)activityId, typesStr]
       parameters:@{ @"access_token" : self.accessToken}
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             NSDictionary *wrapper = @{ @"streams": responseObject };
-             
-             NSError *error = nil;
-             
-             StreamResponse *response = [MTLJSONAdapter modelOfClass:[StreamResponse class]
-                                                  fromJSONDictionary:wrapper
-                                                               error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 success(response.streams);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
-
+        progress:^(NSProgress * _Nonnull downloadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *wrapper = @{ @"streams": responseObject };
+            
+            NSError *error = nil;
+            
+            StreamResponse *response = [MTLJSONAdapter modelOfClass:[StreamResponse class]
+                                                 fromJSONDictionary:wrapper
+                                                              error:&error];
+            
+            if (error) {
+                failure(error);
+            } else {
+                success(response.streams);
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failure(error);
+        }];
 }
 
 @end

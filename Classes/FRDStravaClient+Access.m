@@ -51,7 +51,7 @@ const NSString *kStravaAuthURLError = @"error";
                      success:(void (^)(StravaAccessTokenResponse *response))success
                      failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 
     NSDictionary *parameters = @{
                                  @"client_id": @(self.clientId),
@@ -59,25 +59,23 @@ const NSString *kStravaAuthURLError = @"error";
                                  @"code": code
                                  };
     
-    [manager POST:@"https://www.strava.com/oauth/token"
-       parameters:parameters
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              
-              NSError *error = nil;
-              StravaAccessTokenResponse *authResponse = [MTLJSONAdapter modelOfClass:StravaAccessTokenResponse.class
+    [manager POST:@"https://www.strava.com/oauth/token" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error = nil;
+        StravaAccessTokenResponse *authResponse = [MTLJSONAdapter modelOfClass:StravaAccessTokenResponse.class
                                                             fromJSONDictionary:responseObject
                                                                          error:&error];
-              
-              if (error) {
-                  failure(error);
-              } else {
-                  self.accessToken = authResponse.accessToken;
-                  success(authResponse);
-              }
-          }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              failure(error);
-          }];
+        
+        if (error) {
+            failure(error);
+        } else {
+            self.accessToken = authResponse.accessToken;
+            success(authResponse);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 

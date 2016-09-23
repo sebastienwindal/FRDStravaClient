@@ -57,88 +57,78 @@
                    success:(void (^)(StravaSegment *segment))success
                    failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSString *url = [NSString stringWithFormat:@"segments/%ld", (long)segmentId];
-    
-    [manager GET:url
-      parameters:@{ @"access_token" : self.accessToken }
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             NSError *error = nil;
-             
-             StravaSegment *segment = [MTLJSONAdapter modelOfClass:[StravaSegment class]
-                                                fromJSONDictionary:responseObject
-                                                             error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 success(segment);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
+    [manager GET:url parameters:@{ @"access_token" : self.accessToken } progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error = nil;
+        
+        StravaSegment *segment = [MTLJSONAdapter modelOfClass:[StravaSegment class]
+                                           fromJSONDictionary:responseObject
+                                                        error:&error];
+        
+        if (error) {
+            failure(error);
+        } else {
+            success(segment);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 
 -(void) fetchStarredSegmentsForCurrentAthleteWithSuccess:(void (^)(NSArray *segments))success
-                                              failure:(void (^)(NSError *error))failure
+                                                 failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
-    [manager GET:@"segments/starred"
-      parameters:@{ @"access_token" : self.accessToken }
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             NSError *error = nil;
-             
-             NSDictionary *wrapper = @{ @"segments": responseObject };
-             
-             StravaSegmentArrayWrapper *result = [MTLJSONAdapter modelOfClass:[StravaSegmentArrayWrapper class]
-                                                           fromJSONDictionary:wrapper
-                                                                        error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 success(result.segments);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
+    [manager GET:@"segments/starred" parameters:@{ @"access_token" : self.accessToken } progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error = nil;
+        
+        NSDictionary *wrapper = @{ @"segments": responseObject };
+        
+        StravaSegmentArrayWrapper *result = [MTLJSONAdapter modelOfClass:[StravaSegmentArrayWrapper class]
+                                                      fromJSONDictionary:wrapper
+                                                                   error:&error];
+        
+        if (error) {
+            failure(error);
+        } else {
+            success(result.segments);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 -(void) fetchSegmentEffortWithId:(NSInteger)segmentEffortId
                          success:(void (^)(StravaSegmentEffort *segmentEffort))success
                          failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSString *url = [NSString stringWithFormat:@"segment_efforts/%ld", (long)segmentEffortId];
-    
-    [manager GET:url
-      parameters:@{ @"access_token" : self.accessToken }
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             NSError *error = nil;
-             
-             StravaSegmentEffort *segmentEffort = [MTLJSONAdapter modelOfClass:[StravaSegmentEffort class]
-                                                            fromJSONDictionary:responseObject
-                                                                         error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 success(segmentEffort);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
-    
+    [manager GET:url parameters:@{ @"access_token" : self.accessToken } progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error = nil;
+        
+        StravaSegmentEffort *segmentEffort = [MTLJSONAdapter modelOfClass:[StravaSegmentEffort class]
+                                                       fromJSONDictionary:responseObject
+                                                                    error:&error];
+        
+        if (error) {
+            failure(error);
+        } else {
+            success(segmentEffort);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 -(void) fetchSegmentEffortsForSegment:(NSInteger)segmentId
@@ -184,33 +174,31 @@
     
     [mutableParams addEntriesFromDictionary:@{ @"access_token" : self.accessToken }];
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSString *url = [NSString stringWithFormat:@"segments/%ld/all_efforts", (long)segmentId];
     
-    [manager GET:url
-      parameters:mutableParams
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             NSError *error = nil;
-             
-             NSDictionary *wrapper = @{ @"efforts": responseObject };
-             
-             EffortArrayResponse *response = [MTLJSONAdapter modelOfClass:[EffortArrayResponse class]
-                                                       fromJSONDictionary:wrapper
-                                                                    error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 NSArray *arr = response.efforts;
-                 success(arr);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
+    [manager GET:url parameters:mutableParams progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error = nil;
+        
+        NSDictionary *wrapper = @{ @"efforts": responseObject };
+        
+        EffortArrayResponse *response = [MTLJSONAdapter modelOfClass:[EffortArrayResponse class]
+                                                  fromJSONDictionary:wrapper
+                                                               error:&error];
+        
+        if (error) {
+            failure(error);
+        } else {
+            NSArray *arr = response.efforts;
+            success(arr);
+        }
 
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 -(void) fetchKOMsForAthlete:(NSInteger)athleteId
@@ -223,33 +211,30 @@
                               @"page":@(pageIndex),
                               @"per_page":@(pageSize) };
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSString *url = [NSString stringWithFormat:@"athletes/%ld/koms", (long)athleteId];
     
-    [manager GET:url
-      parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             NSError *error = nil;
-             
-             NSDictionary *wrapper = @{ @"efforts": responseObject };
-             
-             EffortArrayResponse *response = [MTLJSONAdapter modelOfClass:[EffortArrayResponse class]
-                                                       fromJSONDictionary:wrapper
-                                                                    error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 NSArray *arr = response.efforts;
-                 success(arr);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
-
+    [manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error = nil;
+        
+        NSDictionary *wrapper = @{ @"efforts": responseObject };
+        
+        EffortArrayResponse *response = [MTLJSONAdapter modelOfClass:[EffortArrayResponse class]
+                                                  fromJSONDictionary:wrapper
+                                                               error:&error];
+        
+        if (error) {
+            failure(error);
+        } else {
+            NSArray *arr = response.efforts;
+            success(arr);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 @end
