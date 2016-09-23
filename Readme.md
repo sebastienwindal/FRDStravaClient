@@ -2,18 +2,27 @@
 
 ## The library
 
-### overview
+### Overview
 
-FRDStravaClient is an objective-C iOS library to the [Strava v3 API](http://strava.github.io/api/).
+>FRDStravaClient is an objective-C iOS library to the [Strava v3 API](http://strava.github.io/api/).
 
-It supports read operations for most of the API endpoints and activity upload.
+>It supports read operations for most of the API endpoints and activity upload.
 
-The library was originaly developed to support my app [SpinSpin](http://www.spinspinapp.com), an indoor cycling app, and open-sourced
-for prosperity ([MIT license](LICENSE)). It is not affiliated with Strava. [SpinSpin](http://www.spinspinapp.com) uses only a small subset of
-the library, so I also made a quick test demo app included in this repo and described in the second half of this page.
 
-FRDStravaClient uses [AFNetworking](https://github.com/AFNetworking/AFNetworking) for networking,
-and [Mantle](https://github.com/Mantle/Mantle) to convert the JSON NSDictionary responses into usable model objects.
+This project is forked from https://github.com/sebastienwindal/FRDStravaClient, recogmend by Strava, but this version only support AFNetworking v2.0+. 
+
+So, I made some changes to support AFNetworking v3.0+. Thank the original author.
+
+If you want to use different AFNetworking version support, you can change different branch.
+
+Mark C.J. 
+
+BeiJing, China.
+
+#### 3rd-Party Library
+
+- [AFNetworking](https://github.com/AFNetworking/AFNetworking) for networking
+- [Mantle](https://github.com/Mantle/Mantle) to convert the JSON NSDictionary responses into usable model objects.
 
 It consists of a bunch of model objects `StravaXXX` (e.g. `StravaActivity`,
 `StravaAthlete`, etc...) and a client class `FRDStravaClient` that encapsulates the AFHTTPRequestOperationManager calls.
@@ -50,15 +59,25 @@ and then implement the OAUTH workflow described below.
 
 ### Installation
 
-Using cocoapods:
+Using cocoapods: `Only for AFNetworking v2.0`
 
 `pod "FRDStravaClient", "~> 1.0.2"`
 
 And `#import FRDStravaClientImports.h` in your source files.
 
-By hand:
+By hand: `For use AFNetworking v2.0 and v3.0+`
 
 You need all the stuff in the `Classes/` folder, `AFNetworking` version x.x and `Mantle` version x.x.x.
+
+Or copy all stuff in the `Classes/` folder and add below content into Podfile of your project.
+
+```
+pod "AFNetworking", "~> 3.0"
+pod "Mantle", "1.5"
+pod 'SDWebImage', '~>3.4'
+pod 'JBChartView', '~> 2.5.0'
+pod 'EDColor'
+```
 
 ### Documentation
 
