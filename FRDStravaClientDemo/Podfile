@@ -1,10 +1,11 @@
-platform :ios, "7.0"
+platform :ios, "8.0"
+use_frameworks!
 
 target "FRDStravaClientDemo" do
 
-pod "AFNetworking", "~> 2.0"
+pod "AFNetworking", "~> 3.0"
 pod "Mantle", "1.5"
-pod 'SDWebImage', '~>3.4'
+pod 'SDWebImage', '~>3.8'
 pod 'JBChartView', '~> 2.5.0'
 pod 'EDColor'
 

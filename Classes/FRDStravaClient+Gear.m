@@ -16,11 +16,11 @@
                 success:(void (^)(StravaGear *gear))success
                 failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     [manager GET:[NSString stringWithFormat:@"gear/%@", gearId]
       parameters:@{ @"access_token" : self.accessToken}
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -35,7 +35,7 @@
                  success(gear);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 

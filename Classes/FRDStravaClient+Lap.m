@@ -38,11 +38,11 @@
                      success:(void (^)(NSArray *laps))success
                      failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     [manager GET:[NSString stringWithFormat:@"activities/%ld/laps", (long)activityId]
       parameters:@{ @"access_token" : self.accessToken}
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSDictionary *wrapper = @{ @"laps": responseObject };
              
@@ -59,7 +59,7 @@
                  success(response.laps);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 }

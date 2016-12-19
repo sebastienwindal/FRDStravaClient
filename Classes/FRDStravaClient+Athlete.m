@@ -35,7 +35,7 @@
                    success:(void (^)(StravaAthlete *athlete))success
                    failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSString *url;
     if (athleteId == NSNotFound) {
@@ -46,7 +46,7 @@
     
     [manager GET:url
       parameters:@{ @"access_token" : self.accessToken}
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -60,7 +60,7 @@
                  success(athlete);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 
@@ -146,7 +146,7 @@
                       success:(void (^)(NSArray *athletes))success
                       failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSMutableDictionary *params = [@{ @"access_token" : self.accessToken,
                                       @"per_page": @(pageSize),
@@ -155,7 +155,7 @@
     
     [manager GET:url
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -171,7 +171,7 @@
                  success(wrapper.athletes);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 }

@@ -53,12 +53,12 @@
 -(void) fetchClubsForCurrentAthleteWithSuccess:(void (^)(NSArray *clubs))success
                                        failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     
     [manager GET:@"athlete/clubs"
       parameters:@{ @"access_token" : self.accessToken }
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
             NSError *error = nil;
              
@@ -74,7 +74,7 @@
                  success(wrapper.clubs);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 }
@@ -84,11 +84,11 @@
                 success:(void (^)(StravaClub *club))success
                 failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     [manager GET:[NSString stringWithFormat:@"clubs/%ld", (long)clubID]
       parameters:@{ @"access_token" : self.accessToken }
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -102,7 +102,7 @@
                  success(club);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 
@@ -115,13 +115,13 @@
                    success:(void (^)(NSArray *member))success
                    failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     [manager GET:[NSString stringWithFormat:@"clubs/%ld/members", (long)clubId]
       parameters:@{ @"access_token" : self.accessToken,
                     @"page": @(pageIndex),
                     @"per_page": @(pageSize) }
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -138,7 +138,7 @@
              }
 
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 }
@@ -149,13 +149,13 @@
                       success:(void (^)(NSArray *activities))success
                       failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     [manager GET:[NSString stringWithFormat:@"clubs/%ld/activities", (long)clubId]
       parameters:@{ @"access_token" : self.accessToken,
                     @"page": @(pageIndex),
                     @"per_page": @(pageSize) }
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -172,7 +172,7 @@
              }
              
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 }
