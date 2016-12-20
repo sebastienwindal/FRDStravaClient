@@ -42,6 +42,7 @@
     
     [manager GET:[NSString stringWithFormat:@"activities/%ld/laps", (long)activityId]
       parameters:@{ @"access_token" : self.accessToken}
+        progress: nil
          success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSDictionary *wrapper = @{ @"laps": responseObject };

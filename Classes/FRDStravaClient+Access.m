@@ -61,6 +61,7 @@ const NSString *kStravaAuthURLError = @"error";
     
     [manager POST:@"https://www.strava.com/oauth/token"
        parameters:parameters
+       progress: nil
           success:^(NSURLSessionTask *operation, id responseObject) {
               
               NSError *error = nil;

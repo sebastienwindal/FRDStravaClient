@@ -20,6 +20,7 @@
     
     [manager GET:[NSString stringWithFormat:@"gear/%@", gearId]
       parameters:@{ @"access_token" : self.accessToken}
+        progress: nil
          success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;

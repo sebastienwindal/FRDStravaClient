@@ -46,6 +46,7 @@
     
     [manager GET:url
       parameters:@{ @"access_token" : self.accessToken}
+        progress: nil
          success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
@@ -155,6 +156,7 @@
     
     [manager GET:url
       parameters:params
+       progress: nil
          success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;

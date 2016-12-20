@@ -64,6 +64,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                    mimeType:@"application/octet-stream"
                                       error:&error];
         }
+       progress: nil
           success:^(NSURLSessionTask *operation, id responseObject) {
               NSError *error;
               StravaActivityUploadStatus *status = [MTLJSONAdapter modelOfClass:[StravaActivityUploadStatus class]
@@ -100,6 +101,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 
     [manager GET:[NSString stringWithFormat:@"uploads/%ld", (long)uploadId]
       parameters:params
+        progress: nil
          success:^(NSURLSessionTask *operation, id responseObject) {
              NSError *error;
              StravaActivityUploadStatus *status = [MTLJSONAdapter modelOfClass:[StravaActivityUploadStatus class]

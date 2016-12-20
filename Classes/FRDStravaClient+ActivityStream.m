@@ -56,6 +56,7 @@
     
     [manager GET:[NSString stringWithFormat:@"activities/%ld/streams/%@", (long)activityId, typesStr]
       parameters:@{ @"access_token" : self.accessToken}
+        progress: nil
          success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSDictionary *wrapper = @{ @"streams": responseObject };

@@ -58,6 +58,7 @@
     
     [manager GET:@"athlete/clubs"
       parameters:@{ @"access_token" : self.accessToken }
+        progress: nil
          success:^(NSURLSessionTask *operation, id responseObject) {
              
             NSError *error = nil;
@@ -88,6 +89,7 @@
     
     [manager GET:[NSString stringWithFormat:@"clubs/%ld", (long)clubID]
       parameters:@{ @"access_token" : self.accessToken }
+       progress: nil
          success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
@@ -121,6 +123,7 @@
       parameters:@{ @"access_token" : self.accessToken,
                     @"page": @(pageIndex),
                     @"per_page": @(pageSize) }
+       progress: nil
          success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
@@ -155,6 +158,7 @@
       parameters:@{ @"access_token" : self.accessToken,
                     @"page": @(pageIndex),
                     @"per_page": @(pageSize) }
+       progress: nil
          success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
