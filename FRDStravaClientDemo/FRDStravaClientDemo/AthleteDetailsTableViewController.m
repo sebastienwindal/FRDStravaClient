@@ -36,7 +36,7 @@
                                                  success:^(StravaAthlete *athlete) {
 
                                                      self.athleteTextView.text = [athlete description];
-                                                     [self.athleteImageView setImageWithURL:[NSURL URLWithString:athlete.profileLargeURL]];
+                                                     [self.athleteImageView sd_setImageWithURL:[NSURL URLWithString:athlete.profileLargeURL]];
                                                  }
                                                  failure:^(NSError *error) {
                                                      UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"error"

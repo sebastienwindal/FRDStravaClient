@@ -75,7 +75,7 @@
 -(void) hideSpinner
 {
     UIBarButtonItem *moreButton = [[UIBarButtonItem alloc] initWithTitle:@"more"
-                                                                   style:UIBarButtonItemStyleBordered
+                                                                   style:UIBarButtonItemStylePlain
                                                                   target:self
                                                                   action:@selector(showNextPage)];
     self.navigationItem.rightBarButtonItem = moreButton;

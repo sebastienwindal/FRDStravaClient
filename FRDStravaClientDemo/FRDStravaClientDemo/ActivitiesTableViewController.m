@@ -62,7 +62,7 @@
 -(void) showMoreButton
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"more"
-                                                                              style:UIBarButtonItemStyleBordered
+                                                                              style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(moreAction:)];
 }
@@ -161,7 +161,7 @@
     cell.usernameLabel.hidden = self.mode == ActivitiesListModeCurrentAthlete;
     [cell.detailViewHeightConstraint setConstant:(self.mode == ActivitiesListModeCurrentAthlete) ? 75 : 100];
     
-    [cell.userImageView setImageWithURL:[NSURL URLWithString:activity.athlete.profileMediumURL]];
+    [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:activity.athlete.profileMediumURL]];
     cell.userImageView.layer.cornerRadius = CGRectGetWidth(cell.userImageView.frame)/2.0f;
     cell.userImageView.clipsToBounds = YES;
     cell.userImageView.hidden = self.mode == ActivitiesListModeCurrentAthlete;

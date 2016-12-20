@@ -89,7 +89,7 @@
 -(void) showMoreButton
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"more"
-                                                                              style:UIBarButtonItemStyleBordered
+                                                                              style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(fetchNextPage)];
 }
@@ -126,7 +126,7 @@
     
     cell.athleteNameLabel.text = [NSString stringWithFormat:@"%@ %@", athlete.firstName, athlete.lastName];
     cell.locationLabel.text = [NSString stringWithFormat:@"%@ %@ %@", athlete.city, athlete.state, athlete.country];
-    [cell.athleteImageView setImageWithURL:[NSURL URLWithString:athlete.profileMediumURL]];
+    [cell.athleteImageView sd_setImageWithURL:[NSURL URLWithString:athlete.profileMediumURL]];
     
     cell.athleteImageView.layer.cornerRadius = CGRectGetWidth(cell.athleteImageView.bounds)/2.0f;
     cell.athleteImageView.clipsToBounds = YES;
