@@ -58,7 +58,7 @@
 -(void) showMoreButton
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"more"
-                                                                              style:UIBarButtonItemStyleBordered
+                                                                              style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(moreAction:)];
 }
@@ -181,13 +181,12 @@
     self.iconListLabel.attributedText = str;
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView
-            viewForOverlay:(id <MKOverlay>)overlay
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
 {
     kActivityType type = [self.activityTypeForOverlay[@(overlay.hash)] integerValue];
     UIColor *color = [ActivityHelper colorForActivityType:type];
     
-    MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:overlay];
+    MKCircleRenderer *circleView = [[MKCircleRenderer alloc] initWithCircle:overlay];
     circleView.strokeColor = color;
     
     circleView.lineWidth = 3.0;

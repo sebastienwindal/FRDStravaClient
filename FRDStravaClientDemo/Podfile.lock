@@ -1,44 +1,42 @@
 PODS:
-  - AFNetworking (2.2.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-    - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.4):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.4):
-    - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.4)
-  - AFNetworking/Security (2.2.4)
-  - AFNetworking/Serialization (2.2.4)
-  - AFNetworking/UIKit (2.2.4):
-    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - EDColor (0.4.0)
   - JBChartView (2.5.5)
   - Mantle (1.5):
-    - Mantle/extobjc
+    - Mantle/extobjc (= 1.5)
   - Mantle/extobjc (1.5)
-  - SDWebImage (3.6):
-    - SDWebImage/Core
-  - SDWebImage/Core (3.6)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.0)
+  - AFNetworking (~> 3.0)
   - EDColor
   - JBChartView (~> 2.5.0)
   - Mantle (= 1.5)
-  - SDWebImage (~> 3.4)
+  - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
-  AFNetworking: 01aa7c3aa9a200b94943e54072a4373f14b3d219
-  EDColor: 2bb778b45320c6fc268f0f4c71d9379abf71a36d
-  JBChartView: 3f979441a6a41e50b7c4b98f91b256bf33625c2d
-  Mantle: 60c03eea4d15a1c8d53821a56c7492cd6d05f553
-  SDWebImage: 7eb273e54ca8a2e506ad9bd5e80c35b2a4d7c95e
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  EDColor: 89d19a013279a5604d61650721c15f20fefaaf00
+  JBChartView: cb1b48dc9e5ad985a84ecba22f867c39c60eed2a
+  Mantle: 3bf6db311c8b4a19b6be01f2483fa4590aa166f3
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-COCOAPODS: 0.32.1
+PODFILE CHECKSUM: b9363ac16acea8aa9d3c256a4195c7ea6f98a2ca
+
+COCOAPODS: 1.1.1

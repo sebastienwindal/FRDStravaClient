@@ -93,7 +93,7 @@
     
     StravaAthlete *athlete = self.athletes[indexPath.row];
     
-    [cell.athelteImageView setImageWithURL:[NSURL URLWithString:athlete.profileLargeURL]];
+    [cell.athelteImageView sd_setImageWithURL:[NSURL URLWithString:athlete.profileLargeURL]];
     cell.athelteImageView.clipsToBounds = YES;
     cell.athelteImageView.layer.cornerRadius = CGRectGetWidth(cell.athelteImageView.bounds) / 2.0f;
     

@@ -57,13 +57,14 @@
                    success:(void (^)(StravaSegment *segment))success
                    failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSString *url = [NSString stringWithFormat:@"segments/%ld", (long)segmentId];
     
     [manager GET:url
       parameters:@{ @"access_token" : self.accessToken }
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        progress:nil
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -77,7 +78,7 @@
                  success(segment);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 }
@@ -86,11 +87,12 @@
 -(void) fetchStarredSegmentsForCurrentAthleteWithSuccess:(void (^)(NSArray *segments))success
                                               failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     [manager GET:@"segments/starred"
       parameters:@{ @"access_token" : self.accessToken }
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       progress: nil
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -106,7 +108,7 @@
                  success(result.segments);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 }
@@ -115,13 +117,14 @@
                          success:(void (^)(StravaSegmentEffort *segmentEffort))success
                          failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSString *url = [NSString stringWithFormat:@"segment_efforts/%ld", (long)segmentEffortId];
     
     [manager GET:url
       parameters:@{ @"access_token" : self.accessToken }
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       progress: nil
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -135,7 +138,7 @@
                  success(segmentEffort);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
     
@@ -184,13 +187,14 @@
     
     [mutableParams addEntriesFromDictionary:@{ @"access_token" : self.accessToken }];
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSString *url = [NSString stringWithFormat:@"segments/%ld/all_efforts", (long)segmentId];
     
     [manager GET:url
       parameters:mutableParams
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       progress: nil
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -207,7 +211,7 @@
                  success(arr);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 
@@ -223,13 +227,14 @@
                               @"page":@(pageIndex),
                               @"per_page":@(pageSize) };
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSString *url = [NSString stringWithFormat:@"athletes/%ld/koms", (long)athleteId];
     
     [manager GET:url
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       progress: nil
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSError *error = nil;
              
@@ -246,7 +251,7 @@
                  success(arr);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 

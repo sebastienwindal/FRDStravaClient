@@ -63,8 +63,8 @@
     StravaClub *club = self.clubs[indexPath.row];
     
     cell.textLabel.text = club.name;
-    [cell.imageView setImageWithURL:[NSURL URLWithString:club.profileMedium]
-                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:club.profileMedium]
+                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                               [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
                           }];
 

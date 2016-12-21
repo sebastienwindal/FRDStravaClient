@@ -63,7 +63,7 @@
 -(void) showMoreButton
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"more"
-                                                                              style:UIBarButtonItemStyleBordered
+                                                                              style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(fetchNextPage)];
 }

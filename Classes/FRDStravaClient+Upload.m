@@ -22,7 +22,7 @@
                failure:(void (^)(NSError *error))failure
 {
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", self.accessToken]
                      forHTTPHeaderField:@"Authorization"];
 
@@ -64,7 +64,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                    mimeType:@"application/octet-stream"
                                       error:&error];
         }
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       progress: nil
+          success:^(NSURLSessionTask *operation, id responseObject) {
               NSError *error;
               StravaActivityUploadStatus *status = [MTLJSONAdapter modelOfClass:[StravaActivityUploadStatus class]
                                                        fromJSONDictionary:responseObject
@@ -83,7 +84,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                   }
               }
           }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          failure:^(NSURLSessionTask *operation, NSError *error) {
               failure(error);
           }];
      
@@ -94,13 +95,14 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                     success:(void (^)(StravaActivityUploadStatus *uploadStatus))success
                     failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     NSDictionary *params = @{ @"access_token" : self.accessToken };
 
     [manager GET:[NSString stringWithFormat:@"uploads/%ld", (long)uploadId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        progress: nil
+         success:^(NSURLSessionTask *operation, id responseObject) {
              NSError *error;
              StravaActivityUploadStatus *status = [MTLJSONAdapter modelOfClass:[StravaActivityUploadStatus class]
                                                             fromJSONDictionary:responseObject
@@ -118,7 +120,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
              }
              success(status);
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 }

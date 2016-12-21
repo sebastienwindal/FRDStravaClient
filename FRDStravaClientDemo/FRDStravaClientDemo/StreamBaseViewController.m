@@ -239,10 +239,9 @@
     self.mapView.region = MKCoordinateRegionMake(center, span);
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView
-            viewForOverlay:(id <MKOverlay>)overlay
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
 {
-    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+    MKPolylineRenderer *polylineView = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
     
     NSNumber *index = [self.polylineIndex objectForKey:overlay];
     if(index) {

@@ -39,7 +39,7 @@
                                  success:(void (^)(NSArray *streams))success
                                  failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     
     NSMutableString *typesStr = [@"" mutableCopy];
@@ -56,7 +56,8 @@
     
     [manager GET:[NSString stringWithFormat:@"activities/%ld/streams/%@", (long)activityId, typesStr]
       parameters:@{ @"access_token" : self.accessToken}
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        progress: nil
+         success:^(NSURLSessionTask *operation, id responseObject) {
              
              NSDictionary *wrapper = @{ @"streams": responseObject };
              
@@ -72,7 +73,7 @@
                  success(response.streams);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionTask *operation, NSError *error) {
              failure(error);
          }];
 
