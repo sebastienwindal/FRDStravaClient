@@ -35,27 +35,27 @@
 
 + (NSValueTransformer *)activitiesJSONTransformer
 {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivity class]];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[StravaActivity class]];
 }
 
 + (NSValueTransformer *)photosJSONTransformer
 {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivityPhoto class]];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[StravaActivityPhoto class]];
 }
 
 + (NSValueTransformer *)zonesJSONTransformer
 {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivityZone class]];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[StravaActivityZone class]];
 }
 
 + (NSValueTransformer *)commentsJSONTransformer
 {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaActivityComment class]];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[StravaActivityComment class]];
 }
 
 + (NSValueTransformer *)kudoersJSONTransformer
 {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaAthlete class]];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[StravaAthlete class]];
 }
 
 @end
@@ -67,8 +67,7 @@
                     success:(void (^)(StravaActivity *))success
                     failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     NSMutableDictionary *params = [@{ @"access_token" : self.accessToken } mutableCopy];
     if (includeAllEfforts) {
         params[@"include_all_efforts"] = @(TRUE);
@@ -76,7 +75,8 @@
     
     [manager GET:[NSString stringWithFormat:@"activities/%ld", (long)activityId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
              NSError *error = nil;
              
@@ -90,7 +90,7 @@
                  success(activity);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              failure(error);
          }];
 }
@@ -166,11 +166,12 @@
 {
     NSDictionary *params = @{ @"access_token" : self.accessToken };
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     
     [manager GET:[NSString stringWithFormat:@"activities/%ld/photos", (long) activityId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
              if (responseObject == nil) {
                  success(@[]);
@@ -192,7 +193,7 @@
                  success(arr);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              failure(error);
          }];
 
@@ -204,11 +205,11 @@
 {
     NSDictionary *params = @{ @"access_token" : self.accessToken };
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     [manager GET:[NSString stringWithFormat:@"activities/%ld/zones", (long) activityId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
              if (responseObject == nil) {
                  success(@[]);
@@ -230,7 +231,7 @@
                  success(arr);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              failure(error);
          }];
 
@@ -249,11 +250,11 @@
                               @"page": @(pageIndex),
                               @"per_page": @(pageSize) };
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     [manager GET:[NSString stringWithFormat:@"activities/%ld/comments", (long) activityId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
              if (responseObject == nil) {
                  success(@[]);
@@ -275,7 +276,7 @@
                  success(arr);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              failure(error);
          }];
 
@@ -293,11 +294,11 @@
                               @"page": @(pageIndex),
                               @"per_page": @(pageSize)  };
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     [manager GET:[NSString stringWithFormat:@"activities/%ld/kudos", (long) activityId]
       parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
              if (responseObject == nil) {
                  success(@[]);
@@ -319,7 +320,7 @@
                  success(arr);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              failure(error);
          }];
 
@@ -343,11 +344,11 @@
     
     [mutableParams addEntriesFromDictionary:@{ @"access_token" : self.accessToken }];
 
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     [manager GET:showFriends ? @"activities/following" : @"activities"
       parameters:mutableParams
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
              NSError *error = nil;
              
@@ -364,7 +365,7 @@
                  success(arr);
              }
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              failure(error);
          }];
 }

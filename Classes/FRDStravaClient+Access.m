@@ -51,17 +51,17 @@ const NSString *kStravaAuthURLError = @"error";
                      success:(void (^)(StravaAccessTokenResponse *response))success
                      failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
 
     NSDictionary *parameters = @{
                                  @"client_id": @(self.clientId),
                                  @"client_secret": self.clientSecret,
                                  @"code": code
                                  };
-    
     [manager POST:@"https://www.strava.com/oauth/token"
        parameters:parameters
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         progress:nil
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
               
               NSError *error = nil;
               StravaAccessTokenResponse *authResponse = [MTLJSONAdapter modelOfClass:StravaAccessTokenResponse.class
@@ -75,7 +75,7 @@ const NSString *kStravaAuthURLError = @"error";
                   success(authResponse);
               }
           }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               failure(error);
           }];
 }
