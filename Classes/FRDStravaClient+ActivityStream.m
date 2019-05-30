@@ -26,7 +26,7 @@
 }
 + (NSValueTransformer *)streamsJSONTransformer
 {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StravaStream class]];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[StravaStream class]];
 }
 
 @end
@@ -39,12 +39,8 @@
                                  success:(void (^)(NSArray *streams))success
                                  failure:(void (^)(NSError *error))failure
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.baseURL];
-    
-    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL];
     NSMutableString *typesStr = [@"" mutableCopy];
-    
-    
     for (NSNumber *type in dataTypes) {
         [typesStr appendString:[[StravaStream typeJSONTransformer] reverseTransformedValue:type]];
         [typesStr appendString:@","];
@@ -53,29 +49,20 @@
     if (typesStr.length > 0) {
         [typesStr deleteCharactersInRange:NSMakeRange(typesStr.length-1, 1)];
     }
-    
-    [manager GET:[NSString stringWithFormat:@"activities/%ld/streams/%@", (long)activityId, typesStr]
-      parameters:@{ @"access_token" : self.accessToken}
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             NSDictionary *wrapper = @{ @"streams": responseObject };
-             
-             NSError *error = nil;
-             
-             StreamResponse *response = [MTLJSONAdapter modelOfClass:[StreamResponse class]
-                                                  fromJSONDictionary:wrapper
-                                                               error:&error];
-             
-             if (error) {
-                 failure(error);
-             } else {
-                 success(response.streams);
-             }
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             failure(error);
-         }];
-
+    [manager GET:[NSString stringWithFormat:@"activities/%ld/streams/%@", (long)activityId, typesStr] parameters:@{ @"access_token" : self.accessToken} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *wrapper = @{ @"streams": responseObject };
+        NSError *error = nil;
+        StreamResponse *response = [MTLJSONAdapter modelOfClass:[StreamResponse class]
+                                             fromJSONDictionary:wrapper
+                                                          error:&error];
+        if (error) {
+            failure(error);
+        } else {
+            success(response.streams);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 
 @end
